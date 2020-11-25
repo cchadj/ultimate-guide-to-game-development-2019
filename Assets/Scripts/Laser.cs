@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Laser : MonoBehaviour
+public class Laser : MonoBehaviour, IDestructible, IBullet
 {
     private Transform _transform;
 
@@ -28,6 +28,13 @@ public class Laser : MonoBehaviour
         _transform.Translate(new Vector3(.0f, Time.deltaTime * _speed ,.0f));
        
         if (_transform.position.y > TopBound)
-            Destroy(this.gameObject);
+            gameObject.SetActive(false);
     }
+
+    public void Destroy()
+    {
+        gameObject.SetActive(false); 
+    }
+
+    [field: SerializeField] public BulletTypeScriptable BulletType { get; set; }
 }
