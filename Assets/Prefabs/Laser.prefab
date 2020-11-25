@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 6508533294116954917}
   - component: {fileID: 6508533294116954918}
   - component: {fileID: 6508533294116954919}
-  - component: {fileID: 6508533294116954912}
   - component: {fileID: 7539291786382235758}
   - component: {fileID: -7319938219996255761}
+  - component: {fileID: -3311268022990118016}
+  - component: {fileID: -8100179720967475664}
   m_Layer: 0
   m_Name: Laser
   m_TagString: Untagged
@@ -84,20 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &6508533294116954912
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6508533294116954913}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &7539291786382235758
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -106,7 +93,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6508533294116954913}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
@@ -125,3 +112,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 8
+  <BulletType>k__BackingField: {fileID: 11400000, guid: 5661ddf82b3bca943a8ce3cdf1d905eb, type: 2}
+--- !u!114 &-3311268022990118016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6508533294116954913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e86f2382763c264eaa8aa2155539290, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &-8100179720967475664
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6508533294116954913}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

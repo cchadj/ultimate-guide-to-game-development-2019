@@ -15,54 +15,56 @@ internal enum OutOfBoundsDirection
     Left=4,
     Down=8
 }
-    
-public class Player : MonoBehaviour, Controls.IPlayerActions
+
+public class Player : MonoBehaviour, Controls.IPlayerActions, IDestructible
 {
+    #region SerialisedFields
     [SerializeField] private Controls _controls;
     
     [SerializeField]private GameObject _laserPrefab;
     
     [SerializeField] private float _movementSpeed;
-
-    private Transform _transform;
-    private PlayerInput _playerInput;
     
+    [SerializeField] private SceneDataScriptable _sceneData;
+    
+    [SerializeField] private float _laserCooldown;
+    #endregion SerialisedFields
+
+    #region GameObject Components
+    private Transform _transform;
+    
+    private ObjectPooler _laserPooler;
+    #endregion GameObject Components
+
+    private const float LaserSpawnOffset = .8f;
+    
+    private readonly Vector3 _direction2D = new Vector3(1, 1, 0);
     
     // Input direction received from player
     private Vector2 _inputDirection = Vector2.zero;
 
-    // The bounds of the screen, up, right, down, left (clockwise starting from up)
-    private Vector4 bounds = new Vector4(5.5f, 8.3f, -3.4f, -8.3f);
-
-    private const float LaserSpawnOffset = .8f;
-
-    private readonly Vector3 _direction2D = new Vector3(1, 1, 0);
     private float _timeSinceLastLaser;
-    [SerializeField] private float _laserCooldown;
 
     private OutOfBoundsDirection OutOfBounds
     {
         get
         {
             var direction = OutOfBoundsDirection.None;
-            
-            if (_transform.position.y - _transform.localScale.y> bounds[0])
+            if (_transform.position.y - _transform.localScale.y> _sceneData.TopBound)
                 direction |= OutOfBoundsDirection.Up;
-            if (_transform.position.x - _transform.localScale.x> bounds[1])
+            if (_transform.position.x - _transform.localScale.x> _sceneData.RightBound)
                 direction |= OutOfBoundsDirection.Right;
-            if (_transform.position.y + _transform.localScale.y < bounds[2])
+            if (_transform.position.y + _transform.localScale.y < _sceneData.BottomBound)
                 direction |= OutOfBoundsDirection.Down;
-            if (_transform.position.x + _transform.localScale.x < bounds[3])
+            if (_transform.position.x + _transform.localScale.x < _sceneData.LeftBound)
                 direction |= OutOfBoundsDirection.Left;
-
             return direction;
-            
         }
     }
     
     private void Awake()
     {
-        _playerInput = GetComponent<PlayerInput>();
+        _laserPooler = GetComponent<ObjectPooler>();
         _transform = GetComponent<Transform>();
         
         _controls = new Controls();
@@ -114,32 +116,35 @@ public class Player : MonoBehaviour, Controls.IPlayerActions
     {
         if (OutOfBounds.HasFlag(OutOfBoundsDirection.Up))
         {
-            _transform.position = new Vector3(_transform.position.x, bounds[2] - _transform.localScale.y, 0.0f);
+            _transform.position = new Vector3(_transform.position.x, _sceneData.BottomBound - _transform.localScale.y, 0.0f);
         }
 
         if (OutOfBounds.HasFlag(OutOfBoundsDirection.Right))
         {
-            _transform.position = new Vector3(bounds[3] - _transform.localScale.x, _transform.position.y, 0.0f);
+            _transform.position = new Vector3(_sceneData.LeftBound - _transform.localScale.x, _transform.position.y, 0.0f);
         }
 
         if (OutOfBounds.HasFlag(OutOfBoundsDirection.Down))
         {
-            _transform.position = new Vector3(_transform.position.x, bounds[0] + _transform.localScale.y, 0.0f);
+            _transform.position = new Vector3(_transform.position.x, _sceneData.TopBound + _transform.localScale.y, 0.0f);
         }
 
         if (OutOfBounds.HasFlag(OutOfBoundsDirection.Left))
         {
-            _transform.position = new Vector3(bounds[1] + _transform.localScale.x, _transform.position.y, 0.0f);
+            _transform.position = new Vector3(_sceneData.RightBound + _transform.localScale.x, _transform.position.y, 0.0f);
         }
     }
     
     private void FireBullet()
     {
-        var canFire = _timeSinceLastLaser >= _laserCooldown;
+        var canFire = (_timeSinceLastLaser >= _laserCooldown) && !_laserPooler.IsEmpty;
         
         if (canFire)
         {
-            Instantiate(_laserPrefab, _transform.position + Vector3.up * LaserSpawnOffset, Quaternion.identity);
+            var laserBullet = _laserPooler.NextPoolableObject;
+            laserBullet.transform.parent = null;
+            laserBullet.transform.SetPositionAndRotation(_transform.position + Vector3.up * LaserSpawnOffset, Quaternion.identity);
+            laserBullet.gameObject.SetActive(true);
             _timeSinceLastLaser = .0f;
         }
     }
@@ -157,9 +162,13 @@ public class Player : MonoBehaviour, Controls.IPlayerActions
 
     public void OnFire(InputAction.CallbackContext context)
     {
-        print("HELLO");
         if (context.performed)
             FireBullet();
     }
     #endregion Input Handling
+
+    public void Destroy()
+    {
+        GameObject.Destroy(gameObject);
+    }
 }
