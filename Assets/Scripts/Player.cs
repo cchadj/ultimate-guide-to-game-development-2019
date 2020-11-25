@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Object = UnityEngine.Object;
 
 [Flags]
 internal enum OutOfBoundsDirection
@@ -17,61 +18,27 @@ internal enum OutOfBoundsDirection
     
 public class Player : MonoBehaviour, Controls.IPlayerActions
 {
-    private Transform _transform;
-    private PlayerInput _playerInput;
-    
     [SerializeField] private Controls _controls;
+    
+    [SerializeField]private GameObject _laserPrefab;
     
     [SerializeField] private float _movementSpeed;
 
-    [NonSerialized] public float Horizontal;
-
-    private readonly Vector3 _direction2D = new Vector3(1, 1, 0);
+    private Transform _transform;
+    private PlayerInput _playerInput;
+    
+    
+    // Input direction received from player
     private Vector2 _inputDirection = Vector2.zero;
 
+    // The bounds of the screen, up, right, down, left (clockwise starting from up)
     private Vector4 bounds = new Vector4(5.5f, 8.3f, -3.4f, -8.3f);
-    
-    private void Awake()
-    {
-        _playerInput = GetComponent<PlayerInput>();
-        _transform = GetComponent<Transform>();
-        
-        _controls = new Controls();
-        _controls.Player.SetCallbacks(this);
-    }
 
-    private void OnEnable()
-    {
-        _controls.Enable();
-    }
+    private const float LaserSpawnOffset = .8f;
 
-    private void OnDisable()
-    {
-        _controls.Disable();
-    }
-
-    private void Start()
-    {
-        _transform.position = new Vector3(0, 0, 0);
-        
-        _movementSpeed = Math.Abs(_movementSpeed) < 0.01f ? 1.5f : this._movementSpeed;
-    }
-    
-    private void Update()
-    {
-        Move();
-    }
-
-    private Vector3 GetMovementDirection()
-    {
-        return _direction2D * _inputDirection;
-    }
-
-    private void Wrap()
-    {
-        throw new NotImplementedException();
-    }
-
+    private readonly Vector3 _direction2D = new Vector3(1, 1, 0);
+    private float _timeSinceLastLaser;
+    [SerializeField] private float _laserCooldown;
 
     private OutOfBoundsDirection OutOfBounds
     {
@@ -88,16 +55,59 @@ public class Player : MonoBehaviour, Controls.IPlayerActions
             if (_transform.position.x + _transform.localScale.x < bounds[3])
                 direction |= OutOfBoundsDirection.Left;
 
-            return direction;}
+            return direction;
+            
+        }
+    }
+    
+    private void Awake()
+    {
+        _playerInput = GetComponent<PlayerInput>();
+        _transform = GetComponent<Transform>();
+        
+        _controls = new Controls();
+        _controls.Player.SetCallbacks(this);
     }
 
-    private void Move()
+    private void OnEnable()
+    {
+        _timeSinceLastLaser = .0f;
+        _controls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        _controls.Disable();
+    }
+
+    private void Start()
+    {
+        _transform.position = new Vector3(0, 0, 0);
+        
+        _movementSpeed = Math.Abs(_movementSpeed) < .01f ? 1.5f : _movementSpeed;
+        _laserCooldown = Math.Abs(_laserCooldown) < .01f ? .8f : _laserCooldown;
+    }
+    
+    private void Update()
+    {
+        CalculateMovement();
+        
+        _timeSinceLastLaser += Time.deltaTime;
+    }
+    
+    private void CalculateMovement()
     {
         _transform.Translate(GetMovementDirection() * _movementSpeed * Time.deltaTime);
         if (OutOfBounds != OutOfBoundsDirection.None)
         {
             HandleOutOfBounds();
         }
+    }
+
+
+    private Vector3 GetMovementDirection()
+    {
+        return _direction2D * _inputDirection;
     }
 
     private void HandleOutOfBounds()
@@ -122,6 +132,17 @@ public class Player : MonoBehaviour, Controls.IPlayerActions
             _transform.position = new Vector3(bounds[1] + _transform.localScale.x, _transform.position.y, 0.0f);
         }
     }
+    
+    private void FireBullet()
+    {
+        var canFire = _timeSinceLastLaser >= _laserCooldown;
+        
+        if (canFire)
+        {
+            Instantiate(_laserPrefab, _transform.position + Vector3.up * LaserSpawnOffset, Quaternion.identity);
+            _timeSinceLastLaser = .0f;
+        }
+    }
 
 
     #region Input Handling 
@@ -136,6 +157,9 @@ public class Player : MonoBehaviour, Controls.IPlayerActions
 
     public void OnFire(InputAction.CallbackContext context)
     {
+        print("HELLO");
+        if (context.performed)
+            FireBullet();
     }
     #endregion Input Handling
 }
