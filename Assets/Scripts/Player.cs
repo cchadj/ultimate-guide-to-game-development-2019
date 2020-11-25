@@ -79,13 +79,13 @@ public class Player : MonoBehaviour, Controls.IPlayerActions
         {
             var direction = OutOfBoundsDirection.None;
             
-            if (_transform.position.y > bounds[0])
+            if (_transform.position.y - _transform.localScale.y> bounds[0])
                 direction |= OutOfBoundsDirection.Up;
-            if (_transform.position.x > bounds[1])
+            if (_transform.position.x - _transform.localScale.x> bounds[1])
                 direction |= OutOfBoundsDirection.Right;
-            if (_transform.position.y < bounds[2])
+            if (_transform.position.y + _transform.localScale.y < bounds[2])
                 direction |= OutOfBoundsDirection.Down;
-            if (_transform.position.x < bounds[3])
+            if (_transform.position.x + _transform.localScale.x < bounds[3])
                 direction |= OutOfBoundsDirection.Left;
 
             return direction;}
@@ -104,22 +104,22 @@ public class Player : MonoBehaviour, Controls.IPlayerActions
     {
         if (OutOfBounds.HasFlag(OutOfBoundsDirection.Up))
         {
-            _transform.position = new Vector3(_transform.position.x, bounds[0], 0.0f);
+            _transform.position = new Vector3(_transform.position.x, bounds[2] - _transform.localScale.y, 0.0f);
         }
 
         if (OutOfBounds.HasFlag(OutOfBoundsDirection.Right))
         {
-            _transform.position = new Vector3(bounds[1], _transform.position.y, 0.0f);
+            _transform.position = new Vector3(bounds[3] - _transform.localScale.x, _transform.position.y, 0.0f);
         }
 
         if (OutOfBounds.HasFlag(OutOfBoundsDirection.Down))
         {
-            _transform.position = new Vector3(_transform.position.x, bounds[2], 0.0f);
+            _transform.position = new Vector3(_transform.position.x, bounds[0] + _transform.localScale.y, 0.0f);
         }
 
         if (OutOfBounds.HasFlag(OutOfBoundsDirection.Left))
         {
-            _transform.position = new Vector3(bounds[3], _transform.position.y, 0.0f);
+            _transform.position = new Vector3(bounds[1] + _transform.localScale.x, _transform.position.y, 0.0f);
         }
     }
 

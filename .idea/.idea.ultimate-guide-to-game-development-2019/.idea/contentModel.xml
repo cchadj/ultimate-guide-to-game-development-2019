@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\chadj\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\chadj\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_ultimate-guide-to-game-development-2019.-1034122977.00" t="ExcludeRecursive" />
+    <e p="D:\unity3d-projects\ultimate-guide-to-game-development-2019" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Controls.cs" t="Include" />
+        <e p="Scripts" t="Include">
+          <e p="Player.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
+      <e p="ultimate-guide-to-game-development-2019.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>
