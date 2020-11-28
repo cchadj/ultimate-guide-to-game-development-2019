@@ -68,11 +68,21 @@ public class Enemy : MonoBehaviour, IDestructible
     {
         var destructible = other.GetComponent<IDestructible>();
         destructible?.Destroy();
+
+        var player = other.GetComponent<Player>();
+        if (player)
+        {
+            Destroy();
+        }
+        
+        var harmable = other.GetComponent<IHarmable>();
+        harmable?.Damage();
         
         var bullet = other.GetComponent<IBullet>();
         if (bullet?.BulletType.name == "LaserBullet")
         {
             Destroy();
+            GameObject.Destroy(other.gameObject);
         }
         
     }

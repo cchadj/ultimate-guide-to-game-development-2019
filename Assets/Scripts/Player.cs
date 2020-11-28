@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Zenject;
 using Object = UnityEngine.Object;
 
 [Flags]
@@ -16,7 +17,13 @@ internal enum OutOfBoundsDirection
     Down=8
 }
 
-public class Player : MonoBehaviour, Controls.IPlayerActions, IDestructible
+public interface IHarmable
+{
+    void Damage();
+}
+
+[RequireComponent(typeof(ObjectPooler)), DisallowMultipleComponent]
+public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
 {
     #region SerialisedFields
     [SerializeField] private Controls _controls;
@@ -28,6 +35,11 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IDestructible
     [SerializeField] private SceneDataScriptable _sceneData;
     
     [SerializeField] private float _laserCooldown;
+
+    [SerializeField] private GameStateScriptable _gameState;
+    
+    [SerializeField] private PlayerStateScriptable _playerState;
+    
     #endregion SerialisedFields
 
     #region GameObject Components
@@ -61,11 +73,21 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IDestructible
             return direction;
         }
     }
+
+    [Inject]
+    private void Constructor(GameStateScriptable gameState, PlayerStateScriptable playerState)
+    {
+        _playerState = playerState; 
+        _gameState = gameState;
+    }
     
     private void Awake()
     {
         _laserPooler = GetComponent<ObjectPooler>();
         _transform = GetComponent<Transform>();
+        
+        _playerState.PlayerDied += Destroy;
+        _playerState.HealthPoints = _playerState.PlayerMaxHealth;
         
         _controls = new Controls();
         _controls.Player.SetCallbacks(this);
@@ -142,9 +164,9 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IDestructible
         if (canFire)
         {
             var laserBullet = _laserPooler.NextPoolableObject;
-            laserBullet.transform.parent = null;
             laserBullet.transform.SetPositionAndRotation(_transform.position + Vector3.up * LaserSpawnOffset, Quaternion.identity);
             laserBullet.gameObject.SetActive(true);
+            
             _timeSinceLastLaser = .0f;
         }
     }
@@ -169,6 +191,20 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IDestructible
 
     public void Destroy()
     {
+        Debug.Log("heyop");
         GameObject.Destroy(gameObject);
+        GameObject.Destroy(this);
+    }
+
+    public void Damage()
+    {
+        _playerState.PlayerTookDamage?.Invoke(); 
+        _playerState.HealthPoints--;
+
+        if (_playerState.HealthPoints <= 0)
+        {
+            _playerState.IsPlayerDead = true;
+            _playerState.PlayerDied?.Invoke();
+        }
     }
 }

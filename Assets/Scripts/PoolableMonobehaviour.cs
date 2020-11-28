@@ -14,4 +14,14 @@ public class PoolableMonobehaviour : MonoBehaviour
     protected virtual void OnEnable() => OnEnableEvent?.Invoke();
 
     protected virtual void OnDisable() => OnDestroyEvent?.Invoke();
+
+    public void Activate()
+    {
+        gameObject.SetActive(true);
+    }
+    
+    public void Deactivate()
+    {
+        gameObject.SetActive(false);
+    }
 }
