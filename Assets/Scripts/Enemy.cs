@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class Enemy : MonoBehaviour, IDestructible
 {
     private Transform _transform;
+    
     [SerializeField] private float _speed = .8f;
+
+    [SerializeField, Space] private SceneDataScriptable _sceneData;
     
     private Vector4 bounds = new Vector4(5.5f, 8.3f, -3.4f, -8.3f);
         
@@ -25,9 +29,14 @@ public class Enemy : MonoBehaviour, IDestructible
             return direction;
         }
     }
+
+    [Inject]
+    private void Construction(SceneDataScriptable sceneData)
+    {
+        _sceneData = sceneData;
+    }
     
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _transform = transform;
     }
@@ -45,26 +54,26 @@ public class Enemy : MonoBehaviour, IDestructible
     {
         if (OutOfBounds.HasFlag(OutOfBoundsDirection.Up))
         {
-            _transform.position = new Vector3(_transform.position.x, bounds[2] - _transform.localScale.y, 0.0f);
+            _transform.position = new Vector3(_transform.position.x, _sceneData.BottomBound - _transform.localScale.y, 0.0f);
         }
 
         if (OutOfBounds.HasFlag(OutOfBoundsDirection.Right))
         {
-            _transform.position = new Vector3(bounds[3] - _transform.localScale.x, _transform.position.y, 0.0f);
+            _transform.position = new Vector3(_sceneData.LeftBound - _transform.localScale.x, _transform.position.y, 0.0f);
         }
 
         if (OutOfBounds.HasFlag(OutOfBoundsDirection.Down))
         {
-            _transform.position = new Vector3(_transform.position.x, bounds[0] + _transform.localScale.y, 0.0f);
+            _transform.position = new Vector3(_transform.position.x, _sceneData.TopBound + _transform.localScale.y, 0.0f);
         }
 
         if (OutOfBounds.HasFlag(OutOfBoundsDirection.Left))
         {
-            _transform.position = new Vector3(bounds[1] + _transform.localScale.x, _transform.position.y, 0.0f);
+            _transform.position = new Vector3(_sceneData.RightBound + _transform.localScale.x, _transform.position.y, 0.0f);
         }
     }
-
-    private void OnTriggerEnter(Collider other)
+    
+    private void OnTriggerEnter2D(Collider2D other)
     {
         var destructible = other.GetComponent<IDestructible>();
         destructible?.Destroy();
@@ -82,7 +91,6 @@ public class Enemy : MonoBehaviour, IDestructible
         if (bullet?.BulletType.name == "LaserBullet")
         {
             Destroy();
-            GameObject.Destroy(other.gameObject);
         }
         
     }

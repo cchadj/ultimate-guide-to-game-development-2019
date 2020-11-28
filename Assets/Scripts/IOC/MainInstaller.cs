@@ -6,10 +6,11 @@ using static System.Runtime.CompilerServices.RuntimeHelpers;
 public class MainInstaller : MonoInstaller
 {
     [SerializeField] private Player _player;
+    [SerializeField] private SceneDataScriptable _sceneData;
     
     public override void InstallBindings()
     {
         Container.Bind<Player>().FromInstance(_player).AsSingle();
-        Debug.Log(_player.GetHashCode());
+        Container.Bind<SceneDataScriptable>().FromInstance(_sceneData);
     }
 }

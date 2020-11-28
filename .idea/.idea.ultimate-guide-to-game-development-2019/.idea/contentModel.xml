@@ -6,6 +6,15 @@
     <e p="D:\unity3d-projects\ultimate-guide-to-game-development-2019" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="2D Galaxy Assets" t="Include">
+          <e p="Game" t="Include">
+            <e p="Materials" t="Include">
+              <e p="Shaders" t="Include">
+                <e p="Galaxy.shader" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
         <e p="Controls.cs" t="Include" />
         <e p="EnemySpawner.cs" t="Include" />
         <e p="LaserSpawner.cs" t="Include" />

@@ -32,11 +32,9 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
     
     [SerializeField] private float _movementSpeed;
     
-    [SerializeField] private SceneDataScriptable _sceneData;
-    
     [SerializeField] private float _laserCooldown;
 
-    [SerializeField] private GameStateScriptable _gameState;
+    [SerializeField, Space] private SceneDataScriptable _sceneData;
     
     [SerializeField] private PlayerStateScriptable _playerState;
     
@@ -75,10 +73,10 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
     }
 
     [Inject]
-    private void Constructor(GameStateScriptable gameState, PlayerStateScriptable playerState)
+    private void Constructor(PlayerStateScriptable playerState, SceneDataScriptable sceneData)
     {
         _playerState = playerState; 
-        _gameState = gameState;
+        _sceneData = sceneData;
     }
     
     private void Awake()
@@ -86,7 +84,7 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
         _laserPooler = GetComponent<ObjectPooler>();
         _transform = GetComponent<Transform>();
         
-        _playerState.PlayerDied += Destroy;
+        _playerState.PlayerDied += DestroySelf;
         _playerState.HealthPoints = _playerState.PlayerMaxHealth;
         
         _controls = new Controls();
@@ -189,11 +187,9 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
     }
     #endregion Input Handling
 
-    public void Destroy()
+    public void DestroySelf()
     {
-        Debug.Log("heyop");
-        GameObject.Destroy(gameObject);
-        GameObject.Destroy(this);
+        gameObject.SetActive(false);
     }
 
     public void Damage()
