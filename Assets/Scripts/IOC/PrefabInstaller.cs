@@ -3,12 +3,11 @@ using UnityEngine;
 using Zenject;
 using static System.Runtime.CompilerServices.RuntimeHelpers;
 
-public class MainInstaller : MonoInstaller
+public class PrefabInstaller : MonoInstaller
 {
-    [SerializeField] private SceneDataScriptable _sceneData;
+    [SerializeField] private GameObject _enemyPrefab;
     
     public override void InstallBindings()
     {
-        Container.Bind<SceneDataScriptable>().FromInstance(_sceneData);
     }
 }

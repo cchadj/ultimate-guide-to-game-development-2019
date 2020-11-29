@@ -2,11 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class ObjectPooler : MonoBehaviour
 {
     #region MyRegion
-    
+
     [SerializeField] private PoolableMonobehaviour _poolableMonobehaviourPrefab;
     [SerializeField] private int _initialPoolSize;
     [SerializeField, Tooltip("Gameobject that will contain pooled objects")] private Transform _container;
@@ -29,6 +30,7 @@ public class ObjectPooler : MonoBehaviour
             var obj =  _availableObjectsPool.Dequeue();   
             _activeObjectsPool.Enqueue(obj);
             
+
             return obj;
         }
     }
@@ -51,7 +53,7 @@ public class ObjectPooler : MonoBehaviour
        _activeObjectsPool = new Queue<PoolableMonobehaviour>();
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         for (var i = 0; i < _initialPoolSize; i++)
         {
@@ -96,5 +98,4 @@ public class ObjectPooler : MonoBehaviour
         pooledObject.gameObject.SetActive(false);
         _availableObjectsPool.Enqueue(pooledObject);
     }
-
 }

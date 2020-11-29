@@ -28,8 +28,6 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
     #region SerialisedFields
     [SerializeField] private Controls _controls;
     
-    [SerializeField]private GameObject _laserPrefab;
-    
     [SerializeField] private float _movementSpeed;
     
     [SerializeField] private float _laserCooldown;
@@ -78,13 +76,20 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
         _playerState = playerState; 
         _sceneData = sceneData;
     }
-    
+
+    private GameObject _gameObject;
     private void Awake()
     {
+        _gameObject = gameObject;
+        if (_gameObject == null)
+        {
+            print("_gameObject is null");
+            _gameObject = (GameObject)FindObjectOfType(typeof(GameObject));
+        }
         _laserPooler = GetComponent<ObjectPooler>();
         _transform = GetComponent<Transform>();
         
-        _playerState.PlayerDied += DestroySelf;
+        _playerState.PlayerDied += Destroy;
         _playerState.HealthPoints = _playerState.PlayerMaxHealth;
         
         _controls = new Controls();
@@ -99,6 +104,7 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
 
     private void OnDisable()
     {
+        _playerState.PlayerDied -= Destroy;
         _controls.Disable();
     }
 
@@ -187,13 +193,18 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
     }
     #endregion Input Handling
 
-    public void DestroySelf()
+    private int _timesEnteredOther = 0;
+    [ContextMenu("Destroy")]
+    public void Destroy()
     {
-        gameObject.SetActive(false);
+        Debug.Log("Times entered other: " + _timesEnteredOther++);
+        Debug.Log(_gameObject);
     }
 
+    private int _timesEntered = 0;
     public void Damage()
     {
+        Debug.Log("Times entered here: " + _timesEntered++);
         _playerState.PlayerTookDamage?.Invoke(); 
         _playerState.HealthPoints--;
 

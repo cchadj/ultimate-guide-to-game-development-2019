@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 0.8
-  _sceneData: {fileID: 0}
+  _sceneData: {fileID: 11400000, guid: 541cafb7f3a441a479e96c498c1989b0, type: 2}
 --- !u!114 &4370113665309028082
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class Enemy : MonoBehaviour, IDestructible
+public class Enemy : PoolableMonobehaviour, IDestructible
 {
     private Transform _transform;
     
@@ -30,13 +30,7 @@ public class Enemy : MonoBehaviour, IDestructible
         }
     }
 
-    [Inject]
-    private void Construction(SceneDataScriptable sceneData)
-    {
-        _sceneData = sceneData;
-    }
-    
-    void Awake()
+    private void Awake()
     {
         _transform = transform;
     }
@@ -75,27 +69,26 @@ public class Enemy : MonoBehaviour, IDestructible
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        var destructible = other.GetComponent<IDestructible>();
-        destructible?.Destroy();
-
-        var player = other.GetComponent<Player>();
-        if (player)
-        {
-            Destroy();
-        }
-        
+//        var destructible = other.GetComponent<IDestructible>();
+//        destructible?.Destroy();
+//
+//        var player = other.GetComponent<Player>();
+//        if (player)
+//        {
+//            Destroy();
+//        }
+        Debug.Log(other); 
         var harmable = other.GetComponent<IHarmable>();
         harmable?.Damage();
         
-        var bullet = other.GetComponent<IBullet>();
-        if (bullet?.BulletType.name == "LaserBullet")
-        {
-            Destroy();
-        }
+//        var bullet = other.GetComponent<IBullet>();
+//        if (bullet?.BulletType.name == "LaserBullet")
+//        {
+//            Destroy();
+//        }
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         CalculateMovement();

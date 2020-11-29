@@ -959,6 +959,7 @@
           <e p="IEnumEntry.cs" t="Include" />
           <e p="IOC" t="Include">
             <e p="MainInstaller.cs" t="Include" />
+            <e p="PrefabInstaller.cs" t="Include" />
             <e p="StateInstaller.cs" t="Include" />
           </e>
           <e p="Laser.cs" t="Include" />
