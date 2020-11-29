@@ -4,6 +4,7 @@
     <e p="C:\Users\chadj\.Rider2018.3\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\chadj\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_ultimate-guide-to-game-development-2019.-1034122977.00" t="ExcludeRecursive" />
     <e p="D:\unity3d-projects\ultimate-guide-to-game-development-2019" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="2D Galaxy Assets" t="Include">
@@ -941,9 +942,21 @@
         <e p="Scripts" t="Include">
           <e p="BulletDataScriptable.cs" t="Include" />
           <e p="BulletTypeScriptable.cs" t="Include" />
+          <e p="DragAndDropPathAttribute.cs" t="Include" />
+          <e p="Editor" t="Include">
+            <e p="DragAndDropEditorWindow.cs" t="Include" />
+            <e p="DragAndDropPathDrawer.cs" t="Include" />
+            <e p="EnumGeneratorEditor.cs" t="Include" />
+            <e p="EnumGeneratorScriptable.cs" t="Include" />
+          </e>
           <e p="Enemy.cs" t="Include" />
+          <e p="Enums" t="Include">
+            <e p="BulletType.cs" t="Include" />
+            <e p="State.cs" t="Include" />
+          </e>
           <e p="IBullet.cs" t="Include" />
           <e p="IDestructible.cs" t="Include" />
+          <e p="IEnumEntry.cs" t="Include" />
           <e p="IOC" t="Include">
             <e p="MainInstaller.cs" t="Include" />
             <e p="StateInstaller.cs" t="Include" />
