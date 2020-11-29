@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 8
-  <BulletType>k__BackingField: {fileID: 11400000, guid: 5661ddf82b3bca943a8ce3cdf1d905eb, type: 2}
+  <BulletTypeData>k__BackingField: {fileID: 11400000, guid: 5661ddf82b3bca943a8ce3cdf1d905eb, type: 2}
 --- !u!114 &-3311268022990118016
 MonoBehaviour:
   m_ObjectHideFlags: 0

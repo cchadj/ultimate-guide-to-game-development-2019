@@ -1,12 +1,18 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject.SpaceFighter;
 
 public class Laser : MonoBehaviour, IDestructible, IBullet
 {
     private Transform _transform;
 
     [SerializeField] private float _speed;
+
+    [field: SerializeField] public BulletTypeScriptable BulletTypeData { get; private set; }
+
+    public BulletType BulletType { get; private set; }
 
     private const float TopBound = 5.5f;
     private const float DefaultSpeed = 8;
@@ -15,6 +21,8 @@ public class Laser : MonoBehaviour, IDestructible, IBullet
     private void Awake()
     {
         _transform = GetComponent<Transform>();
+
+        BulletType = (BulletType)Enum.Parse(typeof(BulletType), BulletTypeData.EnumEntryName);
         
         if (_speed < 0.01f)
         {
@@ -36,5 +44,4 @@ public class Laser : MonoBehaviour, IDestructible, IBullet
         gameObject.SetActive(false); 
     }
 
-    [field: SerializeField] public BulletTypeScriptable BulletType { get; set; }
 }

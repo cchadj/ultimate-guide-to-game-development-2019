@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
@@ -69,27 +70,32 @@ public class Enemy : PoolableMonobehaviour, IDestructible
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-//        var destructible = other.GetComponent<IDestructible>();
-//        destructible?.Destroy();
-//
-//        var player = other.GetComponent<Player>();
-//        if (player)
-//        {
-//            Destroy();
-//        }
-        Debug.Log(other); 
+        var destructible = other.GetComponent<IDestructible>();
+        destructible?.Destroy();
+
         var harmable = other.GetComponent<IHarmable>();
         harmable?.Damage();
         
-//        var bullet = other.GetComponent<IBullet>();
-//        if (bullet?.BulletType.name == "LaserBullet")
-//        {
-//            Destroy();
-//        }
+        var player = other.GetComponent<Player>();
+        if (player)
+            Destroy();
         
+        var bullet = other.GetComponent<IBullet>();
+        switch (bullet?.BulletType)
+        {
+            case BulletType.Laser:
+                Destroy();
+                break;
+            case BulletType.LaserTripleShot:
+                Destroy();
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+        print(bullet?.BulletType.ToString());
     }
 
-    void Update()
+    private void Update()
     {
         CalculateMovement();
     }

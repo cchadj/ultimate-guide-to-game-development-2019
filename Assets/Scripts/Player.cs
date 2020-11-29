@@ -22,11 +22,15 @@ public interface IHarmable
     void Damage();
 }
 
-[RequireComponent(typeof(ObjectPooler)), DisallowMultipleComponent]
+[DisallowMultipleComponent]
 public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
 {
     #region SerialisedFields
     [SerializeField] private Controls _controls;
+    
+    [SerializeField] private ObjectPooler _laserPooler;
+    
+    [SerializeField] private ObjectPooler _tripleShotLaserPooler;
     
     [SerializeField] private float _movementSpeed;
     
@@ -36,14 +40,17 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
     
     [SerializeField] private PlayerStateScriptable _playerState;
     
+    [SerializeField] private BulletType _currentBulletType;
     #endregion SerialisedFields
 
     #region GameObject Components
+    
     private Transform _transform;
     
-    private ObjectPooler _laserPooler;
     #endregion GameObject Components
 
+    private Dictionary<BulletType, ObjectPooler> _bulletPoolers;
+    
     private const float LaserSpawnOffset = .8f;
     
     private readonly Vector3 _direction2D = new Vector3(1, 1, 0);
@@ -53,6 +60,7 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
 
     private float _timeSinceLastLaser;
 
+    
     private OutOfBoundsDirection OutOfBounds
     {
         get
@@ -86,7 +94,13 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
             print("_gameObject is null");
             _gameObject = (GameObject)FindObjectOfType(typeof(GameObject));
         }
-        _laserPooler = GetComponent<ObjectPooler>();
+
+        _bulletPoolers = new Dictionary<BulletType, ObjectPooler>
+        {
+            [BulletType.Laser] = _laserPooler,
+            [BulletType.LaserTripleShot] = _tripleShotLaserPooler
+        };
+
         _transform = GetComponent<Transform>();
         
         _playerState.PlayerDied += Destroy;
@@ -167,9 +181,11 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
         
         if (canFire)
         {
-            var laserBullet = _laserPooler.NextPoolableObject;
-            laserBullet.transform.SetPositionAndRotation(_transform.position + Vector3.up * LaserSpawnOffset, Quaternion.identity);
-            laserBullet.gameObject.SetActive(true);
+            var bulletPooler = _bulletPoolers[_currentBulletType];
+            
+            var bullet = bulletPooler.NextPoolableObject;
+            bullet.transform.SetPositionAndRotation(_transform.position + Vector3.up * LaserSpawnOffset, Quaternion.identity);
+            bullet.gameObject.SetActive(true);
             
             _timeSinceLastLaser = .0f;
         }

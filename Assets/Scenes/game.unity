@@ -123,6 +123,52 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &160162711
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 160162712}
+  - component: {fileID: 160162713}
+  m_Layer: 0
+  m_Name: LaserPooler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &160162712
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160162711}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 403345662}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &160162713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160162711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbfdadb603d4618438954650ed2f4931, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _poolableMonobehaviourPrefab: {fileID: -3311268022990118016, guid: 25299e5061da07f48ba643f9030f5539, type: 3}
+  _initialPoolSize: 20
+  _container: {fileID: 1925798341}
 --- !u!1 &403345658
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +180,6 @@ GameObject:
   - component: {fileID: 403345662}
   - component: {fileID: 403345661}
   - component: {fileID: 403345660}
-  - component: {fileID: 403345659}
   - component: {fileID: 403345664}
   - component: {fileID: 403345663}
   m_Layer: 0
@@ -144,21 +189,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &403345659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 403345658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbfdadb603d4618438954650ed2f4931, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _poolableMonobehaviourPrefab: {fileID: 2294407500330023939, guid: 94bba8e2674c0864db1e97625923a855, type: 3}
-  _initialPoolSize: 20
-  _container: {fileID: 1925798341}
 --- !u!114 &403345660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,10 +201,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 741c476ade679e74ba0bb5f50cdcde7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _laserPooler: {fileID: 160162713}
+  _tripleShotLaserPooler: {fileID: 1478442898}
   _movementSpeed: 6
   _laserCooldown: 0.13
   _sceneData: {fileID: 0}
   _playerState: {fileID: 0}
+  _currentBulletType: 0
 --- !u!212 &403345661
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -236,7 +269,9 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 160162712}
+  - {fileID: 1478442897}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -250,7 +285,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -631,6 +666,7 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 1038730738}
+  - {fileID: 1951997743}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -665,6 +701,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1478442896
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1478442897}
+  - component: {fileID: 1478442898}
+  m_Layer: 0
+  m_Name: TripleShotPooler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1478442897
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478442896}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 403345662}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1478442898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478442896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbfdadb603d4618438954650ed2f4931, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _poolableMonobehaviourPrefab: {fileID: 2294407500330023939, guid: 94bba8e2674c0864db1e97625923a855, type: 3}
+  _initialPoolSize: 20
+  _container: {fileID: 1925798341}
 --- !u!1 &1724417029
 GameObject:
   m_ObjectHideFlags: 0
@@ -850,7 +932,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8882d6f9c70da814ca6457ec7bd23591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 403345660}
   _sceneData: {fileID: 11400000, guid: 541cafb7f3a441a479e96c498c1989b0, type: 2}
 --- !u!4 &1951997744
 Transform:

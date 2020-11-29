@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 2294407500330023936}
   - component: {fileID: 2294407500330023938}
   - component: {fileID: 2294407500330023939}
+  - component: {fileID: -814979275848492240}
+  - component: {fileID: 8211459700562472657}
   m_Layer: 0
   m_Name: TripleShot
   m_TagString: Untagged
@@ -48,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 0
-  <BulletType>k__BackingField: {fileID: 11400000, guid: 5661ddf82b3bca943a8ce3cdf1d905eb, type: 2}
+  <BulletTypeData>k__BackingField: {fileID: 11400000, guid: 263efcb9ed02e9745ab30c8e26c72eba, type: 2}
 --- !u!114 &2294407500330023939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,6 +63,91 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e86f2382763c264eaa8aa2155539290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &-814979275848492240
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2294407500330023937}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!66 &8211459700562472657
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2294407500330023937}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 3181195081679420464}
+    m_ColliderPaths:
+    - - X: 349707
+        Y: 8500000
+      - X: 349707
+        Y: 11500000
+      - X: -350000
+        Y: 11499707
+      - X: -349707
+        Y: 8500000
+  - m_Collider: {fileID: 3181195080971189307}
+    m_ColliderPaths:
+    - - X: -6050292
+        Y: -1000000
+      - X: -6050292
+        Y: 2000000
+      - X: -6750000
+        Y: 1999707
+      - X: -6749707
+        Y: -1000000
+  - m_Collider: {fileID: 3181195080667841017}
+    m_ColliderPaths:
+    - - X: 6749707
+        Y: -1000000
+      - X: 6749707
+        Y: 2000000
+      - X: 6049999
+        Y: 1999707
+      - X: 6050292
+        Y: -1000000
+  m_CompositePaths:
+    m_Paths:
+    - - {x: 0.0349414, y: 0.85}
+      - {x: 0.0349414, y: 1.15}
+      - {x: -0.035, y: 1.1499414}
+      - {x: -0.0349414, y: 0.85}
+    - - {x: -0.6050585, y: -0.1}
+      - {x: -0.6050585, y: 0.2}
+      - {x: -0.675, y: 0.1999414}
+      - {x: -0.6749414, y: -0.1}
+    - - {x: 0.6749414, y: -0.1}
+      - {x: 0.6749414, y: 0.2}
+      - {x: 0.6049999, y: 0.1999414}
+      - {x: 0.6050585, y: -0.1}
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
 --- !u!1001 &2294407500690297773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -68,6 +155,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2294407500330023936}
     m_Modifications:
+    - target: {fileID: -5480107355896130988, guid: 25299e5061da07f48ba643f9030f5539, type: 3}
+      propertyPath: m_UsedByComposite
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6508533294116954913, guid: 25299e5061da07f48ba643f9030f5539, type: 3}
       propertyPath: m_Name
       value: Laser_3
@@ -119,10 +210,16 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -7319938219996255761, guid: 25299e5061da07f48ba643f9030f5539, type: 3}
     - {fileID: -3311268022990118016, guid: 25299e5061da07f48ba643f9030f5539, type: 3}
+    - {fileID: 4746110901980270816, guid: 25299e5061da07f48ba643f9030f5539, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 25299e5061da07f48ba643f9030f5539, type: 3}
 --- !u!4 &5009599255783403656 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6508533294116954917, guid: 25299e5061da07f48ba643f9030f5539, type: 3}
+  m_PrefabInstance: {fileID: 2294407500690297773}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &3181195080667841017 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: -5480107355896130988, guid: 25299e5061da07f48ba643f9030f5539, type: 3}
   m_PrefabInstance: {fileID: 2294407500690297773}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2294407500986822255
@@ -132,6 +229,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2294407500330023936}
     m_Modifications:
+    - target: {fileID: -5480107355896130988, guid: 25299e5061da07f48ba643f9030f5539, type: 3}
+      propertyPath: m_UsedByComposite
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6508533294116954913, guid: 25299e5061da07f48ba643f9030f5539, type: 3}
       propertyPath: m_Name
       value: Laser_2
@@ -183,10 +284,16 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -7319938219996255761, guid: 25299e5061da07f48ba643f9030f5539, type: 3}
     - {fileID: -3311268022990118016, guid: 25299e5061da07f48ba643f9030f5539, type: 3}
+    - {fileID: 4746110901980270816, guid: 25299e5061da07f48ba643f9030f5539, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 25299e5061da07f48ba643f9030f5539, type: 3}
 --- !u!4 &5009599256637164874 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6508533294116954917, guid: 25299e5061da07f48ba643f9030f5539, type: 3}
+  m_PrefabInstance: {fileID: 2294407500986822255}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &3181195080971189307 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: -5480107355896130988, guid: 25299e5061da07f48ba643f9030f5539, type: 3}
   m_PrefabInstance: {fileID: 2294407500986822255}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2294407501962473060
@@ -196,6 +303,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2294407500330023936}
     m_Modifications:
+    - target: {fileID: -5480107355896130988, guid: 25299e5061da07f48ba643f9030f5539, type: 3}
+      propertyPath: m_UsedByComposite
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6508533294116954913, guid: 25299e5061da07f48ba643f9030f5539, type: 3}
       propertyPath: m_Name
       value: Laser_1
@@ -247,9 +358,15 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -7319938219996255761, guid: 25299e5061da07f48ba643f9030f5539, type: 3}
     - {fileID: -3311268022990118016, guid: 25299e5061da07f48ba643f9030f5539, type: 3}
+    - {fileID: 4746110901980270816, guid: 25299e5061da07f48ba643f9030f5539, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 25299e5061da07f48ba643f9030f5539, type: 3}
 --- !u!4 &5009599256669064513 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6508533294116954917, guid: 25299e5061da07f48ba643f9030f5539, type: 3}
+  m_PrefabInstance: {fileID: 2294407501962473060}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &3181195081679420464 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: -5480107355896130988, guid: 25299e5061da07f48ba643f9030f5539, type: 3}
   m_PrefabInstance: {fileID: 2294407501962473060}
   m_PrefabAsset: {fileID: 0}
