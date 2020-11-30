@@ -61,6 +61,8 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
     private Vector2 _inputDirection = Vector2.zero;
 
     private float _timeSinceLastLaser;
+
+    private int _shieldPoints;
     
     private OutOfBoundsDirection OutOfBounds
     {
@@ -218,8 +220,12 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
 
     public void Damage()
     {
-        _playerState.PlayerTookDamage?.Invoke(); 
-        _playerState.HealthPoints--;
+        _playerState.PlayerTookDamage?.Invoke();
+
+        if (_shieldPoints > 0)
+            _shieldPoints--;
+        else
+            _playerState.HealthPoints--;
 
         if (_playerState.HealthPoints <= 0)
         {
@@ -242,6 +248,10 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
                 break;
             case PowerupType.TripleShot:
                 SetBulletType(BulletType.LaserTripleShot, 5);
+                break;
+            case PowerupType.Shield:
+                if (_shieldPoints == 0)
+                    _shieldPoints++;
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
