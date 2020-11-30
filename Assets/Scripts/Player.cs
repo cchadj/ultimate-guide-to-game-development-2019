@@ -62,8 +62,6 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
 
     private float _timeSinceLastLaser;
 
-    private int _shieldPoints;
-    
     private OutOfBoundsDirection OutOfBounds
     {
         get
@@ -222,8 +220,8 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
     {
         _playerState.PlayerTookDamage?.Invoke();
 
-        if (_shieldPoints > 0)
-            _shieldPoints--;
+        if (_playerState.ShieldPoints > 0)
+            _playerState.ShieldPoints--;
         else
             _playerState.HealthPoints--;
 
@@ -250,22 +248,22 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
                 SetBulletType(BulletType.LaserTripleShot, 5);
                 break;
             case PowerupType.Shield:
-                if (_shieldPoints == 0)
-                    _shieldPoints++;
+                if (_playerState.ShieldPoints == 0)
+                    _playerState.ShieldPoints++;
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
     }
 
-    private void SetBulletType(BulletType bulletType, float seconds)
-    {
-       StartCoroutine(SetBulletTypeCoroutine(bulletType, seconds));
-    }
-
     private void Speedup(float multiplier, float seconds)
     {
         StartCoroutine(SpeedupCoroutine(multiplier, seconds));
+    }
+    
+    private void SetBulletType(BulletType bulletType, float seconds)
+    {
+       StartCoroutine(SetBulletTypeCoroutine(bulletType, seconds));
     }
 
     private IEnumerator SpeedupCoroutine(float multiplier, float seconds)

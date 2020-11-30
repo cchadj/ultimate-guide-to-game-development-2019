@@ -68,14 +68,11 @@ public class Enemy : MonoBehaviour, IDestructible
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        var destructible = other.GetComponent<IDestructible>();
-        destructible?.Destroy();
+        other.GetComponent<IDestructible>()?.Destroy();
 
-        var harmable = other.GetComponent<IHarmable>();
-        harmable?.Damage();
+        other.GetComponent<IHarmable>()?.Damage();
         
-        var player = other.GetComponent<Player>();
-        if (player)
+        if (other.GetComponent<Player>())
             Destroy();
         
         var bullet = other.GetComponent<IBullet>();
