@@ -81,7 +81,8 @@ public class Enemy : MonoBehaviour, IDestructible
         var bullet = other.GetComponent<IBullet>();
         if (bullet == null)
            return;
-        switch (bullet?.BulletType)
+        
+        switch (bullet.BulletType)
         {
             case BulletType.Laser:
                 Destroy();
@@ -92,7 +93,6 @@ public class Enemy : MonoBehaviour, IDestructible
             default:
                 throw new ArgumentOutOfRangeException();
         }
-        print(bullet?.BulletType.ToString());
     }
 
     private void Update()

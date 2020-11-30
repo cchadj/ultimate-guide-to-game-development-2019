@@ -10,16 +10,22 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="2D Galaxy Assets" t="Include">
-          <e p="Game" t="Include">
-            <e p="Materials" t="Include">
-              <e p="Shaders" t="Include">
-                <e p="Galaxy.shader" t="Include" />
-              </e>
+          <e p="Materials" t="Include">
+            <e p="Shaders" t="Include">
+              <e p="Galaxy.shader" t="Include" />
             </e>
           </e>
         </e>
-        <e p="Controls.cs" t="Include" />
         <e p="Plugins" t="Include">
+          <e p="SimpleMinMaxSlider" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="Editor" t="Include">
+                <e p="MinMaxSliderDrawer.cs" t="Include" />
+              </e>
+              <e p="MinMaxSliderAttribute.cs" t="Include" />
+            </e>
+            <e p="SimpleMinMaxSlider.asmdef" t="Include" />
+          </e>
           <e p="Unity-ScriptableObjects-Game-Events-" t="Include">
             <e p="EventSystem" t="Include">
               <e p="Editor" t="Include">
@@ -952,6 +958,7 @@
         <e p="Scripts" t="Include">
           <e p="BulletDataScriptable.cs" t="Include" />
           <e p="BulletTypeScriptable.cs" t="Include" />
+          <e p="Controls.cs" t="Include" />
           <e p="DragAndDropPathAttribute.cs" t="Include" />
           <e p="Editor" t="Include">
             <e p="DragAndDropEditorWindow.cs" t="Include" />
@@ -960,9 +967,10 @@
             <e p="EnumGeneratorScriptable.cs" t="Include" />
           </e>
           <e p="Enemy.cs" t="Include" />
-          <e p="EnemySpawner.cs" t="Include" />
+          <e p="EnumEntry.cs" t="Include" />
           <e p="Enums" t="Include">
             <e p="BulletType.cs" t="Include" />
+            <e p="PowerupType.cs" t="Include" />
             <e p="State.cs" t="Include" />
           </e>
           <e p="IBullet.cs" t="Include" />
@@ -979,6 +987,8 @@
           <e p="PoolableMonobehaviour.cs" t="Include" />
           <e p="Powerup.cs" t="Include" />
           <e p="SceneDataScriptable.cs" t="Include" />
+          <e p="ShowTimw.cs" t="Include" />
+          <e p="Spawner.cs" t="Include" />
           <e p="State" t="Include">
             <e p="GameStateScriptable.cs" t="Include" />
             <e p="PlayerStateScriptable.cs" t="Include" />
@@ -989,6 +999,7 @@
       <e p="Library" t="ExcludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="packages" t="ExcludeRecursive" />
+      <e p="SimpleMinMaxSlider.csproj" t="IncludeRecursive" />
       <e p="Temp" t="ExcludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
       </e>

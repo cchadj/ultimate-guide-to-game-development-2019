@@ -11,6 +11,8 @@ public interface ICollectible
 
 public class Powerup : MonoBehaviour, ICollectible
 {
+    [field:SerializeField] public PowerupType PowerupType { get; private set; }
+    
     [SerializeField] private float _speed = DefaultSpeed;
 
     [SerializeField, Space] private SceneDataScriptable _sceneData;

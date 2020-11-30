@@ -233,9 +233,18 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
         o.GetComponent<ICollectible>()?.Collect();
 
         var powerUp = o.GetComponent <Powerup>();
-        if (powerUp)
+        if (!powerUp) return;
+        
+        switch (powerUp.PowerupType)
         {
-            SetBulletType(BulletType.LaserTripleShot, 5);
+            case PowerupType.Speedboost:
+                Speedup(2, 3); 
+                break;
+            case PowerupType.TripleShot:
+                SetBulletType(BulletType.LaserTripleShot, 5);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
         }
     }
 
@@ -244,6 +253,19 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
        StartCoroutine(SetBulletTypeCoroutine(bulletType, seconds));
     }
 
+    private void Speedup(float multiplier, float seconds)
+    {
+        StartCoroutine(SpeedupCoroutine(multiplier, seconds));
+    }
+
+    private IEnumerator SpeedupCoroutine(float multiplier, float seconds)
+    {
+        var initialSpeed = _movementSpeed;
+        _movementSpeed *= multiplier;
+        yield return new WaitForSeconds(seconds);
+        _movementSpeed = initialSpeed;
+    }
+    
     private IEnumerator SetBulletTypeCoroutine(BulletType bulletType, float seconds)
     {
         _currentBulletType = bulletType;
