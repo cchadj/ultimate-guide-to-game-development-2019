@@ -2,1030 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="69190580-24b4-4cdd-98d0-43e0476affa9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ultimate-guide-to-game-development-2019/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ultimate-guide-to-game-development-2019/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ultimate-guide-to-game-development-2019/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ultimate-guide-to-game-development-2019/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Audio.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Audio/explosion_sound.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Audio/explosion_sound.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Audio/laser_shot.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Audio/laser_shot.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Audio/music_background.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Audio/music_background.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Audio/power_up_sound.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Audio/power_up_sound.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Materials/Shaders.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Materials/Shaders/Galaxy.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Materials/Shaders/Galaxy.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Asteroid.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Asteroid.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00000.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00000.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00001.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00001.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00002.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00002.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00003.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00003.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00004.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00004.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00005.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00005.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00006.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00006.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00007.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00007.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00008.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00008.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00009.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00009.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00010.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00010.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00011.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00011.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00012.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00012.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00013.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00013.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00014.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00014.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00015.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00015.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00016.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00016.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00017.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00017.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00018.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00018.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00019.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00019.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00020.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00020.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00021.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00021.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00022.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00022.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00023.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00023.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00024.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00024.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00025.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00025.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00026.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00026.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00027.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00027.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00028.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00028.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00029.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00029.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00030.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00030.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00031.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00031.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00032.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00032.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00033.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00033.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00034.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00034.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00035.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00035.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00036.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00036.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00037.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00037.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00038.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00038.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00039.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00039.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00040.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00040.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00041.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00041.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00042.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00042.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00043.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00043.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00044.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00044.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00045.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00045.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00046.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00046.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00047.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00047.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00048.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00048.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00049.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00049.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00050.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00050.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00051.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00051.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00052.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00052.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00053.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00053.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00054.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00054.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00055.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00055.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00056.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00056.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00057.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00057.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00058.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00058.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00059.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00059.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00060.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00060.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00061.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00061.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00062.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00062.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00063.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00063.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00064.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00064.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00065.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00065.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00066.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00066.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00067.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00067.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00068.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00068.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00069.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00069.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00070.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00070.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00071.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00071.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00072.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00072.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00073.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00073.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00074.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00074.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00075.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00075.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00076.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00076.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00077.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00077.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00078.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00078.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00079.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00079.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00080.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00080.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00081.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00081.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00082.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00082.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00083.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00083.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00084.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00084.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00085.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00085.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00086.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00086.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00087.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00087.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00088.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00088.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00089.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00089.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00090.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00090.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00091.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00091.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00092.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00092.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00093.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00093.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00094.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00094.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00095.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00095.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00096.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00096.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00097.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00097.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00098.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00098.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00099.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00099.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00100.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00101.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00101.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00102.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00102.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00103.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00103.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00104.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00104.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00105.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00105.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00106.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00106.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00107.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00107.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00108.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00108.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00109.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00109.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00110.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00110.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00111.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00111.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00112.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00112.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00113.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00113.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00114.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00114.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00115.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00115.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00116.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00116.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00117.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00117.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00118.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00118.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00119.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00119.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00120.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00120.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00121.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00121.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00122.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00122.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00123.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00123.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00124.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00124.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00125.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00125.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00126.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00126.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00127.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00127.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00128.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00128.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00129.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00129.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00130.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00130.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00131.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00131.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00132.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00132.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00133.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00133.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00134.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00134.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00135.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00135.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00136.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00136.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00137.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00137.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00138.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00138.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00139.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00139.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00140.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00140.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00141.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00141.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00142.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00142.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00143.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00143.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00144.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00144.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00145.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00145.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00146.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00146.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00147.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00147.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00148.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00148.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00149.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00149.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00150.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00150.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00151.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00151.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00152.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00152.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00153.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00153.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00154.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00154.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00155.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00155.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00156.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00156.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00157.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Enemy_Explode_Sequence/EnemyTurnLeft0000_00157.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00000.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00000.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00001.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00001.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00002.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00002.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00003.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00003.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00004.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00004.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00005.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00005.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00006.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00006.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00007.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00007.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00008.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00008.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00009.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00009.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00010.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00010.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00011.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00011.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00012.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00012.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00013.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00013.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00014.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00014.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00015.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00015.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00016.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00016.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00017.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00017.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00018.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00018.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00019.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00019.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00020.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00020.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00021.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00021.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00022.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00022.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00023.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00023.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00024.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00024.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00025.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00025.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00026.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00026.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00027.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00027.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00028.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00028.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00029.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00029.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00030.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00030.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00031.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00031.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00032.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00032.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00033.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00033.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00034.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00034.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00035.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00035.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00036.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00036.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00037.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00037.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00038.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00038.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00039.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00039.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00040.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00040.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00041.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00041.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00042.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00042.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00043.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00043.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00044.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00044.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00045.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00045.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00046.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00046.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00047.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00047.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00048.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00048.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00049.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00049.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00050.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00050.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00051.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00051.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00052.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00052.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00053.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00053.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00054.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00054.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00055.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00055.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00056.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00056.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00057.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00057.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00058.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00058.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00059.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00059.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00060.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00060.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00061.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00061.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00062.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00062.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00063.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00063.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00064.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00064.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00065.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00065.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00066.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00066.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00067.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00067.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00068.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00068.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00069.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00069.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00070.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00070.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00071.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00071.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00072.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00072.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00073.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00073.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00074.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00074.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00075.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00075.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00076.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00076.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00077.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00077.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00078.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00078.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00079.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00079.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00080.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00080.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00081.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00081.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00082.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00082.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00083.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00083.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00084.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00084.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00085.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00085.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00086.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00086.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00087.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00087.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00088.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00088.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00089.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00089.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00090.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00090.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00091.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00091.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00092.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00092.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00093.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00093.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00094.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00094.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00095.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00095.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00096.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00096.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00097.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00097.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00098.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00098.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00099.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00099.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00100.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00101.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00101.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00102.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00102.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00103.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00103.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00104.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00104.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00105.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00105.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00106.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00106.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00107.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00107.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00108.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00108.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00109.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00109.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00110.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00110.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00111.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00111.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00112.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00112.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00113.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00113.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00114.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00114.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00115.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00115.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00116.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00116.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00117.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00117.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00118.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00118.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00119.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00119.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00120.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00120.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00121.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00121.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00122.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00122.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00123.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00123.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00124.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00124.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00125.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00125.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00126.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00126.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00127.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00127.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00128.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00128.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00129.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00129.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00130.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00130.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00131.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00131.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00132.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00132.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00133.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00133.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00134.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00134.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00135.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00135.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00136.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00136.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00137.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00137.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00138.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00138.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00139.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00139.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00140.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00140.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00141.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00141.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00142.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00142.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00143.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00143.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00144.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00144.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00145.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00145.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00146.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00146.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00147.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00147.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00148.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00148.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00149.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00149.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00150.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00150.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00151.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00151.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00152.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00152.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00153.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00153.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00154.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00154.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00155.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00155.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00156.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00156.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00157.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Explosion/Explosion_00157.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00000.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00000.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00001.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00001.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00002.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00002.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00003.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00003.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00004.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00004.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00005.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00005.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00006.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00006.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00007.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00007.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00008.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00008.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00009.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00009.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00010.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00010.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00011.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00011.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00012.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00012.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00013.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00013.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00014.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00014.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00015.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00015.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00016.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00016.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00017.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00017.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00018.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00018.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00019.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00019.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00020.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00020.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00021.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00021.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00022.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00022.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00023.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00023.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00024.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00024.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00025.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00025.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00026.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00026.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00027.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00027.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00028.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00028.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00029.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00029.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00030.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00030.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00031.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00031.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00032.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00032.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00033.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00033.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00034.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00034.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00035.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00035.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00036.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00036.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00037.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00037.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00038.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00038.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00039.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00039.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00040.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00040.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00041.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00041.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00042.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00042.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00043.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00043.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00044.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00044.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00045.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00045.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00046.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00046.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00047.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00047.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00048.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00048.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00049.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00049.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00050.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00050.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00051.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00051.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00052.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00052.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00053.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00053.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00054.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00054.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00055.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00055.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00056.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00056.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00057.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00057.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00058.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00058.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00059.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00059.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00060.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Hurt/Fire_00060.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Shield.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Shield/Shields_00000.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Shield/Shields_00000.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Shield/Shields_00001.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Shield/Shields_00001.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Shield/Shields_00002.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Shield/Shields_00002.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Shield/Shields_00003.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Shield/Shields_00003.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Shield/Shields_00004.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Shield/Shields_00004.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Shield/Shields_00005.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Shield/Shields_00005.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Shield/Shields_00006.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Shield/Shields_00006.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Shield/Shields_00007.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Shield/Shields_00007.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Shield/Shields_00008.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Shield/Shields_00008.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Shield/Shields_00009.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Shield/Shields_00009.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Shield/Shields_00010.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Shield/Shields_00010.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Shield/Shields_00011.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Shield/Shields_00011.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Shield/Shields_00012.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Shield/Shields_00012.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Shield/Shields_00013.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Shield/Shields_00013.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Shield/Shields_00014.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Shield/Shields_00014.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Shield/Shields_00015.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Shield/Shields_00015.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Left.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Left/Player Turn Left0000.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Left/Player Turn Left0000.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Left/Player Turn Left0001.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Left/Player Turn Left0001.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Left/Player Turn Left0002.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Left/Player Turn Left0002.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Left/Player Turn Left0003.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Left/Player Turn Left0003.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Left/Player Turn Left0004.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Left/Player Turn Left0004.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Left/Player Turn Left0005.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Left/Player Turn Left0005.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Left/Player Turn Left0006.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Left/Player Turn Left0006.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Left/Player Turn Left0007.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Left/Player Turn Left0007.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Left/Player Turn Left0008.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Left/Player Turn Left0008.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Right.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Right/Player Turn Right0000.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Right/Player Turn Right0000.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Right/Player Turn Right0001.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Right/Player Turn Right0001.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Right/Player Turn Right0002.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Right/Player Turn Right0002.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Right/Player Turn Right0003.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Right/Player Turn Right0003.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Right/Player Turn Right0004.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Right/Player Turn Right0004.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Right/Player Turn Right0005.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Right/Player Turn Right0005.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Right/Player Turn Right0006.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Right/Player Turn Right0006.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Right/Player Turn Right0007.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Right/Player Turn Right0007.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Right/Player Turn Right0008.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Player_Turn_Right/Player Turn Right0008.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Shield.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Shield/Powerup2_0008_00000.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Shield/Powerup2_0008_00000.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Shield/Powerup2_0008_00001.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Shield/Powerup2_0008_00001.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Shield/Powerup2_0008_00002.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Shield/Powerup2_0008_00002.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Shield/Powerup2_0008_00003.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Shield/Powerup2_0008_00003.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Shield/Powerup2_0008_00004.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Shield/Powerup2_0008_00004.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Shield/Powerup2_0008_00005.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Shield/Powerup2_0008_00005.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Shield/Powerup2_0008_00006.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Shield/Powerup2_0008_00006.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Shield/Powerup2_0008_00007.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Shield/Powerup2_0008_00007.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Shield/Powerup2_0008_00008.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Shield/Powerup2_0008_00008.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Shield/Powerup2_0008_00009.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Shield/Powerup2_0008_00009.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Shield/Powerup2_0008_00010.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Shield/Powerup2_0008_00010.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Shield/Powerup2_0008_00011.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Shield/Powerup2_0008_00011.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Shield/Powerup2_0008_00012.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Shield/Powerup2_0008_00012.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Shield/Powerup2_0008_00013.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Shield/Powerup2_0008_00013.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Shield/Powerup2_0008_00014.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Shield/Powerup2_0008_00014.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Shield/Powerup2_0008_00015.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Shield/Powerup2_0008_00015.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Speed.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Speed/Powerup1_0008_00000.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Speed/Powerup1_0008_00000.psd.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Speed/Powerup1_0008_00001.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Speed/Powerup1_0008_00001.psd.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Speed/Powerup1_0008_00002.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Speed/Powerup1_0008_00002.psd.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Speed/Powerup1_0008_00003.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Speed/Powerup1_0008_00003.psd.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Speed/Powerup1_0008_00004.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Speed/Powerup1_0008_00004.psd.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Speed/Powerup1_0008_00005.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Speed/Powerup1_0008_00005.psd.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Speed/Powerup1_0008_00006.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Speed/Powerup1_0008_00006.psd.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Speed/Powerup1_0008_00007.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Speed/Powerup1_0008_00007.psd.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Speed/Powerup1_0008_00008.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Speed/Powerup1_0008_00008.psd.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Speed/Powerup1_0008_00009.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Speed/Powerup1_0008_00009.psd.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Speed/Powerup1_0008_00010.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Speed/Powerup1_0008_00010.psd.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Speed/Powerup1_0008_00011.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Speed/Powerup1_0008_00011.psd.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Speed/Powerup1_0008_00012.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Speed/Powerup1_0008_00012.psd.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Speed/Powerup1_0008_00013.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Speed/Powerup1_0008_00013.psd.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Speed/Powerup1_0008_00014.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Speed/Powerup1_0008_00014.psd.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Speed/Powerup1_0008_00015.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Speed/Powerup1_0008_00015.psd.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Triple_Shot.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00000.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00000.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00001.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00001.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00002.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00002.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00003.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00003.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00004.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00004.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00005.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00005.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00006.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00006.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00007.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00007.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00008.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00008.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00009.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00009.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00010.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00010.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00011.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00011.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00012.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00012.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00013.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00013.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00014.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00014.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00015.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00015.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/SpaceBG_Overlay.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/SpaceBG_Overlay.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00000.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00000.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00001.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00001.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00002.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00002.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00003.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00003.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00004.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00004.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00005.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00005.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00006.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00006.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00007.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00007.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00008.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00008.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00009.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00009.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00010.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00010.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00011.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00011.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00012.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00012.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00013.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00013.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00014.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00014.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00015.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00015.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00016.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00016.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00017.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00017.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00018.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00018.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00019.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00019.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00020.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/Thruster/Thruster_00020.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/UI.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/UI/Lives.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/UI/Lives/One.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/UI/Lives/One.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/UI/Lives/Three.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/UI/Lives/Three.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/UI/Lives/Two.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/UI/Lives/Two.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/UI/Lives/no_lives.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/UI/Lives/no_lives.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/UI/MainMenu.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/UI/MainMenu.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/laser.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Galaxy Assets/Game/Sprites/laser.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Controls.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Controls.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Laser.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Laser.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/TripleShot.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/TripleShot.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/TripleShotPowerUp.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/TripleShotPowerUp.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameData/BulletTypeEnumGenerator.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameData/BulletTypeEnumGenerator.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameData/New Folder.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameData/PowerupEnumGenerator.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameData/PowerupEnumGenerator.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameData/StateTypeEnumGenerator.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameData/StateTypeEnumGenerator.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Powerups/SpeedboostPowerup.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Powerups/SpeedboostPowerup.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Powerups/TripleShotPowerup.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Powerups/TripleShotPowerup.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BulletTypeScriptable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BulletTypeScriptable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemySpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemySpawner.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spawner.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Powerup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Powerup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TripleShot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TripleShot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enums/PowerupType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enums/PowerupType.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -1038,8 +26,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Player.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-240">
-              <caret line="239" column="26" selection-start-line="239" selection-start-column="26" selection-end-line="239" selection-end-column="26" />
+            <state relative-caret-position="-105">
+              <caret line="246" selection-start-line="246" selection-end-line="246" />
               <folding>
                 <marker date="1606751228981" expanded="true" signature="6:192" ph="..." />
                 <marker date="1606751228981" expanded="true" signature="236:299" ph="{...}" />
@@ -1088,8 +76,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Spawner.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-827">
-              <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
+            <state relative-caret-position="-464">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
               <folding>
                 <marker date="1606744191852" expanded="true" signature="6:165" ph="..." />
                 <marker date="1606744191852" expanded="true" signature="244:2218" ph="{...}" />
@@ -1113,8 +101,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scenes/game.unity">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="871" column="37" selection-start-line="871" selection-start-column="37" selection-end-line="871" selection-end-column="37" />
+            <state relative-caret-position="2871">
+              <caret line="1029" column="37" selection-start-line="1029" selection-start-column="37" selection-end-line="1029" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -1150,7 +138,7 @@
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Powerup.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-955">
-              <caret line="13" column="53" lean-forward="true" selection-start-line="13" selection-start-column="53" selection-end-line="13" selection-end-column="53" />
+              <caret line="13" column="53" selection-start-line="13" selection-start-column="53" selection-end-line="13" selection-end-column="53" />
               <folding>
                 <marker date="1606750554178" expanded="true" signature="6:134" ph="..." />
                 <marker date="1606750554178" expanded="true" signature="165:189" ph="{...}" />
@@ -1232,8 +220,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/TripleShot.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="71">
+              <caret line="56" column="38" selection-start-line="56" selection-start-column="38" selection-end-line="56" selection-end-column="38" />
               <folding>
                 <marker date="1606749750446" expanded="true" signature="6:92" ph="..." />
                 <marker date="1606749750446" expanded="true" signature="133:1849" ph="{...}" />
@@ -1468,12 +456,12 @@
       <workItem from="1606578632522" duration="16847000" />
       <workItem from="1606643178074" duration="23187000" />
       <workItem from="1606670844825" duration="12307000" />
-      <workItem from="1606727831935" duration="14691000" />
+      <workItem from="1606727831935" duration="16390000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90219000" />
+    <option name="totallyTimeSpent" value="91918000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1496,7 +484,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39944133" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49966466" visible="true" weight="0.39944133" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -1508,7 +496,7 @@
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="bottom" id="Unit Tests" order="13" />
       <window_info anchor="bottom" id="Terminal" order="14" />
-      <window_info anchor="bottom" id="Event Log" order="15" side_tool="true" weight="0.3337989" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="15" sideWeight="0.50033534" side_tool="true" visible="true" weight="0.39944133" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -2133,8 +1121,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scenes/game.unity">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="871" column="37" selection-start-line="871" selection-start-column="37" selection-end-line="871" selection-end-column="37" />
+        <state relative-caret-position="2871">
+          <caret line="1029" column="37" selection-start-line="1029" selection-start-column="37" selection-end-line="1029" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -2170,29 +1158,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Spawner.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-827">
-          <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
-          <folding>
-            <marker date="1606744191852" expanded="true" signature="6:165" ph="..." />
-            <marker date="1606744191852" expanded="true" signature="244:2218" ph="{...}" />
-            <marker date="1606744191852" expanded="true" signature="251:520" ph="Set by unity" />
-            <marker date="1606744191852" expanded="true" signature="824:904" ph="{...}" />
-            <marker date="1606744191852" expanded="true" signature="934:999" ph="{...}" />
-            <marker date="1606744191852" expanded="true" signature="1025:1062" ph="{...}" />
-            <marker date="1606744191852" expanded="true" signature="1091:1152" ph="{...}" />
-            <marker date="1606744191852" expanded="true" signature="1182:1243" ph="{...}" />
-            <marker date="1606744191852" expanded="true" signature="1277:1368" ph="{...}" />
-            <marker date="1606744191852" expanded="true" signature="1405:1453" ph="{...}" />
-            <marker date="1606744191852" expanded="true" signature="1484:1732" ph="{...}" />
-            <marker date="1606744191852" expanded="true" signature="1783:2216" ph="{...}" />
-            <marker date="1606744191852" expanded="true" signature="1826:2182" ph="{...}" />
-            <marker date="1606744191852" expanded="true" signature="2114:2172" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/BulletTypeScriptable.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="32">
@@ -2202,35 +1167,6 @@
             <marker date="1606749693785" expanded="true" signature="156:365" ph="{...}" />
             <marker date="1606749693785" expanded="true" signature="264:363" ph="{...}" />
             <marker date="1606749693785" expanded="true" signature="303:357" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/TripleShot.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-          <folding>
-            <marker date="1606749750446" expanded="true" signature="6:92" ph="..." />
-            <marker date="1606749750446" expanded="true" signature="133:1849" ph="{...}" />
-            <marker date="1606749750446" expanded="true" signature="310:514" ph="{...}" />
-            <marker date="1606749750446" expanded="true" signature="413:508" ph="{...}" />
-            <marker date="1606749750446" expanded="true" signature="516:588" ph="/* private void Start() ... */" />
-            <marker date="1606749750446" expanded="true" signature="617:989" ph="{...}" />
-            <marker date="1606749750446" expanded="true" signature="701:983" ph="{...}" />
-            <marker date="1606749750446" expanded="true" signature="1019:1206" ph="{...}" />
-            <marker date="1606749750446" expanded="true" signature="1064:1200" ph="{...}" />
-            <marker date="1606749750446" expanded="true" signature="1243:1666" ph="{...}" />
-            <marker date="1606749750446" expanded="true" signature="1324:1660" ph="{...}" />
-            <marker date="1606749750446" expanded="true" signature="1347:1599" ph="/* Deactivating the parent also deactivates children. ... */" />
-            <marker date="1606749750446" expanded="true" signature="1713:1842" ph="{...}" />
-            <marker date="1606749750446" expanded="true" signature="1893:2649" ph="{...}" />
-            <marker date="1606749750446" expanded="true" signature="1966:2077" ph="{...}" />
-            <marker date="1606749750446" expanded="true" signature="2115:2188" ph="{...}" />
-            <marker date="1606749750446" expanded="true" signature="2259:2647" ph="{...}" />
-            <marker date="1606749750446" expanded="true" signature="2370:2469" ph="{...}" />
-            <marker date="1606749750446" expanded="true" signature="2503:2554" ph="{...}" />
-            <marker date="1606749750446" expanded="true" signature="2588:2640" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -2260,7 +1196,7 @@
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Powerup.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-955">
-          <caret line="13" column="53" lean-forward="true" selection-start-line="13" selection-start-column="53" selection-end-line="13" selection-end-column="53" />
+          <caret line="13" column="53" selection-start-line="13" selection-start-column="53" selection-end-line="13" selection-end-column="53" />
           <folding>
             <marker date="1606750554178" expanded="true" signature="6:134" ph="..." />
             <marker date="1606750554178" expanded="true" signature="165:189" ph="{...}" />
@@ -2281,10 +1217,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Spawner.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-464">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <marker date="1606744191852" expanded="true" signature="6:165" ph="..." />
+            <marker date="1606744191852" expanded="true" signature="244:2218" ph="{...}" />
+            <marker date="1606744191852" expanded="true" signature="251:520" ph="Set by unity" />
+            <marker date="1606744191852" expanded="true" signature="824:904" ph="{...}" />
+            <marker date="1606744191852" expanded="true" signature="934:999" ph="{...}" />
+            <marker date="1606744191852" expanded="true" signature="1025:1062" ph="{...}" />
+            <marker date="1606744191852" expanded="true" signature="1091:1152" ph="{...}" />
+            <marker date="1606744191852" expanded="true" signature="1182:1243" ph="{...}" />
+            <marker date="1606744191852" expanded="true" signature="1277:1368" ph="{...}" />
+            <marker date="1606744191852" expanded="true" signature="1405:1453" ph="{...}" />
+            <marker date="1606744191852" expanded="true" signature="1484:1732" ph="{...}" />
+            <marker date="1606744191852" expanded="true" signature="1783:2216" ph="{...}" />
+            <marker date="1606744191852" expanded="true" signature="1826:2182" ph="{...}" />
+            <marker date="1606744191852" expanded="true" signature="2114:2172" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/TripleShot.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="71">
+          <caret line="56" column="38" selection-start-line="56" selection-start-column="38" selection-end-line="56" selection-end-column="38" />
+          <folding>
+            <marker date="1606749750446" expanded="true" signature="6:92" ph="..." />
+            <marker date="1606749750446" expanded="true" signature="133:1849" ph="{...}" />
+            <marker date="1606749750446" expanded="true" signature="310:514" ph="{...}" />
+            <marker date="1606749750446" expanded="true" signature="413:508" ph="{...}" />
+            <marker date="1606749750446" expanded="true" signature="516:588" ph="/* private void Start() ... */" />
+            <marker date="1606749750446" expanded="true" signature="617:989" ph="{...}" />
+            <marker date="1606749750446" expanded="true" signature="701:983" ph="{...}" />
+            <marker date="1606749750446" expanded="true" signature="1019:1206" ph="{...}" />
+            <marker date="1606749750446" expanded="true" signature="1064:1200" ph="{...}" />
+            <marker date="1606749750446" expanded="true" signature="1243:1666" ph="{...}" />
+            <marker date="1606749750446" expanded="true" signature="1324:1660" ph="{...}" />
+            <marker date="1606749750446" expanded="true" signature="1347:1599" ph="/* Deactivating the parent also deactivates children. ... */" />
+            <marker date="1606749750446" expanded="true" signature="1713:1842" ph="{...}" />
+            <marker date="1606749750446" expanded="true" signature="1893:2649" ph="{...}" />
+            <marker date="1606749750446" expanded="true" signature="1966:2077" ph="{...}" />
+            <marker date="1606749750446" expanded="true" signature="2115:2188" ph="{...}" />
+            <marker date="1606749750446" expanded="true" signature="2259:2647" ph="{...}" />
+            <marker date="1606749750446" expanded="true" signature="2370:2469" ph="{...}" />
+            <marker date="1606749750446" expanded="true" signature="2503:2554" ph="{...}" />
+            <marker date="1606749750446" expanded="true" signature="2588:2640" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Player.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-240">
-          <caret line="239" column="26" selection-start-line="239" selection-start-column="26" selection-end-line="239" selection-end-column="26" />
+        <state relative-caret-position="-105">
+          <caret line="246" selection-start-line="246" selection-end-line="246" />
           <folding>
             <marker date="1606751228981" expanded="true" signature="6:192" ph="..." />
             <marker date="1606751228981" expanded="true" signature="236:299" ph="{...}" />

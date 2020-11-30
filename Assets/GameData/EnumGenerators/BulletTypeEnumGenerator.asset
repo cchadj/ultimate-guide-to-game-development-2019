@@ -10,10 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 913a46f31228bb34aa6f1d52da5b732e, type: 3}
-  m_Name: PowerupEnumGenerator
+  m_Name: BulletTypeEnumGenerator
   m_EditorClassIdentifier: 
-  _sourceFolderPath: Assets/GameData/PowerupType
-  _enumName: PowerupType
+  _sourceFolderPath: Assets/GameData/BulletType
+  _enumName: BulletType
   _enumEntries:
-  - {fileID: 11400000, guid: aee178f83ea5d1e4e9cfe0efff64772b, type: 2}
-  - {fileID: 11400000, guid: 2b5fde247d5c86749b9cbabf80bb4430, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 5661ddf82b3bca943a8ce3cdf1d905eb, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
