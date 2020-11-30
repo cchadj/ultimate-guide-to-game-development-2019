@@ -20,6 +20,9 @@
      [SerializeField] private List<ScriptableObject> _enumEntries;
 
      private ObservableCollection<ScriptableObject> _enumEntriesObservable;
+
+     private const string DefaultTargetFolderPath = "Assets/Scripts/Enums/";
+     
      private void OnEnable()
      {
          if (_enumName == "")
@@ -29,8 +32,9 @@
 
          if (string.IsNullOrEmpty(_targetFolderPath))
          {
-             _targetFolderPath = "Assets/Scripts/Enums/";
+             _targetFolderPath = DefaultTargetFolderPath;
          }
+         
 //         _enumEntriesObservable = new ObservableCollection<ScriptableObject>(_enumEntries);
 //         _enumEntriesObservable.CollectionChanged += EnumEntriesChanged;
          
@@ -67,7 +71,7 @@
      }
  
      [ContextMenu("GenerateEnum")]
-     internal string GenerateEnum()
+     public string GenerateEnum()
      {
          //The folder Scripts/Enums/ is expected to exist
          var filePathAndName =  _targetFolderPath + _enumName + ".cs";

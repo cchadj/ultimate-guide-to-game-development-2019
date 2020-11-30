@@ -9,7 +9,7 @@ public class PlayerStateScriptable : ScriptableObject
     public int PlayerMaxHealth;
 
     [field:SerializeField, Space] public float HealthPoints { get; set; }
-    [field:SerializeField] public int ShieldPoint { get; set; }
+    [field:SerializeField] public int ShieldPoints { get; set; }
 
     // ReSharper disable once UnusedAutoPropertyAccessor.Global
     public bool IsPlayerDead { get; set; }

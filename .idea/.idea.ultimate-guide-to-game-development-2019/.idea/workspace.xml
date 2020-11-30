@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="69190580-24b4-4cdd-98d0-43e0476affa9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DragAndDropPathAttribute.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DragAndDropPathAttribute.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/DragAndDropPathDrawer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/DragAndDropPathDrawer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/EnumGeneratorEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/EnumGeneratorEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/EnumGeneratorScriptable.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/EnumGeneratorScriptable.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/State/PlayerStateScriptable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/State/PlayerStateScriptable.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -62,14 +69,56 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/State/PlayerStateScriptable.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="11" column="60" selection-start-line="11" selection-start-column="60" selection-end-line="11" selection-end-column="60" />
+            <state relative-caret-position="96">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
               <folding>
-                <marker date="1606758580960" expanded="false" signature="6:91" ph="..." />
-                <marker date="1606758580960" expanded="true" signature="194:574" ph="{...}" />
+                <marker date="1606778922521" expanded="false" signature="6:91" ph="..." />
+                <marker date="1606778922521" expanded="true" signature="194:575" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Utility/EnumGenerator/Editor/EnumGeneratorEditor.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="17" selection-start-column="17" selection-end-column="17" />
+              <folding>
+                <marker date="1606655694979" expanded="true" signature="6:37" ph="..." />
+                <marker date="1606655694979" expanded="true" signature="139:749" ph="{...}" />
+                <marker date="1606655694979" expanded="true" signature="311:747" ph="{...}" />
+                <marker date="1606655694979" expanded="true" signature="403:591" ph="{...}" />
+                <marker date="1606655694979" expanded="true" signature="645:741" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Utility/EnumGenerator/EnumGeneratorScriptable.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="213">
+              <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
+              <folding>
+                <marker date="1606779662799" expanded="false" signature="25:203" ph="..." />
+                <marker date="1606779662799" expanded="true" signature="307:3204" ph="{...}" />
+                <marker date="1606779662799" expanded="true" signature="745:1205" ph="{...}" />
+                <marker date="1606779662799" expanded="true" signature="782:874" ph="{...}" />
+                <marker date="1606779662799" expanded="true" signature="929:1009" ph="{...}" />
+                <marker date="1606779662799" expanded="true" signature="1020:1188" ph="/* _enumEntriesObservable = new ObservableCollection&lt;ScriptableObject&gt;(_enumEntries); ... */" />
+                <marker date="1606779662799" expanded="true" signature="1241:1330" ph="{...}" />
+                <marker date="1606779662799" expanded="true" signature="1419:1499" ph="{...}" />
+                <marker date="1606779662799" expanded="true" signature="1628:2099" ph="{...}" />
+                <marker date="1606779662799" expanded="true" signature="1793:2068" ph="{...}" />
+                <marker date="1606779662799" expanded="true" signature="1991:2057" ph="{...}" />
+                <marker date="1606779662799" expanded="true" signature="2170:3080" ph="{...}" />
+                <marker date="1606779662799" expanded="true" signature="2578:3006" ph="{...}" />
+                <marker date="1606779662799" expanded="true" signature="2753:2950" ph="{...}" />
+                <marker date="1606779662799" expanded="true" signature="3149:3201" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -108,15 +157,6 @@
                 <marker date="1606744191852" expanded="true" signature="1826:2182" ph="{...}" />
                 <marker date="1606744191852" expanded="true" signature="2114:2172" ph="{...}" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scenes/game.unity">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2871">
-              <caret line="1029" column="37" selection-start-line="1029" selection-start-column="37" selection-end-line="1029" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -188,21 +228,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/BulletTypeScriptable.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="32">
-              <caret line="3" column="48" selection-start-line="3" selection-start-column="48" selection-end-line="3" selection-end-column="48" />
-              <folding>
-                <marker date="1606749693785" expanded="false" signature="6:37" ph="..." />
-                <marker date="1606749693785" expanded="true" signature="156:365" ph="{...}" />
-                <marker date="1606749693785" expanded="true" signature="264:363" ph="{...}" />
-                <marker date="1606749693785" expanded="true" signature="303:357" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/TripleShot.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="71">
@@ -267,12 +292,13 @@
     <setting file="mock:///Dummy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ObjectPooler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/State/PlayerStateScriptable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utility/EnumGenerator/EnumGeneratorScriptable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BulletTypeScriptable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utility/EnumGenerator/Editor/EnumGeneratorEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Tests/IntegrationTestTester/TestIntegrationTest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BulletDataScriptable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Editor/EnumGeneratorEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Runtime/Kernels/MonoKernel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Tests/Misc/TestZenAutoInjecter/TestZenAutoInjecter.cs" root0="FORCE_HIGHLIGHTING" />
@@ -303,14 +329,11 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BD45CFD5-E8C2-437D-A9B5-CC29B19F336F/b1/2e42a110/AssetDatabase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Spawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/IBullet.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DragAndDropPathAttribute.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/State/GameStateScriptable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/SceneTests/TestDestructionOrder/FooMonoBehaviourUnderSceneContext2.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BD45CFD5-E8C2-437D-A9B5-CC29B19F336F/8d/5f80c580/DragAndDrop.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Factories/Pooling/MonoMemoryPool.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Editor/DragAndDropPathDrawer.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Editor/EnumGeneratorScriptable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/IEnumEntry.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/TripleShot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="FORCE_HIGHLIGHTING" />
@@ -375,6 +398,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Powerup.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/State/PlayerStateScriptable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utility/EnumGenerator/EnumGeneratorScriptable.cs" />
       </list>
     </option>
   </component>
@@ -442,12 +466,12 @@
       <workItem from="1606578632522" duration="16847000" />
       <workItem from="1606643178074" duration="23187000" />
       <workItem from="1606670844825" duration="12307000" />
-      <workItem from="1606727831935" duration="17311000" />
+      <workItem from="1606727831935" duration="18172000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92839000" />
+    <option name="totallyTimeSpent" value="93700000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -536,20 +560,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/IOC/StateInstaller.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <marker date="1606595666774" expanded="false" signature="6:93" ph="..." />
-            <marker date="1606595666774" expanded="true" signature="154:756" ph="{...}" />
-            <marker date="1606595666774" expanded="true" signature="330:754" ph="{...}" />
-            <marker date="1606595666774" expanded="true" signature="524:654" ph="/* ScriptableObjects are not Injected in the begining (only monobehaviours in the scene) ... */" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Editor/NewBehaviourScript.cs" />
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Editor/GenerateEnum.cs" />
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Enums/New Generate Enum.cs" />
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Enums/BulletTypeEnumGenerator.cs" />
@@ -1284,11 +1294,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/State/PlayerStateScriptable.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="11" column="60" selection-start-line="11" selection-start-column="60" selection-end-line="11" selection-end-column="60" />
+        <state relative-caret-position="96">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
           <folding>
-            <marker date="1606758580960" expanded="false" signature="6:91" ph="..." />
-            <marker date="1606758580960" expanded="true" signature="194:574" ph="{...}" />
+            <marker date="1606778922521" expanded="false" signature="6:91" ph="..." />
+            <marker date="1606778922521" expanded="true" signature="194:575" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Utility/EnumGenerator/Editor/EnumGeneratorEditor.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="17" selection-start-column="17" selection-end-column="17" />
+          <folding>
+            <marker date="1606655694979" expanded="true" signature="6:37" ph="..." />
+            <marker date="1606655694979" expanded="true" signature="139:749" ph="{...}" />
+            <marker date="1606655694979" expanded="true" signature="311:747" ph="{...}" />
+            <marker date="1606655694979" expanded="true" signature="403:591" ph="{...}" />
+            <marker date="1606655694979" expanded="true" signature="645:741" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Utility/EnumGenerator/EnumGeneratorScriptable.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
+          <folding>
+            <marker date="1606779662799" expanded="false" signature="25:203" ph="..." />
+            <marker date="1606779662799" expanded="true" signature="307:3204" ph="{...}" />
+            <marker date="1606779662799" expanded="true" signature="745:1205" ph="{...}" />
+            <marker date="1606779662799" expanded="true" signature="782:874" ph="{...}" />
+            <marker date="1606779662799" expanded="true" signature="929:1009" ph="{...}" />
+            <marker date="1606779662799" expanded="true" signature="1020:1188" ph="/* _enumEntriesObservable = new ObservableCollection&lt;ScriptableObject&gt;(_enumEntries); ... */" />
+            <marker date="1606779662799" expanded="true" signature="1241:1330" ph="{...}" />
+            <marker date="1606779662799" expanded="true" signature="1419:1499" ph="{...}" />
+            <marker date="1606779662799" expanded="true" signature="1628:2099" ph="{...}" />
+            <marker date="1606779662799" expanded="true" signature="1793:2068" ph="{...}" />
+            <marker date="1606779662799" expanded="true" signature="1991:2057" ph="{...}" />
+            <marker date="1606779662799" expanded="true" signature="2170:3080" ph="{...}" />
+            <marker date="1606779662799" expanded="true" signature="2578:3006" ph="{...}" />
+            <marker date="1606779662799" expanded="true" signature="2753:2950" ph="{...}" />
+            <marker date="1606779662799" expanded="true" signature="3149:3201" ph="{...}" />
           </folding>
         </state>
       </provider>

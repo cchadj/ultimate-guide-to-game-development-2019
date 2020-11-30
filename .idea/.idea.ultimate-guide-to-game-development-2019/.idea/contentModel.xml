@@ -959,12 +959,9 @@
           <e p="BulletDataScriptable.cs" t="Include" />
           <e p="BulletTypeScriptable.cs" t="Include" />
           <e p="Controls.cs" t="Include" />
-          <e p="DragAndDropPathAttribute.cs" t="Include" />
           <e p="Editor" t="Include">
             <e p="DragAndDropEditorWindow.cs" t="Include" />
-            <e p="DragAndDropPathDrawer.cs" t="Include" />
-            <e p="EnumGeneratorEditor.cs" t="Include" />
-            <e p="EnumGeneratorScriptable.cs" t="Include" />
+            <e p="NewBehaviourScript.cs" t="Include" />
           </e>
           <e p="Enemy.cs" t="Include" />
           <e p="EnumEntry.cs" t="Include" />
@@ -986,6 +983,7 @@
           <e p="Player.cs" t="Include" />
           <e p="PoolableMonobehaviour.cs" t="Include" />
           <e p="Powerup.cs" t="Include" />
+          <e p="ReadOnlyAttribute.cs" t="Include" />
           <e p="SceneDataScriptable.cs" t="Include" />
           <e p="ShowTimw.cs" t="Include" />
           <e p="Spawner.cs" t="Include" />
@@ -994,6 +992,20 @@
             <e p="PlayerStateScriptable.cs" t="Include" />
           </e>
           <e p="TripleShot.cs" t="Include" />
+          <e p="Utility" t="Include">
+            <e p="DragAndDropPath" t="Include">
+              <e p="DragAndDropPathAttribute.cs" t="Include" />
+              <e p="Editor" t="Include">
+                <e p="DragAndDropPathDrawer.cs" t="Include" />
+              </e>
+            </e>
+            <e p="EnumGenerator" t="Include">
+              <e p="Editor" t="Include">
+                <e p="EnumGeneratorEditor.cs" t="Include" />
+              </e>
+              <e p="EnumGeneratorScriptable.cs" t="Include" />
+            </e>
+          </e>
         </e>
       </e>
       <e p="Library" t="ExcludeRecursive" />
