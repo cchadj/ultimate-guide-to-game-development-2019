@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IEnumEntry
 {
-    string EnumEntryName { get; set; }
+    string EnumEntryName { get; }
 }

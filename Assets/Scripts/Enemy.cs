@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
@@ -10,33 +11,25 @@ public class Enemy : MonoBehaviour, IDestructible
     [SerializeField] private float _speed = .8f;
 
     [SerializeField, Space] private SceneDataScriptable _sceneData;
-    
-    private Vector4 bounds = new Vector4(5.5f, 8.3f, -3.4f, -8.3f);
         
     private OutOfBoundsDirection OutOfBounds
     {
         get
         {
             var direction = OutOfBoundsDirection.None;
-            if (_transform.position.y - _transform.localScale.y> bounds[0])
+            if (_transform.position.y - _transform.localScale.y> _sceneData.TopBound)
                 direction |= OutOfBoundsDirection.Up;
-            if (_transform.position.x - _transform.localScale.x> bounds[1])
+            if (_transform.position.x - _transform.localScale.x> _sceneData.RightBound)
                 direction |= OutOfBoundsDirection.Right;
-            if (_transform.position.y + _transform.localScale.y < bounds[2])
+            if (_transform.position.y + _transform.localScale.y < _sceneData.BottomBound)
                 direction |= OutOfBoundsDirection.Down;
-            if (_transform.position.x + _transform.localScale.x < bounds[3])
+            if (_transform.position.x + _transform.localScale.x < _sceneData.LeftBound)
                 direction |= OutOfBoundsDirection.Left;
             return direction;
         }
     }
 
-    [Inject]
-    private void Construction(SceneDataScriptable sceneData)
-    {
-        _sceneData = sceneData;
-    }
-    
-    void Awake()
+    private void Awake()
     {
         _transform = transform;
     }
@@ -78,25 +71,31 @@ public class Enemy : MonoBehaviour, IDestructible
         var destructible = other.GetComponent<IDestructible>();
         destructible?.Destroy();
 
-        var player = other.GetComponent<Player>();
-        if (player)
-        {
-            Destroy();
-        }
-        
         var harmable = other.GetComponent<IHarmable>();
         harmable?.Damage();
         
-        var bullet = other.GetComponent<IBullet>();
-        if (bullet?.BulletType.name == "LaserBullet")
-        {
+        var player = other.GetComponent<Player>();
+        if (player)
             Destroy();
-        }
         
+        var bullet = other.GetComponent<IBullet>();
+        if (bullet == null)
+           return;
+        
+        switch (bullet.BulletType)
+        {
+            case BulletType.Laser:
+                Destroy();
+                break;
+            case BulletType.LaserTripleShot:
+                Destroy();
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         CalculateMovement();
     }

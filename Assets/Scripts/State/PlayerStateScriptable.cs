@@ -8,8 +8,6 @@ public class PlayerStateScriptable : ScriptableObject
 {
     public int PlayerMaxHealth;
 
-    private Player _player;
-    
     [field:SerializeField, Space] public float HealthPoints { get; set; }
 
     // ReSharper disable once UnusedAutoPropertyAccessor.Global

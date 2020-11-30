@@ -22,13 +22,15 @@ public interface IHarmable
     void Damage();
 }
 
-[RequireComponent(typeof(ObjectPooler)), DisallowMultipleComponent]
+[DisallowMultipleComponent]
 public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
 {
     #region SerialisedFields
     [SerializeField] private Controls _controls;
     
-    [SerializeField]private GameObject _laserPrefab;
+    [SerializeField] private ObjectPooler _laserPooler;
+    
+    [SerializeField] private ObjectPooler _tripleShotLaserPooler;
     
     [SerializeField] private float _movementSpeed;
     
@@ -38,14 +40,19 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
     
     [SerializeField] private PlayerStateScriptable _playerState;
     
+    [SerializeField] private BulletType _currentBulletType;
     #endregion SerialisedFields
 
     #region GameObject Components
+    
     private Transform _transform;
     
-    private ObjectPooler _laserPooler;
     #endregion GameObject Components
 
+    private const BulletType DefaultBulletType = BulletType.Laser;
+    
+    private Dictionary<BulletType, ObjectPooler> _bulletPoolers;
+    
     private const float LaserSpawnOffset = .8f;
     
     private readonly Vector3 _direction2D = new Vector3(1, 1, 0);
@@ -54,7 +61,7 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
     private Vector2 _inputDirection = Vector2.zero;
 
     private float _timeSinceLastLaser;
-
+    
     private OutOfBoundsDirection OutOfBounds
     {
         get
@@ -78,13 +85,26 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
         _playerState = playerState; 
         _sceneData = sceneData;
     }
-    
+
+    private GameObject _gameObject;
     private void Awake()
     {
-        _laserPooler = GetComponent<ObjectPooler>();
+        _gameObject = gameObject;
+        if (_gameObject == null)
+        {
+            print("_gameObject is null");
+            _gameObject = (GameObject)FindObjectOfType(typeof(GameObject));
+        }
+
+        _bulletPoolers = new Dictionary<BulletType, ObjectPooler>
+        {
+            [BulletType.Laser] = _laserPooler,
+            [BulletType.LaserTripleShot] = _tripleShotLaserPooler
+        };
+
         _transform = GetComponent<Transform>();
         
-        _playerState.PlayerDied += DestroySelf;
+        _playerState.PlayerDied += Destroy;
         _playerState.HealthPoints = _playerState.PlayerMaxHealth;
         
         _controls = new Controls();
@@ -99,6 +119,7 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
 
     private void OnDisable()
     {
+        _playerState.PlayerDied -= Destroy;
         _controls.Disable();
     }
 
@@ -157,13 +178,15 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
     
     private void FireBullet()
     {
-        var canFire = (_timeSinceLastLaser >= _laserCooldown) && !_laserPooler.IsEmpty;
+        var bulletPooler = _bulletPoolers[_currentBulletType];
+        var canFire = (_timeSinceLastLaser >= _laserCooldown) && !bulletPooler.IsEmpty;
         
         if (canFire)
         {
-            var laserBullet = _laserPooler.NextPoolableObject;
-            laserBullet.transform.SetPositionAndRotation(_transform.position + Vector3.up * LaserSpawnOffset, Quaternion.identity);
-            laserBullet.gameObject.SetActive(true);
+            
+            var bullet = bulletPooler.NextPoolableObject;
+            bullet.transform.SetPositionAndRotation(_transform.position + Vector3.up * LaserSpawnOffset, Quaternion.identity);
+            bullet.gameObject.SetActive(true);
             
             _timeSinceLastLaser = .0f;
         }
@@ -187,7 +210,8 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
     }
     #endregion Input Handling
 
-    public void DestroySelf()
+    [ContextMenu("Destroy")]
+    public void Destroy()
     {
         gameObject.SetActive(false);
     }
@@ -203,4 +227,50 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
             _playerState.PlayerDied?.Invoke();
         }
     }
+
+    public void Collect(GameObject o)
+    {    
+        o.GetComponent<ICollectible>()?.Collect();
+
+        var powerUp = o.GetComponent <Powerup>();
+        if (!powerUp) return;
+        
+        switch (powerUp.PowerupType)
+        {
+            case PowerupType.Speedboost:
+                Speedup(2, 3); 
+                break;
+            case PowerupType.TripleShot:
+                SetBulletType(BulletType.LaserTripleShot, 5);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+    }
+
+    private void SetBulletType(BulletType bulletType, float seconds)
+    {
+       StartCoroutine(SetBulletTypeCoroutine(bulletType, seconds));
+    }
+
+    private void Speedup(float multiplier, float seconds)
+    {
+        StartCoroutine(SpeedupCoroutine(multiplier, seconds));
+    }
+
+    private IEnumerator SpeedupCoroutine(float multiplier, float seconds)
+    {
+        var initialSpeed = _movementSpeed;
+        _movementSpeed *= multiplier;
+        yield return new WaitForSeconds(seconds);
+        _movementSpeed = initialSpeed;
+    }
+    
+    private IEnumerator SetBulletTypeCoroutine(BulletType bulletType, float seconds)
+    {
+        _currentBulletType = bulletType;
+        yield return new WaitForSeconds(seconds);
+        _currentBulletType = DefaultBulletType;
+    }
+    
 }

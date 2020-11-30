@@ -4,5 +4,6 @@ using UnityEngine;
 
 public interface IBullet
 {
-    BulletTypeScriptable BulletType { get; set; }
+    BulletTypeScriptable BulletTypeData { get; }
+    BulletType BulletType { get; }
 }
