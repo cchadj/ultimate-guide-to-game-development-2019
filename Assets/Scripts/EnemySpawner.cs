@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
+[RequireComponent(typeof(ObjectPooler))]
 public class EnemySpawner : MonoBehaviour
 {
     #region Set by unity

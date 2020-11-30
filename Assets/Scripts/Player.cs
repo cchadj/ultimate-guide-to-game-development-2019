@@ -49,6 +49,8 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
     
     #endregion GameObject Components
 
+    private const BulletType DefaultBulletType = BulletType.Laser;
+    
     private Dictionary<BulletType, ObjectPooler> _bulletPoolers;
     
     private const float LaserSpawnOffset = .8f;
@@ -59,7 +61,6 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
     private Vector2 _inputDirection = Vector2.zero;
 
     private float _timeSinceLastLaser;
-
     
     private OutOfBoundsDirection OutOfBounds
     {
@@ -177,11 +178,11 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
     
     private void FireBullet()
     {
-        var canFire = (_timeSinceLastLaser >= _laserCooldown) && !_laserPooler.IsEmpty;
+        var bulletPooler = _bulletPoolers[_currentBulletType];
+        var canFire = (_timeSinceLastLaser >= _laserCooldown) && !bulletPooler.IsEmpty;
         
         if (canFire)
         {
-            var bulletPooler = _bulletPoolers[_currentBulletType];
             
             var bullet = bulletPooler.NextPoolableObject;
             bullet.transform.SetPositionAndRotation(_transform.position + Vector3.up * LaserSpawnOffset, Quaternion.identity);
@@ -209,18 +210,14 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
     }
     #endregion Input Handling
 
-    private int _timesEnteredOther = 0;
     [ContextMenu("Destroy")]
     public void Destroy()
     {
-        Debug.Log("Times entered other: " + _timesEnteredOther++);
-        Debug.Log(_gameObject);
+        gameObject.SetActive(false);
     }
 
-    private int _timesEntered = 0;
     public void Damage()
     {
-        Debug.Log("Times entered here: " + _timesEntered++);
         _playerState.PlayerTookDamage?.Invoke(); 
         _playerState.HealthPoints--;
 
@@ -230,4 +227,28 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
             _playerState.PlayerDied?.Invoke();
         }
     }
+
+    public void Collect(GameObject o)
+    {    
+        o.GetComponent<ICollectible>()?.Collect();
+
+        var powerUp = o.GetComponent <Powerup>();
+        if (powerUp)
+        {
+            SetBulletType(BulletType.LaserTripleShot, 5);
+        }
+    }
+
+    private void SetBulletType(BulletType bulletType, float seconds)
+    {
+       StartCoroutine(SetBulletTypeCoroutine(bulletType, seconds));
+    }
+
+    private IEnumerator SetBulletTypeCoroutine(BulletType bulletType, float seconds)
+    {
+        _currentBulletType = bulletType;
+        yield return new WaitForSeconds(seconds);
+        _currentBulletType = DefaultBulletType;
+    }
+    
 }

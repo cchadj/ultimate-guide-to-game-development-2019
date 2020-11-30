@@ -89,13 +89,11 @@ public class ObjectPooler : MonoBehaviour
         _activeObjectsPool.Enqueue(pooledObject);
     }
 
-
-    private bool _lock;
     private void MakeObjectAvailable(PoolableMonobehaviour pooledObject)
     {
 //        pooledObject.transform.SetParent(_transform);
 //        complains when changing parent the same frame when being deactivated
-        pooledObject.gameObject.SetActive(false);
+//        pooledObject.gameObject.SetActive(false);
         _availableObjectsPool.Enqueue(pooledObject);
     }
 }
