@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerMaxHealth: 1
   <HealthPoints>k__BackingField: 1
+  <ShieldPoints>k__BackingField: 0
+  PlayerDiedUnityEvent: {fileID: 11400000, guid: 54df74f14e7f085458d0fd41649c8f28, type: 2}
+  PlayerTookDamageUnityEvent: {fileID: 11400000, guid: 3551100fdd2236045a35061ad21623c6, type: 2}

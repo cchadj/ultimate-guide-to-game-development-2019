@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem.Interactions;
 using Zenject;
 
@@ -18,4 +19,31 @@ public class PlayerStateScriptable : ScriptableObject
     public Action PlayerDied { get; set; }
     
     public Action PlayerTookDamage { get; set; }
+
+    public GameEvent PlayerDiedUnityEvent;
+    
+    public GameEvent PlayerTookDamageUnityEvent;
+    
+
+    private void OnEnable()
+    {
+        PlayerDied += RaisePlayerDied;
+        PlayerTookDamage += RaisePlayerTookDamage;
+    }
+    
+    private void OnDisable()
+    {
+        PlayerDied -= RaisePlayerDied;
+        PlayerTookDamage -= RaisePlayerTookDamage;
+    }
+
+    private void RaisePlayerDied()
+    {
+        PlayerDiedUnityEvent.Raise();
+    }
+
+    public void RaisePlayerTookDamage()
+    {
+        PlayerTookDamageUnityEvent.Raise();
+    }
 }

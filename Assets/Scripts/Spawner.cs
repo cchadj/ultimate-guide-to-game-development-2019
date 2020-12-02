@@ -4,24 +4,25 @@ using System.Collections.Generic;
 using GD.MinMaxSlider;
 using UnityEngine;
 using Zenject;
+using Object = System.Object;
 using Random = UnityEngine.Random;
 
-[RequireComponent(typeof(ObjectPooler))]
 public class Spawner : MonoBehaviour
 {
     #region Set by unity
 
+    [SerializeField] private List<ObjectPooler> _objectPoolers;
+    
     [SerializeField, MinMaxSlider(0.1f, 40)]
     private Vector2 _spawnEverySeconds;
-    
-    [SerializeField, Space] private GameStateScriptable _gameState;
+
+    [SerializeField, Space(7)] private GameStateScriptable _gameState;
     
     [SerializeField] private PlayerStateScriptable _playerState;
     
     #endregion
 
     private const float DefaultSpawnEverySeconds = 2f;
-    private ObjectPooler _enemyPooler;
     private bool _shouldStopSpawning;
 
     private const float MinXBound = -8.3f, MaxXBound = 8.3f;
@@ -35,7 +36,18 @@ public class Spawner : MonoBehaviour
     
     private void Awake()
     {
-        _enemyPooler = GetComponent<ObjectPooler>();
+        var areObjectPoolersProvided = _objectPoolers.Count > 0;
+        if (areObjectPoolersProvided) return;
+        
+        var pooler = GetComponent<ObjectPooler>();
+        var noObjectPoolerComponent = pooler == null;
+        
+        if (noObjectPoolerComponent)
+        {
+            throw new Exception("No object ObjectPoolers provided  and no ObjectPoolers components in this object.");
+        }
+        _objectPoolers.Add(pooler);
+
     }
 
     private void Start()
@@ -59,18 +71,18 @@ public class Spawner : MonoBehaviour
         StartCoroutine(SpawnCoroutine());
     }
     
-    private void StopSpawning()
+    public void StopSpawning()
     {
         _shouldStopSpawning = true;
     }
 
-    private void SpawnEnemy()
+    private static void Spawn(ObjectPooler pooler)
     {
-        var enemy = _enemyPooler.NextPoolableObject;
-        var enemyTransform = enemy.transform;
+        var pooledObject = pooler.NextPoolableObject;
+        var pooledObjectTransform = pooledObject.transform;
         
-        enemy.Activate();
-        enemyTransform.position = new Vector3( Mathf.Lerp(MinXBound, MaxXBound, Random.value), 6, 0);
+        pooledObject.Activate();
+        pooledObjectTransform.position = new Vector3( Mathf.Lerp(MinXBound, MaxXBound, Random.value), 6, 0);
     }
     
     
@@ -78,14 +90,16 @@ public class Spawner : MonoBehaviour
     {
         while (!_shouldStopSpawning)
         {
+            var randomPooler = _objectPoolers[Random.Range(0, _objectPoolers.Count-1)];
+            print(randomPooler.name);
             var seconds = Mathf.Lerp(_spawnEverySeconds[0], _spawnEverySeconds[1], Random.value);
             yield return new WaitForSeconds(seconds);
             
-            var canSpawn = !_enemyPooler.IsEmpty && !_shouldStopSpawning;
+            var canSpawn = !randomPooler.IsEmpty && !_shouldStopSpawning;
             
             if (canSpawn)
             {
-                SpawnEnemy();
+                Spawn(randomPooler);
             }
         }
 
