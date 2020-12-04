@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Reflection;
 using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;
@@ -14,27 +11,28 @@ public class MyEventsTester : MonoBehaviour
     
     private void OnEnable()
     {
-       _performanceEvent?.AddListener(this, TestNoOp);
+       _performanceEvent.AddListener(this, TestNoOp);
        _playerState.PlayerTookDamageEvent.AddListener(this, TestEvent);
     }
     
     private void OnDisable()
     {
-       _performanceEvent?.RemoveListener(this, TestNoOp);
+       _performanceEvent.RemoveListener(this, TestNoOp);
        _playerState.PlayerTookDamageEvent.RemoveListener(this, TestEvent);
     }
+
     
     public void RaisePerformanceEvent()
     {
       _performanceEvent.Raise(); 
     }
-
+    
     public void TestNoOp()
     {
        var a = 5;
        Console.WriteLine("This is an output" + a + Random.value);
     }
-    
+
     public void Test()
     {
        Debug.Log("Test() function called " + gameObject.name );

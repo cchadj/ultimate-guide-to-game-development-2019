@@ -157,7 +157,12 @@ MonoBehaviour:
   _listenerGameObject: {fileID: 90815073}
   _selectedEventIndex: 1
   _selectedComponentIndex: 2
-  _selectedMethodIndices: 00000000
+  <SelectedComponentName>k__BackingField: MyEventsTester
+  _selectedMethodIndices: 010000000000000000000000
+  _selectedMethodNames:
+  - TestNoOp
+  - RaisePerformanceEvent
+  - RaisePerformanceEvent
 --- !u!4 &90815075
 Transform:
   m_ObjectHideFlags: 0
@@ -232,7 +237,9 @@ MonoBehaviour:
   _listenerGameObject: {fileID: 186085273}
   _selectedEventIndex: 0
   _selectedComponentIndex: 2
-  _selectedMethodIndices: 00000000
+  <SelectedComponentName>k__BackingField: MyEventsTester
+  _selectedMethodIndices: 
+  _selectedMethodNames: []
 --- !u!4 &186085276
 Transform:
   m_ObjectHideFlags: 0
@@ -293,8 +300,11 @@ MonoBehaviour:
   _eventObject: {fileID: 11400000, guid: 1cfd0d82d94d8a1408abe7b2a5ebf192, type: 2}
   _listenerGameObject: {fileID: 225820357}
   _selectedEventIndex: 1
-  _selectedComponentIndex: 2
+  _selectedComponentIndex: 0
+  <SelectedComponentName>k__BackingField: Transform
   _selectedMethodIndices: 00000000
+  _selectedMethodNames:
+  - DetachChildren
 --- !u!4 &225820360
 Transform:
   m_ObjectHideFlags: 0
@@ -444,7 +454,12 @@ MonoBehaviour:
   _listenerGameObject: {fileID: 1132263316}
   _selectedEventIndex: 0
   _selectedComponentIndex: 2
-  _selectedMethodIndices: 00000000
+  <SelectedComponentName>k__BackingField: MyEventsTester
+  _selectedMethodIndices: 000000000200000004000000
+  _selectedMethodNames:
+  - FirstFunction
+  - ThirdFunction
+  - FourthFunction
 --- !u!4 &1132263319
 Transform:
   m_ObjectHideFlags: 0
@@ -468,7 +483,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1693947881}
-  - component: {fileID: 1693947880}
   - component: {fileID: 1693947879}
   - component: {fileID: 1693947878}
   m_Layer: 0
@@ -506,25 +520,10 @@ MonoBehaviour:
   _eventObject: {fileID: 11400000, guid: 597bc65ef504f9942a58133c956091ae, type: 2}
   _listenerGameObject: {fileID: 1693947877}
   _selectedEventIndex: 0
-  _selectedComponentIndex: 3
-  _selectedMethodIndices: 00000000
---- !u!114 &1693947880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1693947877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb9be0d4a2261454a843ec69a4a7db0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _eventObject: {fileID: 0}
-  _listenerGameObject: {fileID: 0}
-  _selectedEventIndex: 0
-  _selectedComponentIndex: 0
-  _selectedMethodIndices: 
+  _selectedComponentIndex: 2
+  <SelectedComponentName>k__BackingField: 
+  _selectedMethodIndices: 01000000
+  _selectedMethodNames: []
 --- !u!4 &1693947881
 Transform:
   m_ObjectHideFlags: 0
@@ -547,6 +546,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+  - component: {fileID: 1749939931}
   - component: {fileID: 1749939930}
   - component: {fileID: 1749939929}
   - component: {fileID: 1749939928}
@@ -566,10 +566,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1749939927}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b09a4dfb88fd48a4ab2f692838ab4be5, type: 3}
+  m_Script: {fileID: 11500000, guid: dfc336f10b83bd74eaded16a658275c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _performanceEvent: {fileID: 0}
 --- !u!114 &1749939929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -585,10 +584,27 @@ MonoBehaviour:
   _eventObject: {fileID: 11400000, guid: 54df74f14e7f085458d0fd41649c8f28, type: 2}
   _listenerGameObject: {fileID: 1749939927}
   _selectedEventIndex: 0
-  _selectedComponentIndex: 2
-  _selectedMethodIndices: 00000000
---- !u!4 &1749939930
-Transform:
+  _selectedComponentIndex: 1
+  <SelectedComponentName>k__BackingField: MyEventsTester
+  _selectedMethodIndices: 0300000006000000
+  _selectedMethodNames:
+  - Test1
+  - Test4
+--- !u!114 &1749939930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749939927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b09a4dfb88fd48a4ab2f692838ab4be5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _performanceEvent: {fileID: 0}
+--- !u!224 &1749939931
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -601,6 +617,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1798281253
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,8 +668,11 @@ MonoBehaviour:
   _eventObject: {fileID: 11400000, guid: a4b167b3643249043a9e5c4e977549f6, type: 2}
   _listenerGameObject: {fileID: 1798281253}
   _selectedEventIndex: 0
-  _selectedComponentIndex: 2
+  _selectedComponentIndex: 0
+  <SelectedComponentName>k__BackingField: Transform
   _selectedMethodIndices: 00000000
+  _selectedMethodNames:
+  - DetachChildren
 --- !u!4 &1798281256
 Transform:
   m_ObjectHideFlags: 0
@@ -777,7 +801,10 @@ MonoBehaviour:
   _listenerGameObject: {fileID: 1910244543}
   _selectedEventIndex: 2
   _selectedComponentIndex: 2
+  <SelectedComponentName>k__BackingField: MyEventsTester
   _selectedMethodIndices: 00000000
+  _selectedMethodNames:
+  - RaisePerformanceEvent
 --- !u!4 &1910244546
 Transform:
   m_ObjectHideFlags: 0
