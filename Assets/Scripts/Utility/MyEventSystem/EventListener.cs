@@ -72,6 +72,15 @@ public class EventListener : MonoBehaviour
     
     // Listener component information
     private Component[] _components;
+    private Component[] Components
+    {
+        get {
+            if (_components == null) 
+                CacheListenerComponents();
+            return _components; 
+        }
+        set => _components = value;
+    }
 
     private List<string> _componentNames;
     
@@ -118,14 +127,14 @@ public class EventListener : MonoBehaviour
 
             CacheEventObjectEvents();
             
-            var noEventsFound = _eventInfos.Count == 0; 
+            var areNoEventsFound = _eventInfos.Count == 0; 
             
-            return noEventsFound ? null : _eventInfos[_selectedEventIndex];
+            return areNoEventsFound ? null : _eventInfos[_selectedEventIndex];
         }
     }
     private object SelectedEventOwner => _eventOwners?[_selectedEventIndex];
 
-    private Component SelectedComponent => _components?[_selectedComponentIndex];
+    private Component SelectedComponent => Components?[_selectedComponentIndex];
 
     private List<Action> _selectedMethods;
     private IEnumerable<Action> SelectedComponentMethods
@@ -135,13 +144,15 @@ public class EventListener : MonoBehaviour
             var isSelectedMethodsNotInitialised = _selectedMethods == null || _selectedMethods.Count == 0;
             
             if (!isSelectedMethodsNotInitialised) return _selectedMethods;
-            Debug.Log("How often am I really called?");
             
             _selectedMethods = new List<Action>(); 
             foreach (var i in _selectedMethodIndices)
             {
                 var methodInfo = _methodInfos[i];
-                var del = (Action)Delegate.CreateDelegate(typeof(Action), SelectedComponent, methodInfo);
+                var methodsInstance = SelectedComponent;
+                if(methodInfo.IsStatic)
+                    methodsInstance = null;
+                var del = (Action)Delegate.CreateDelegate(typeof(Action), methodsInstance, methodInfo);
                 _selectedMethods.Add(del);
             }
 
@@ -170,17 +181,31 @@ public class EventListener : MonoBehaviour
     [ContextMenu("PerformanceTest")]
     private void PerformanceTest()
     {
-
+        const int repeats = 50000;
+        print($"Performing test for {repeats} times");
+        print("Call through delegates");
         var sw = new Stopwatch();
-
         sw.Start();
-        for (var i = 0; i <= 10000; i++)
-        {
+        for (var i = 0; i <= repeats; i++)
             CallSelectedMethods(null, null); 
-        }
-
         sw.Stop();
+        Debug.Log("Elapsed={0}" + sw.Elapsed);
 
+        print("Direct call.");
+        var eventTester = GetComponent <MyEventsTester>();
+        sw = new Stopwatch();
+        sw.Start();
+        for (var i = 0; i <= repeats; i++)
+            eventTester.TestNoOp();
+        sw.Stop();
+        Debug.Log("Elapsed={0}" + sw.Elapsed);
+        
+        print("Call through raise event.");
+        sw = new Stopwatch();
+        sw.Start();
+        for (var i = 0; i <= repeats; i++)
+            eventTester.RaisePerformanceEvent();
+        sw.Stop();
         Debug.Log("Elapsed={0}" + sw.Elapsed);
     }
     
@@ -193,6 +218,7 @@ public class EventListener : MonoBehaviour
     private void RaiseEvent()
     {
        // This function is (relatively) slow because it uses reflection on runtime but is only used for testing.
+       // Should not be used for testing!
        var eventDelegate = (MulticastDelegate)SelectedEventOwner.GetType().GetField(SelectedEvent.Name,
            BindingFlags.Instance | BindingFlags.NonPublic)?.GetValue(SelectedEventOwner);
        
@@ -210,10 +236,10 @@ public class EventListener : MonoBehaviour
         _selectedMethods = null;
         if (_listenerGameObject == null) return;
         
-        _components = _listenerGameObject.GetComponents<Component>();
+        Components = _listenerGameObject.GetComponents<Component>();
 
         _componentNames = new List<string>();
-        foreach (var component in _components)
+        foreach (var component in Components)
         {
             _componentNames.Add(component.GetType().Name);
         }
@@ -256,7 +282,7 @@ public class EventListener : MonoBehaviour
         _methodInfos = new List<MethodInfo>();
         _selectedMethods = null;
         
-        var component = _components[_selectedComponentIndex];
+        var component = Components[_selectedComponentIndex];
 
         var typeMethods = component.GetType()
             .GetMethods(BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public &
