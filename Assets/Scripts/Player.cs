@@ -104,7 +104,7 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
 
         _transform = GetComponent<Transform>();
         
-        _playerState.PlayerDied += Destroy;
+        _playerState.PlayerDied += this.Destroy;
         _playerState.HealthPoints = _playerState.PlayerMaxHealth;
         
         _controls = new Controls();
@@ -119,7 +119,7 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
 
     private void OnDisable()
     {
-        _playerState.PlayerDied -= Destroy;
+        _playerState.PlayerDied -= this.Destroy;
         _controls.Disable();
     }
 
@@ -210,15 +210,14 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
     }
     #endregion Input Handling
 
-    [ContextMenu("Destroy")]
-    public void Destroy()
+    public void Destroy(object sender, EventArgs eventArgs)
     {
         gameObject.SetActive(false);
     }
 
     public void Damage()
     {
-        _playerState.PlayerTookDamage?.Invoke();
+        _playerState.OnPlayerTookDamage();
 
         if (_playerState.ShieldPoints > 0)
             _playerState.ShieldPoints--;
@@ -228,7 +227,7 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
         if (_playerState.HealthPoints <= 0)
         {
             _playerState.IsPlayerDead = true;
-            _playerState.PlayerDied?.Invoke();
+            _playerState.OnPlayerDied();
         }
     }
 

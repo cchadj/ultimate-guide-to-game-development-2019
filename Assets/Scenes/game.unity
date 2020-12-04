@@ -215,8 +215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectPoolers: []
   _spawnEverySeconds: {x: 2.2223406, y: 2.63}
-  _gameState: {fileID: 0}
-  _playerState: {fileID: 0}
+  _stopSpawning: 0
 --- !u!114 &188306844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,8 +519,7 @@ MonoBehaviour:
   - {fileID: 970017495}
   - {fileID: 1791186833}
   _spawnEverySeconds: {x: 1, y: 3}
-  _gameState: {fileID: 0}
-  _playerState: {fileID: 0}
+  _stopSpawning: 0
 --- !u!114 &614564531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -531,39 +529,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 614564528}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8032a3c313931246bccf4c9704ce779, type: 3}
+  m_Script: {fileID: 11500000, guid: fb9be0d4a2261454a843ec69a4a7db0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventAndResponses:
-  - name: PlayerDied
-    gameEvent: {fileID: 11400000, guid: 54df74f14e7f085458d0fd41649c8f28, type: 2}
-    response:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 614564530}
-          m_TargetAssemblyTypeName: Spawner, Assembly-CSharp
-          m_MethodName: StopSpawning
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    responseForSentString:
-      m_PersistentCalls:
-        m_Calls: []
-    responseForSentInt:
-      m_PersistentCalls:
-        m_Calls: []
-    responseForSentFloat:
-      m_PersistentCalls:
-        m_Calls: []
-    responseForSentBool:
-      m_PersistentCalls:
-        m_Calls: []
+  _eventObject: {fileID: 0}
+  _listenerGameObject: {fileID: 614564528}
+  _selectedEventIndex: 0
+  _selectedComponentIndex: 0
+  _selectedMethodIndices: 
 --- !u!1 &970017493
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,7 +794,6 @@ GameObject:
   - component: {fileID: 1459678767}
   - component: {fileID: 1459678768}
   - component: {fileID: 1459678770}
-  - component: {fileID: 1459678771}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -851,15 +823,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1459678766}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a74197ff639f48a4697e45a03dc10397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _objectPoolers: []
   _spawnEverySeconds: {x: 0.5, y: 3}
-  _gameState: {fileID: 0}
-  _playerState: {fileID: 0}
+  _stopSpawning: 0
 --- !u!4 &1459678769
 Transform:
   m_ObjectHideFlags: 0
@@ -883,51 +854,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1459678766}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15f31a8ab310c8b4dbe8b0c4b1de4c21, type: 3}
+  m_Script: {fileID: 11500000, guid: fb9be0d4a2261454a843ec69a4a7db0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1459678771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1459678766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8032a3c313931246bccf4c9704ce779, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventAndResponses:
-  - name: 
-    gameEvent: {fileID: 11400000, guid: 54df74f14e7f085458d0fd41649c8f28, type: 2}
-    response:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1459678768}
-          m_TargetAssemblyTypeName: Spawner, Assembly-CSharp
-          m_MethodName: StopSpawning
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    responseForSentString:
-      m_PersistentCalls:
-        m_Calls: []
-    responseForSentInt:
-      m_PersistentCalls:
-        m_Calls: []
-    responseForSentFloat:
-      m_PersistentCalls:
-        m_Calls: []
-    responseForSentBool:
-      m_PersistentCalls:
-        m_Calls: []
+  _eventObject: {fileID: 11400000, guid: 1cfd0d82d94d8a1408abe7b2a5ebf192, type: 2}
+  _listenerGameObject: {fileID: 1459678766}
+  _selectedEventIndex: 0
+  _selectedComponentIndex: 2
+  _selectedMethodIndices: 00000000
 --- !u!1 &1465817320
 GameObject:
   m_ObjectHideFlags: 0

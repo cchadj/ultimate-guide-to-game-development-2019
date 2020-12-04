@@ -16,24 +16,14 @@ public class Spawner : MonoBehaviour
     [SerializeField, MinMaxSlider(0.1f, 40)]
     private Vector2 _spawnEverySeconds;
 
-    [SerializeField, Space(7)] private GameStateScriptable _gameState;
-    
-    [SerializeField] private PlayerStateScriptable _playerState;
-    
+    [SerializeField] private bool _stopSpawning;
     #endregion
 
     private const float DefaultSpawnEverySeconds = 2f;
-    private bool _shouldStopSpawning;
+    
 
     private const float MinXBound = -8.3f, MaxXBound = 8.3f;
 
-    [Inject]
-    private void Constructor(GameStateScriptable gameState, PlayerStateScriptable playerState)
-    {
-        _gameState = gameState;
-        _playerState = playerState;
-    }
-    
     private void Awake()
     {
         var areObjectPoolersProvided = _objectPoolers.Count > 0;
@@ -55,25 +45,15 @@ public class Spawner : MonoBehaviour
         StartSpawning();
     }
 
-    private void OnEnable()
-    {
-        _playerState.PlayerDied += StopSpawning;
-    }
-
-    private void OnDisable()
-    {
-        _playerState.PlayerDied -= StopSpawning;
-    }
-
     private void StartSpawning()
     {
-        _shouldStopSpawning = false;
+        _stopSpawning = false;
         StartCoroutine(SpawnCoroutine());
     }
     
     public void StopSpawning()
     {
-        _shouldStopSpawning = true;
+        _stopSpawning = true;
     }
 
     private static void Spawn(ObjectPooler pooler)
@@ -88,14 +68,13 @@ public class Spawner : MonoBehaviour
     
     private IEnumerator SpawnCoroutine()
     {
-        while (!_shouldStopSpawning)
+        while (!_stopSpawning)
         {
             var randomPooler = _objectPoolers[Random.Range(0, _objectPoolers.Count-1)];
-            print(randomPooler.name);
             var seconds = Mathf.Lerp(_spawnEverySeconds[0], _spawnEverySeconds[1], Random.value);
             yield return new WaitForSeconds(seconds);
             
-            var canSpawn = !randomPooler.IsEmpty && !_shouldStopSpawning;
+            var canSpawn = !randomPooler.IsEmpty && !_stopSpawning;
             
             if (canSpawn)
             {
