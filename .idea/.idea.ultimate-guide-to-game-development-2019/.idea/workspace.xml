@@ -2,35 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="69190580-24b4-4cdd-98d0-43e0476affa9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/TestEventSystem.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Utility/MyEventSystem/EventListener.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ultimate-guide-to-game-development-2019/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ultimate-guide-to-game-development-2019/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ultimate-guide-to-game-development-2019/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ultimate-guide-to-game-development-2019/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj.DotSettings" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animation/ShieldPowerup.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/ShieldPowerup.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animation/SpeedboostPowerup.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/SpeedboostPowerup.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animation/TripleShotPowerUp.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/TripleShotPowerUp.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameData/Events/PlayerDied.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameData/Events/PlayerDied.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameData/Events/PlayerFarted.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameData/Events/PlayerFarted.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameData/States/PlayerState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameData/States/PlayerState.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameEvent.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/New folder.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Unity-ScriptableObjects-Game-Events-.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestEventSystem.unity.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Unity-ScriptableObjects-Game-Events-/EventSystem.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Unity-ScriptableObjects-Game-Events-/EventSystem/Editor.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utility/MyEventSystem.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Unity-ScriptableObjects-Game-Events-/EventSystem/Editor/GameEventEditor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Unity-ScriptableObjects-Game-Events-/EventSystem/Editor/GameEventEditor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Unity-ScriptableObjects-Game-Events-/EventSystem/EventListener.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Unity-ScriptableObjects-Game-Events-/EventSystem/EventListener.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utility/MyEventSystem/EventListener.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Unity-ScriptableObjects-Game-Events-/EventSystem/EventRaiser.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Unity-ScriptableObjects-Game-Events-/EventSystem/EventRaiser.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Unity-ScriptableObjects-Game-Events-/EventSystem/GameEvent.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Powerups/ShieldPowerup.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Powerups/ShieldPowerup.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MyEventsTester.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MyEventsTester.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/State/PlayerStateScriptable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/State/PlayerStateScriptable.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -94,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Utility/MyEventSystem/GameEventPropertyDrawer.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="26" column="54" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="54" />
+            <state relative-caret-position="32">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
               <folding>
                 <marker date="1607095703875" expanded="true" signature="6:139" ph="..." />
                 <marker date="1607095703875" expanded="true" signature="207:1950" ph="{...}" />
@@ -224,25 +197,25 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/MyEventsTester.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="66" selection-start-line="66" selection-end-line="66" />
+            <state relative-caret-position="-75">
+              <caret line="57" selection-start-line="57" selection-end-line="57" />
               <folding>
-                <marker date="1607094886948" expanded="false" signature="6:118" ph="..." />
-                <marker date="1607094886948" expanded="true" signature="163:1364" ph="{...}" />
-                <marker date="1607094886948" expanded="true" signature="266:306" ph="{...}" />
-                <marker date="1607094886948" expanded="true" signature="335:375" ph="{...}" />
-                <marker date="1607094886948" expanded="true" signature="404:444" ph="{...}" />
-                <marker date="1607094886948" expanded="true" signature="473:513" ph="{...}" />
-                <marker date="1607094886948" expanded="true" signature="542:582" ph="{...}" />
-                <marker date="1607094886948" expanded="true" signature="654:705" ph="{...}" />
-                <marker date="1607094886948" expanded="true" signature="787:835" ph="{...}" />
-                <marker date="1607094886948" expanded="true" signature="913:960" ph="{...}" />
-                <marker date="1607094886948" expanded="true" signature="1003:1102" ph="{...}" />
-                <marker date="1607094886948" expanded="true" signature="1131:1228" ph="{...}" />
-                <marker date="1607094886948" expanded="true" signature="1262:1362" ph="{...}" />
+                <marker date="1607095996541" expanded="false" signature="6:118" ph="..." />
+                <marker date="1607095996541" expanded="true" signature="163:1319" ph="{...}" />
+                <marker date="1607095996541" expanded="true" signature="266:306" ph="{...}" />
+                <marker date="1607095996541" expanded="true" signature="335:375" ph="{...}" />
+                <marker date="1607095996541" expanded="true" signature="404:444" ph="{...}" />
+                <marker date="1607095996541" expanded="true" signature="473:513" ph="{...}" />
+                <marker date="1607095996541" expanded="true" signature="542:582" ph="{...}" />
+                <marker date="1607095996541" expanded="true" signature="654:705" ph="{...}" />
+                <marker date="1607095996541" expanded="true" signature="787:835" ph="{...}" />
+                <marker date="1607095996541" expanded="true" signature="913:960" ph="{...}" />
+                <marker date="1607095996541" expanded="true" signature="990:1083" ph="{...}" />
+                <marker date="1607095996541" expanded="true" signature="1112:1196" ph="{...}" />
+                <marker date="1607095996541" expanded="true" signature="1230:1317" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -442,8 +415,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/State/PlayerStateScriptable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Utility/MyEventSystem/GameEvent.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Utility/MyEventSystem/Editor/GameEventPropertyDrawer.cs" />
-        <option value="$PROJECT_DIR$/Assets/MyEventsTester.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Utility/MyEventSystem/GameEventPropertyDrawer.cs" />
+        <option value="$PROJECT_DIR$/Assets/MyEventsTester.cs" />
       </list>
     </option>
   </component>
@@ -515,12 +488,12 @@
       <workItem from="1606946327740" duration="4057000" />
       <workItem from="1606982866593" duration="5919000" />
       <workItem from="1606988902637" duration="31490000" />
-      <workItem from="1607076645464" duration="13017000" />
+      <workItem from="1607076645464" duration="13314000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="149202000" />
+    <option name="totallyTimeSpent" value="149499000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1309,28 +1282,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/MyEventsTester.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="66" selection-start-line="66" selection-end-line="66" />
-          <folding>
-            <marker date="1607094886948" expanded="false" signature="6:118" ph="..." />
-            <marker date="1607094886948" expanded="true" signature="163:1364" ph="{...}" />
-            <marker date="1607094886948" expanded="true" signature="266:306" ph="{...}" />
-            <marker date="1607094886948" expanded="true" signature="335:375" ph="{...}" />
-            <marker date="1607094886948" expanded="true" signature="404:444" ph="{...}" />
-            <marker date="1607094886948" expanded="true" signature="473:513" ph="{...}" />
-            <marker date="1607094886948" expanded="true" signature="542:582" ph="{...}" />
-            <marker date="1607094886948" expanded="true" signature="654:705" ph="{...}" />
-            <marker date="1607094886948" expanded="true" signature="787:835" ph="{...}" />
-            <marker date="1607094886948" expanded="true" signature="913:960" ph="{...}" />
-            <marker date="1607094886948" expanded="true" signature="1003:1102" ph="{...}" />
-            <marker date="1607094886948" expanded="true" signature="1131:1228" ph="{...}" />
-            <marker date="1607094886948" expanded="true" signature="1262:1362" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Utility/MyEventSystem/GameEvent.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1088">
@@ -1356,8 +1307,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Utility/MyEventSystem/GameEventPropertyDrawer.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="26" column="54" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="54" />
+        <state relative-caret-position="32">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
           <folding>
             <marker date="1607095703875" expanded="true" signature="6:139" ph="..." />
             <marker date="1607095703875" expanded="true" signature="207:1950" ph="{...}" />
@@ -1367,6 +1318,28 @@
             <marker date="1607095703875" expanded="true" signature="1384:1491" ph="{...}" />
             <marker date="1607095703875" expanded="true" signature="1563:1941" ph="{...}" />
             <marker date="1607095703875" expanded="true" signature="1800:1895" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/MyEventsTester.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-75">
+          <caret line="57" selection-start-line="57" selection-end-line="57" />
+          <folding>
+            <marker date="1607095996541" expanded="false" signature="6:118" ph="..." />
+            <marker date="1607095996541" expanded="true" signature="163:1319" ph="{...}" />
+            <marker date="1607095996541" expanded="true" signature="266:306" ph="{...}" />
+            <marker date="1607095996541" expanded="true" signature="335:375" ph="{...}" />
+            <marker date="1607095996541" expanded="true" signature="404:444" ph="{...}" />
+            <marker date="1607095996541" expanded="true" signature="473:513" ph="{...}" />
+            <marker date="1607095996541" expanded="true" signature="542:582" ph="{...}" />
+            <marker date="1607095996541" expanded="true" signature="654:705" ph="{...}" />
+            <marker date="1607095996541" expanded="true" signature="787:835" ph="{...}" />
+            <marker date="1607095996541" expanded="true" signature="913:960" ph="{...}" />
+            <marker date="1607095996541" expanded="true" signature="990:1083" ph="{...}" />
+            <marker date="1607095996541" expanded="true" signature="1112:1196" ph="{...}" />
+            <marker date="1607095996541" expanded="true" signature="1230:1317" ph="{...}" />
           </folding>
         </state>
       </provider>

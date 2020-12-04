@@ -179,7 +179,6 @@ GameObject:
   m_Component:
   - component: {fileID: 188306842}
   - component: {fileID: 188306844}
-  - component: {fileID: 188306843}
   m_Layer: 0
   m_Name: ShieldPowerupSpawner
   m_TagString: Untagged
@@ -201,21 +200,6 @@ Transform:
   m_Father: {fileID: 614564529}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &188306843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 188306841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a74197ff639f48a4697e45a03dc10397, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _objectPoolers: []
-  _spawnEverySeconds: {x: 2.2223406, y: 2.63}
-  _stopSpawning: 0
 --- !u!114 &188306844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -518,7 +502,7 @@ MonoBehaviour:
   - {fileID: 188306844}
   - {fileID: 970017495}
   - {fileID: 1791186833}
-  _spawnEverySeconds: {x: 1, y: 3}
+  _spawnEverySeconds: {x: 2.7910447, y: 7.03}
   _stopSpawning: 0
 --- !u!114 &614564531
 MonoBehaviour:
@@ -532,11 +516,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb9be0d4a2261454a843ec69a4a7db0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventObject: {fileID: 0}
+  _eventObject: {fileID: 11400000, guid: 54df74f14e7f085458d0fd41649c8f28, type: 2}
   _listenerGameObject: {fileID: 614564528}
   _selectedEventIndex: 0
-  _selectedComponentIndex: 0
-  _selectedMethodIndices: 
+  _selectedComponentIndex: 1
+  _selectedMethodIndices: 00000000
 --- !u!1 &970017493
 GameObject:
   m_ObjectHideFlags: 0
