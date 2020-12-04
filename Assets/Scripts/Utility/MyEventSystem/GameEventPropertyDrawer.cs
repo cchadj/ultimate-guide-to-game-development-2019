@@ -1,8 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 #if UNITY_EDITOR
 public partial class GameEvent : ScriptableObject
@@ -21,7 +18,7 @@ public partial class GameEvent : ScriptableObject
                 position.width * .3f, position.height * .3f);
             EditorGUI.DrawRect(position, new Color(.1f, .2f, .4f, .1f));
             EditorGUI.PropertyField(rectPropertyPosition, property);
-            if (GUI.Button(raiseEventButtonRect, "RaiseEvent"))
+            if (GUI.Button(raiseEventButtonRect, "Raise Event"))
             {
                 var gameEvent = RetrieveField<GameEvent>(property);
                 if (gameEvent !=null) gameEvent.Raise();
@@ -47,6 +44,5 @@ public partial class GameEvent : ScriptableObject
             return retrievedValue;
         }
     }
-
 }
 #endif

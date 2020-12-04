@@ -8,6 +8,10 @@ public class MyEventsTester : MonoBehaviour
 {
     private PlayerStateScriptable _playerState;
 
+    public void Test()
+    {
+       Debug.Log("Test() function called " + gameObject.name );
+    }
     public void Test1()
     {
        Debug.Log("Test1"); 

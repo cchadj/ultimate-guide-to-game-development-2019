@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using ModestTree;
 using UnityEditor;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 using Object = UnityEngine.Object;
 
 public class EventListener : MonoBehaviour
@@ -50,6 +52,7 @@ public class EventListener : MonoBehaviour
             _selectedComponentIndex = value;
             if (valueChanged)
             {
+                CacheListenerComponents();
                 CacheMethods();
             }
         }
@@ -61,25 +64,32 @@ public class EventListener : MonoBehaviour
     public bool IsEventObjectSet => EventObject != null;
     
     // Event Information
-    private List<EventInfo> _eventInfos  = new List<EventInfo>(); 
-    
-    private List<string> _eventNames = new List<string>();
-    public string[] EventObjectEventNames => _eventNames.ToArray();
+    private List<EventInfo> _eventInfos;
+    private List<object> _eventOwners;
+
+    private List<string> _eventNames;
+    public string[] EventObjectEventNames => _eventNames?.ToArray();
     
     // Listener component information
     private Component[] _components;
-    
-    private List<string> _componentNames = new List<string>();
+
+    private List<string> _componentNames;
     
     public string[] ListenerComponentNames => _componentNames.ToArray();
 
     // Component's Methods
-    private List<MethodInfo> _methodInfos = new List<MethodInfo>();
+    private List<MethodInfo> _methodInfos;
 
-    private List<string> _methodNames = new List<string>();
+    private List<string> _methodNames;
     public string[] MethodNames => _methodNames.ToArray();
 
     private void Awake()
+    {
+        Cache();
+    }
+
+    [ContextMenu("Cache Everything")]
+    public void Cache()
     {
         // Order must be preserved
         CacheEventObjectEvents();
@@ -97,60 +107,107 @@ public class EventListener : MonoBehaviour
         Unsubscribe();
     }
 
-    private EventInfo SelectedEvent => _eventInfos[_selectedEventIndex];
-    private Component SelectedComponent => _components[_selectedComponentIndex];
-
-    private IEnumerable<MethodInfo> SelectedMethods
+    private EventInfo SelectedEvent
     {
         get
         {
-            var selectedMethods = new List<MethodInfo>();
+            var areEventsCached = _eventInfos != null && _eventInfos.Count != 0;
+            
+            if (areEventsCached) 
+                return _eventInfos[_selectedEventIndex];
+
+            CacheEventObjectEvents();
+            
+            var noEventsFound = _eventInfos.Count == 0; 
+            
+            return noEventsFound ? null : _eventInfos[_selectedEventIndex];
+        }
+    }
+    private object SelectedEventOwner => _eventOwners?[_selectedEventIndex];
+
+    private Component SelectedComponent => _components?[_selectedComponentIndex];
+
+    private List<Action> _selectedMethods;
+    private IEnumerable<Action> SelectedComponentMethods
+    {
+        get
+        {
+            var isSelectedMethodsNotInitialised = _selectedMethods == null || _selectedMethods.Count == 0;
+            
+            if (!isSelectedMethodsNotInitialised) return _selectedMethods;
+            Debug.Log("How often am I really called?");
+            
+            _selectedMethods = new List<Action>(); 
             foreach (var i in _selectedMethodIndices)
             {
-                selectedMethods.Add(_methodInfos[i]);
+                var methodInfo = _methodInfos[i];
+                var del = (Action)Delegate.CreateDelegate(typeof(Action), SelectedComponent, methodInfo);
+                _selectedMethods.Add(del);
             }
-            return selectedMethods;
+
+            return _selectedMethods;
         }
     }
     private Delegate _currentHandler;
 
     public void Subscribe()
     {
-        var method = GetType().GetMethod("CallSelectedMethods");
+        var method = GetType().GetMethod(nameof(CallSelectedMethods));
         
         _currentHandler = Delegate.CreateDelegate(SelectedEvent.EventHandlerType, this, method);
-        SelectedEvent.AddEventHandler(EventObject, _currentHandler);
+        SelectedEvent.AddEventHandler(SelectedEventOwner, _currentHandler);
     }
 
     public void CallSelectedMethods(object sender, EventArgs eventArgs)
     {
-        foreach (var method in SelectedMethods)
+        foreach (var method in SelectedComponentMethods)
         {
-            method.Invoke(SelectedComponent, new object[] {});
+            // This is slightly slower than a normal method call 
+            method();
         }
     }
 
+    [ContextMenu("PerformanceTest")]
+    private void PerformanceTest()
+    {
+
+        var sw = new Stopwatch();
+
+        sw.Start();
+        for (var i = 0; i <= 10000; i++)
+        {
+            CallSelectedMethods(null, null); 
+        }
+
+        sw.Stop();
+
+        Debug.Log("Elapsed={0}" + sw.Elapsed);
+    }
+    
     private void Unsubscribe()
     {
-        SelectedEvent.RemoveEventHandler(EventObject, _currentHandler);
+        SelectedEvent.RemoveEventHandler(SelectedEventOwner, _currentHandler);
     }
 
     [ContextMenu("Raise Event")]
-    public void RaiseEvent()
+    private void RaiseEvent()
     {
-       var eventDelegate = (MulticastDelegate)EventObject.GetType().GetField(SelectedEvent.Name,
-           BindingFlags.Instance | BindingFlags.NonPublic)?.GetValue(EventObject);
+       // This function is (relatively) slow because it uses reflection on runtime but is only used for testing.
+       var eventDelegate = (MulticastDelegate)SelectedEventOwner.GetType().GetField(SelectedEvent.Name,
+           BindingFlags.Instance | BindingFlags.NonPublic)?.GetValue(SelectedEventOwner);
        
        if (eventDelegate == null) return;
        
+       var methodArguments = new[] {SelectedEventOwner, EventArgs.Empty};
        foreach (var handler in eventDelegate.GetInvocationList())
        {
-           handler.Method.Invoke(handler.Target, new object[] { EventObject, EventArgs.Empty });
+           handler.Method.Invoke(handler.Target, methodArguments);
        }
     }
     
     public void CacheListenerComponents()
     {
+        _selectedMethods = null;
         if (_listenerGameObject == null) return;
         
         _components = _listenerGameObject.GetComponents<Component>();
@@ -173,10 +230,21 @@ public class EventListener : MonoBehaviour
         
         _eventNames = new List<string>();
         _eventInfos = new List<EventInfo>();
+        _eventOwners = new List<object>();
         foreach (var eventInfo in eventInfos)
         {
+            _eventOwners.Add(_eventObject);
             _eventInfos.Add(eventInfo);
             _eventNames.Add(eventInfo.Name);
+        }
+
+        var eventFields = eventObjectType.GetFields().Where(field => field.FieldType == typeof(GameEvent));
+        var gameEventFields = eventFields;
+        foreach (var gameEventField in gameEventFields)
+        {
+            _eventOwners.Add(gameEventField.GetValue(_eventObject));
+            _eventInfos.Add(gameEventField.FieldType.GetEvents()[0]);
+            _eventNames.Add(gameEventField.Name);
         }
 
         return _eventInfos;
@@ -186,6 +254,7 @@ public class EventListener : MonoBehaviour
     {
         _methodNames = new List<string>();
         _methodInfos = new List<MethodInfo>();
+        _selectedMethods = null;
         
         var component = _components[_selectedComponentIndex];
 
@@ -210,14 +279,15 @@ public class EventListener : MonoBehaviour
 
 #if UNITY_EDITOR
     [CustomEditor(typeof(EventListener))]
-    public class SomeEditor : Editor
+    public class EventListenerEditor : Editor
     {
-        private int _eventIndex;
-        private int _componentIndex;
-        private int _methodIndex;
-
         private EventListener Target => (EventListener) target;
-        
+
+        private void OnEnable()
+        {
+            Target.Cache(); 
+        }
+
         public override void OnInspectorGUI()
         {
             Target.EventObject = EditorGUILayout.ObjectField("Event Scriptable Object",
@@ -229,8 +299,6 @@ public class EventListener : MonoBehaviour
             if (!Target.IsListenerObjectSet || !Target.IsEventObjectSet)
                 return;
             
-            _eventIndex = Target._selectedEventIndex;
-            _componentIndex = Target._selectedComponentIndex;
             if (Target.ListenerComponentNames == null || Target.ListenerComponentNames.IsEmpty())
             {
                 Target.CacheListenerComponents();
@@ -252,26 +320,27 @@ public class EventListener : MonoBehaviour
                 }
                 
                 EditorGUILayout.LabelField("Select event to listen to:");
-                _eventIndex = EditorGUILayout.Popup(_eventIndex, Target.EventObjectEventNames);
-                Target._selectedEventIndex = _eventIndex;
+                Target._selectedEventIndex = EditorGUILayout.Popup(Target._selectedEventIndex, Target.EventObjectEventNames);
                 
                 EditorGUILayout.LabelField("Select listeners component:");
                 Target.SelectedComponentIndex = EditorGUILayout.Popup(Target.SelectedComponentIndex, Target.ListenerComponentNames);
 
                 var selectedMethodIndicesListProperty = serializedObject.FindProperty(nameof(Target._selectedMethodIndices));
-                Show(selectedMethodIndicesListProperty);
-            }
+                var hasValueChanged = Show(selectedMethodIndicesListProperty);
 
-            // Save the changes back to the object
-            EditorUtility.SetDirty(target);
+                if (hasValueChanged)
+                {
+                    EditorUtility.SetDirty(target);
+                }
+            }
         }
 
-        public void Show(SerializedProperty list)
+        public bool Show(SerializedProperty list)
         {
+            var hasValueChanged = false;
             EditorGUILayout.LabelField("Select listener methods:");
             EditorGUI.indentLevel += 1;
             list.isExpanded = true;
-            Target.CacheMethods();
             if (list.isExpanded)
             {
                 for (var i = 0; i < list.arraySize; i++)
@@ -283,12 +352,20 @@ public class EventListener : MonoBehaviour
             if (GUILayout.Button("+"))
             {
                 Target._selectedMethodIndices.Add(0);
+                hasValueChanged = true;
             }
 
             if (GUILayout.Button("-") && Target._selectedMethodIndices.Count >= 1)
             {
                 Target._selectedMethodIndices.RemoveAt(Target._selectedMethodIndices.Count - 1);
+                hasValueChanged = true;
             }
+
+            if (hasValueChanged)
+            {
+                Target.CacheMethods();
+            }
+            return hasValueChanged;
         }
     }
 #endif

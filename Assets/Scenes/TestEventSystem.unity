@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 90815074}
   - component: {fileID: 90815076}
   m_Layer: 0
-  m_Name: TestEventListenerListeningToPlayerStateEvent
+  m_Name: TestEventListenerListeningToPlayerStateEvent-PlayerTookDamage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 186085275}
   - component: {fileID: 186085274}
   m_Layer: 0
-  m_Name: TestEventListenerListeningToLinkedGameEvent-2
+  m_Name: TestEventListenerListeningToPlayerDiedGameEvent-Event
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -230,7 +230,7 @@ MonoBehaviour:
   _listenerGameObject: {fileID: 186085273}
   _selectedEventIndex: 0
   _selectedComponentIndex: 2
-  _selectedMethodIndices: 01000000
+  _selectedMethodIndices: 00000000
 --- !u!4 &186085276
 Transform:
   m_ObjectHideFlags: 0
@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 225820359}
   - component: {fileID: 225820358}
   m_Layer: 0
-  m_Name: TestEventListenerListeningToLinkedGameEvent-4
+  m_Name: TestEventListenerListeningToPlayerState-PlayerTookDamage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -291,7 +291,7 @@ MonoBehaviour:
   _listenerGameObject: {fileID: 225820357}
   _selectedEventIndex: 1
   _selectedComponentIndex: 2
-  _selectedMethodIndices: 03000000
+  _selectedMethodIndices: 00000000
 --- !u!4 &225820360
 Transform:
   m_ObjectHideFlags: 0
@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: 1132263318}
   - component: {fileID: 1132263317}
   m_Layer: 0
-  m_Name: TestEventListenerListeningToLinkedGameEvent-3
+  m_Name: TestEventListenerListeningToPlayerState-PlayedDied
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -440,7 +440,7 @@ MonoBehaviour:
   _listenerGameObject: {fileID: 1132263316}
   _selectedEventIndex: 0
   _selectedComponentIndex: 2
-  _selectedMethodIndices: 02000000
+  _selectedMethodIndices: 00000000
 --- !u!4 &1132263319
 Transform:
   m_ObjectHideFlags: 0
@@ -467,7 +467,7 @@ GameObject:
   - component: {fileID: 1749939929}
   - component: {fileID: 1749939928}
   m_Layer: 0
-  m_Name: TestEventListenerListeningToLinkedGameEvent-1
+  m_Name: TestEventListenerListeningToPlayerDiedGameEvent-Event
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -528,7 +528,7 @@ GameObject:
   - component: {fileID: 1798281255}
   - component: {fileID: 1798281254}
   m_Layer: 0
-  m_Name: TestEventListenerListeningToGameEvent
+  m_Name: TestEventListenerListeningToGameEvent-TestGameEvent-Event
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -562,7 +562,7 @@ MonoBehaviour:
   _listenerGameObject: {fileID: 1798281253}
   _selectedEventIndex: 0
   _selectedComponentIndex: 2
-  _selectedMethodIndices: 0000000002000000
+  _selectedMethodIndices: 00000000
 --- !u!4 &1798281256
 Transform:
   m_ObjectHideFlags: 0
@@ -641,6 +641,67 @@ Transform:
   - {fileID: 531995816}
   - {fileID: 1921312468}
   - {fileID: 631762103}
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1910244543
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1910244546}
+  - component: {fileID: 1910244545}
+  - component: {fileID: 1910244544}
+  m_Layer: 0
+  m_Name: TestEventListenerListeningToPlayerState-GameEvent-PlayerTookDamage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1910244544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910244543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b09a4dfb88fd48a4ab2f692838ab4be5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1910244545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910244543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb9be0d4a2261454a843ec69a4a7db0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventObject: {fileID: 11400000, guid: 1cfd0d82d94d8a1408abe7b2a5ebf192, type: 2}
+  _listenerGameObject: {fileID: 1910244543}
+  _selectedEventIndex: 2
+  _selectedComponentIndex: 2
+  _selectedMethodIndices: 00000000
+--- !u!4 &1910244546
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910244543}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -12,6 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aafca322243178c488ce87ebd499955c, type: 3}
   m_Name: TestGameEvent
   m_EditorClassIdentifier: 
-  EventName: 
-  _eventObject: {fileID: 0}
-  _selectedEventIndex: 0
+  EventName: Test Game Event
