@@ -1,5 +1,7 @@
 public enum BulletType
 {
+	Chill,
+	Crazy,
 	Laser,
-	LaserTripleShot,
+	TripleShot,
 }

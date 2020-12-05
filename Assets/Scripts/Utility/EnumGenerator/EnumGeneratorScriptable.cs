@@ -70,9 +70,12 @@
          return assets;
      }
  
-     [ContextMenu("GenerateEnum")]
      public string GenerateEnum()
      {
+         if (string.IsNullOrWhiteSpace(_enumName))
+         {
+             _enumName = name;
+         }
          //The folder Scripts/Enums/ is expected to exist
          var filePathAndName =  _targetFolderPath + _enumName + ".cs";
          

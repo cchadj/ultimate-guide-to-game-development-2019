@@ -1,5 +1,7 @@
 public enum 
 {
-	Speedboost,
-	TripleShot,
+	Laser,
+	Laser,
+	Laser,
+	LaserTripleShot,
 }

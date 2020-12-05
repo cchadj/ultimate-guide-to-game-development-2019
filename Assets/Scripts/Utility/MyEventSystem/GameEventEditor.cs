@@ -11,7 +11,13 @@ public partial class GameEvent
 
         public override void OnInspectorGUI()
         {
-            DrawDefaultInspector();
+            var prop = serializedObject.FindProperty(nameof(Target.EventName));
+            Target.EventName = EditorGUILayout.DelayedTextField(new GUIContent(prop.displayName), Target.EventName);
+            if (string.IsNullOrEmpty(Target.EventName))
+            {
+                Target.EventName = Target.name;
+            }
+            
             if (GUILayout.Button("Raise Event"))
             {
                 Debug.Log($"Raising event {Target.EventName} from {Target.name}");
@@ -19,6 +25,5 @@ public partial class GameEvent
             }
         }
     }
-
 }
 #endif

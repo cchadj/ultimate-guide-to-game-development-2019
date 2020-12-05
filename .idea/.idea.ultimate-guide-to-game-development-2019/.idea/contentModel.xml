@@ -14,7 +14,9 @@
             </e>
           </e>
         </e>
-        <e p="MyEventsTester.cs" t="Include" />
+        <e p="Controls.cs" t="Include" />
+        <e p="EventTester.cs" t="Include" />
+        <e p="GameEventWithArguments.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="SimpleMinMaxSlider" t="Include">
             <e p="Scripts" t="Include">
@@ -947,14 +949,13 @@
         <e p="Scripts" t="Include">
           <e p="BulletDataScriptable.cs" t="Include" />
           <e p="BulletTypeScriptable.cs" t="Include" />
-          <e p="Controls.cs" t="Include" />
-          <e p="Editor" t="Include">
-            <e p="DragAndDropEditorWindow.cs" t="Include" />
+          <e p="Enemies" t="Include">
+            <e p="Enemy.cs" t="Include" />
           </e>
-          <e p="Enemy.cs" t="Include" />
-          <e p="EnumEntry.cs" t="Include" />
+          <e p="EnumMaskPropertyDrawer.cs" t="Include" />
           <e p="Enums" t="Include">
             <e p="BulletType.cs" t="Include" />
+            <e p="EnumEntry.cs" t="Include" />
             <e p="PowerupType.cs" t="Include" />
             <e p="State.cs" t="Include" />
           </e>
@@ -980,11 +981,17 @@
           </e>
           <e p="TripleShot.cs" t="Include" />
           <e p="Utility" t="Include">
+            <e p="Attributes" t="Include">
+              <e p="MiniViewAttribute.cs" t="Include" />
+            </e>
             <e p="DragAndDropPath" t="Include">
               <e p="DragAndDropPathAttribute.cs" t="Include" />
               <e p="Editor" t="Include">
                 <e p="DragAndDropPathDrawer.cs" t="Include" />
               </e>
+            </e>
+            <e p="Editor" t="Include">
+              <e p="DragAndDropEditorWindow.cs" t="Include" />
             </e>
             <e p="EnumGenerator" t="Include">
               <e p="Editor" t="Include">
@@ -1003,6 +1010,9 @@
                 <e p="ReadOnlyDrawer.cs" t="Include" />
               </e>
               <e p="ReadOnlyAttribute.cs" t="Include" />
+            </e>
+            <e p="ScriptableFields" t="Include">
+              <e p="FloatVariable.cs" t="Include" />
             </e>
           </e>
         </e>

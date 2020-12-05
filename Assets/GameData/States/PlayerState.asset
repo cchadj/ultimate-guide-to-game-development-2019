@@ -12,7 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f95357c716332974091a6eff0819c704, type: 3}
   m_Name: PlayerState
   m_EditorClassIdentifier: 
-  PlayerMaxHealth: 1
-  <HealthPoints>k__BackingField: 1
-  <ShieldPoints>k__BackingField: 0
-  PlayerTookDamageEvent: {fileID: 11400000, guid: 88c4013db318d434d9512f28ac08f4a5, type: 2}
+  heyMate: 0
+  <MaxHealthPoints>k__BackingField: 22
+  <MaxShieldPoints>k__BackingField: 1
+  <InitialMovementSpeed>k__BackingField: 6
+  <SpeedupMultiplier>k__BackingField: 9.41
+  _bulletType: 0
+  PlayerDied: {fileID: 11400000, guid: 54df74f14e7f085458d0fd41649c8f28, type: 2}
+  PlayerTookDamage: {fileID: 11400000, guid: 88c4013db318d434d9512f28ac08f4a5, type: 2}
+  PlayerPickedSpeedBoost: {fileID: 11400000, guid: 1707667b2b549a4488a0ace73b33f336, type: 2}
+  PlayerPickedTripleShot: {fileID: 11400000, guid: 8bfb994ffb6f84f43b9c867cee6cb589, type: 2}
+  PlayerPickedShield: {fileID: 11400000, guid: 4dec5cbc553f10244b1addc20d39fa5b, type: 2}
+  _healthPoints: 10
+  _shieldPoints: 0
+  _movementSpeed: 6

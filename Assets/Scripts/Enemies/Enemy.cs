@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class Enemy : MonoBehaviour, IDestructible
+public partial class Enemy : MonoBehaviour, IDestructible
 {
     private Transform _transform;
     
@@ -84,7 +84,7 @@ public class Enemy : MonoBehaviour, IDestructible
             case BulletType.Laser:
                 Destroy();
                 break;
-            case BulletType.LaserTripleShot:
+            case BulletType.TripleShot:
                 Destroy();
                 break;
             default:

@@ -212,7 +212,7 @@ public class EventListener : MonoBehaviour
     {
         foreach (var method in SelectedComponentMethods)
         {
-            // This is slightly slower than a normal method call 
+            // This is only slightly slower than a normal method call 
             method();
         }
     }
@@ -231,19 +231,20 @@ public class EventListener : MonoBehaviour
         Debug.Log("Elapsed={0}" + sw.Elapsed);
 
         print("Direct call.");
-        var eventTester = GetComponent <MyEventsTester>();
+//        var eventTester = GetComponent <MyEventsTester>();
+//        object eventTester = null; // GetComponent <MyEventsTester>();
         sw = new Stopwatch();
         sw.Start();
-        for (var i = 0; i <= repeats; i++)
-            eventTester.TestNoOp();
+//        for (var i = 0; i <= repeats; i++)
+//            eventTester.TestNoOp();
         sw.Stop();
         Debug.Log("Elapsed={0}" + sw.Elapsed);
         
         print("Call through raise event.");
         sw = new Stopwatch();
         sw.Start();
-        for (var i = 0; i <= repeats; i++)
-            eventTester.RaisePerformanceEvent();
+//        for (var i = 0; i <= repeats; i++)
+//            eventTester.RaisePerformanceEvent();
         sw.Stop();
         Debug.Log("Elapsed={0}" + sw.Elapsed);
     }

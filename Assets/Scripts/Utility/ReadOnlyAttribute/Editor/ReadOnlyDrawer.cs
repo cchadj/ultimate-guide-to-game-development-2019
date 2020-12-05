@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 
 [CustomPropertyDrawer(typeof(ReadOnlyAttribute))]
@@ -16,8 +14,9 @@ public class ReadOnlyDrawer : PropertyDrawer
         SerializedProperty property,
         GUIContent label)
     {
+        var prevGuiState = GUI.enabled;
         GUI.enabled = false;
         EditorGUI.PropertyField(position, property, label, true);
-        GUI.enabled = true;
+        GUI.enabled = prevGuiState;
     }
 }
