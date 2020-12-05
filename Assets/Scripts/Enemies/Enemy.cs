@@ -10,6 +10,8 @@ public partial class Enemy : MonoBehaviour, IDestructible
     
     [SerializeField] private float _speed = .8f;
 
+    [SerializeField] private FloatVariable _damageAmount;
+    
     [SerializeField, Space] private SceneDataScriptable _sceneData;
         
     private OutOfBoundsDirection OutOfBounds
@@ -70,7 +72,7 @@ public partial class Enemy : MonoBehaviour, IDestructible
     {
         other.GetComponent<IDestructible>()?.Destroy();
 
-        other.GetComponent<IHarmable>()?.Damage();
+        other.GetComponent<IHarmable>()?.Damage((int)_damageAmount.Value);
         
         if (other.GetComponent<Player>())
             Destroy();

@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 0.8
+  _damageAmount: {fileID: 11400000, guid: a73a50c091e219f4f8a86688729bfc87, type: 2}
   _sceneData: {fileID: 11400000, guid: 541cafb7f3a441a479e96c498c1989b0, type: 2}
 --- !u!114 &4370113665309028082
 MonoBehaviour:

@@ -159,7 +159,6 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
     
     private void CalculateMovement()
     {
-        Debug.Log(GetMovementDirection());
         _transform.Translate(GetMovementDirection() * _playerState.MovementSpeed * Time.deltaTime);
         if (OutOfBounds != OutOfBoundsDirection.None)
         {
@@ -234,6 +233,10 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
 
     public void Damage(int amount=0)
     {
+        var damageAmount = ScriptableObject.CreateInstance<FloatVariable>();
+        damageAmount.Value = amount;
+        _playerState.PlayerTookDamage.Raise(damageAmount);
+        
         if (_playerState.ShieldPoints > 0)
             _playerState.ShieldPoints -= amount;
         else

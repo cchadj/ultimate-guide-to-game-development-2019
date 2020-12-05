@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SimpleEnemyDamageOutput
   m_EditorClassIdentifier: 
   DeveloperDescription: The damage output of a simple enemy.
-  Value: 0
+  Value: 10

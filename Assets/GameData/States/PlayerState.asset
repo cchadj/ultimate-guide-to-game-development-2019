@@ -19,10 +19,10 @@ MonoBehaviour:
   <SpeedupMultiplier>k__BackingField: 9.41
   _bulletType: 0
   PlayerDied: {fileID: 11400000, guid: 54df74f14e7f085458d0fd41649c8f28, type: 2}
-  PlayerTookDamage: {fileID: 11400000, guid: 88c4013db318d434d9512f28ac08f4a5, type: 2}
+  PlayerTookDamage: {fileID: 11400000, guid: 0b98da6281b887d4d86ebf6f28b2011c, type: 2}
   PlayerPickedSpeedBoost: {fileID: 11400000, guid: 1707667b2b549a4488a0ace73b33f336, type: 2}
   PlayerPickedTripleShot: {fileID: 11400000, guid: 8bfb994ffb6f84f43b9c867cee6cb589, type: 2}
   PlayerPickedShield: {fileID: 11400000, guid: 4dec5cbc553f10244b1addc20d39fa5b, type: 2}
-  _healthPoints: 10
+  _healthPoints: 22
   _shieldPoints: 0
   _movementSpeed: 6

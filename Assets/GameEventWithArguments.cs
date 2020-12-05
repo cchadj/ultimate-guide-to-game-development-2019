@@ -53,11 +53,11 @@ public partial class GameEventWithArguments : ScriptableObject
     /// Returns a handle that can be used to remove listener (i.e gameEvent.Event -= handler)
     public EventHandler<ScriptableEventArgs> AddListener<T>(object subscriberObject, GameEventDelegateWithArguments<T> eventDelegate) where T: ScriptableObject
     {
-
         var isExpectedTypeDifferentFromPassedType = typeof(T) != _mockArgumentsScriptable.GetType();
         if (isExpectedTypeDifferentFromPassedType)
-            throw new ArgumentException($"Listener {subscriberObject} of type {subscriberObject.GetType()} passed type {typeof(T)}" +
-                                        $"when expected type is {_mockArgumentsScriptable.GetType()}");
+            throw new ArgumentException($"Listener '{subscriberObject}' of type <{subscriberObject.GetType()}> passed type <{typeof(T)}> " +
+                                        $"when expected type is <{_mockArgumentsScriptable.GetType()}>." +
+                                        $" \n Please change subscriber type in AddListener<{typeof(T)}>() to AddListener<{_mockArgumentsScriptable.GetType()}>()");
         
         var handler = new EventHandler<ScriptableEventArgs>((o, e) => eventDelegate(e.GetArguments<T>()));
         Event += handler;
@@ -75,6 +75,12 @@ public partial class GameEventWithArguments : ScriptableObject
     // able to be removed.
     public void RemoveListener<T>(object subscriberObject, GameEventDelegateWithArguments<T> eventDelegate) where T: ScriptableObject
     {
+        var isExpectedTypeDifferentFromPassedType = typeof(T) != _mockArgumentsScriptable.GetType();
+        if (isExpectedTypeDifferentFromPassedType)
+            throw new ArgumentException($"Listener '{subscriberObject}' of type <{subscriberObject.GetType()}> passed type <{typeof(T)}> " +
+                                        $"when expected type is <{_mockArgumentsScriptable.GetType()}>." +
+                                        $" \n Please change subscriber type in RemoveListener<{typeof(T)}>() to RemoveListener<{_mockArgumentsScriptable.GetType()}>() to successfully " +
+                                        $"remove listener.");
         if (!_scriptableEventHandlers.ContainsKey(subscriberObject)) return;
 
         var delegateToHandlerDict = _scriptableEventHandlers[subscriberObject]; 

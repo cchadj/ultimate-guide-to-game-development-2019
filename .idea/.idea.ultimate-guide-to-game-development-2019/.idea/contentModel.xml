@@ -1004,6 +1004,7 @@
               <e p="GameEvent.cs" t="Include" />
               <e p="GameEventEditor.cs" t="Include" />
               <e p="GameEventPropertyDrawer.cs" t="Include" />
+              <e p="GameEventWithArgumentsDrawer.cs" t="Include" />
             </e>
             <e p="ReadOnlyAttribute" t="Include">
               <e p="Editor" t="Include">

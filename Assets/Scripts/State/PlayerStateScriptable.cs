@@ -22,7 +22,7 @@ public class PlayerStateScriptable : ScriptableObject, IInitializable
     
     public GameEvent PlayerDied;
 
-    public GameEvent PlayerTookDamage;
+    public GameEventWithArguments PlayerTookDamage;
 
     public GameEvent PlayerPickedSpeedBoost;
 
@@ -39,8 +39,6 @@ public class PlayerStateScriptable : ScriptableObject, IInitializable
             _healthPoints = Mathf.Clamp(value,0, MaxHealthPoints);
             IsDead = Math.Abs(_healthPoints) < FloatTolerance;
             
-            PlayerTookDamage.Raise();
-
             if (IsDead)
                 PlayerDied.Raise();
         }
@@ -52,7 +50,10 @@ public class PlayerStateScriptable : ScriptableObject, IInitializable
         set
         {
             _shieldPoints = Mathf.Clamp(value, 0, MaxShieldPoints);
-            PlayerTookDamage.Raise();
+            
+            
+            if (value < 0)
+                HealthPoints += value;
         } 
     }
 
@@ -74,11 +75,25 @@ public class PlayerStateScriptable : ScriptableObject, IInitializable
     private void OnEnable()
     {
         PlayerDied.AddListener(this, Kill);
+        PlayerTookDamage.AddListener<FloatVariable>(this, Damage);
     }
     
     private void OnDisable()
     {
         PlayerDied.RemoveListener(this, Kill);
+        PlayerTookDamage.RemoveListener<FloatVariable>(this, Damage);
+    }
+
+    private void Damage(FloatVariable damageAmount)
+    {
+        if (ShieldPoints > 0)
+        {
+            ShieldPoints -= (int)damageAmount.Value;
+        }
+        else
+        {
+            HealthPoints -= (int)damageAmount.Value;
+        }
     }
 
     public bool IsDead { get; set; }
