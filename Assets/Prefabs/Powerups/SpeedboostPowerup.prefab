@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f74ca69505c060d488c79119e7388e32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <PowerupType>k__BackingField: 0
+  <PowerupType>k__BackingField: 1
   _speed: 3
   _sceneData: {fileID: 11400000, guid: 541cafb7f3a441a479e96c498c1989b0, type: 2}
 --- !u!114 &-6178411398696763150

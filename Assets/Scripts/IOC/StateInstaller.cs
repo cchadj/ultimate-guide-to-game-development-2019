@@ -11,7 +11,7 @@ public class StateInstaller : MonoInstaller<StateInstaller>
     public override void InstallBindings()
     {
         Container.Bind<GameStateScriptable>().FromInstance(_gameState).AsSingle();
-        Container.Bind<PlayerStateScriptable>().FromInstance(_playerState).AsSingle();
+        Container.BindInterfacesAndSelfTo<PlayerStateScriptable>().FromInstance(_playerState).AsSingle();
         
         // ScriptableObjects are not Injected in the begining (only monobehaviours in the scene)
         // So we do manual injection here

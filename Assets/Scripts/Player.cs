@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -19,7 +20,7 @@ internal enum OutOfBoundsDirection
 
 public interface IHarmable
 {
-    void Damage();
+    void Damage(int amount=1);
 }
 
 [DisallowMultipleComponent]
@@ -32,15 +33,13 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
     
     [SerializeField] private ObjectPooler _tripleShotLaserPooler;
     
-    [SerializeField] private float _movementSpeed;
-    
     [SerializeField] private float _laserCooldown;
 
-    [SerializeField, Space] private SceneDataScriptable _sceneData;
+    [SerializeField, ReadOnly, Space] private SceneDataScriptable _sceneData;
     
-    [SerializeField] private PlayerStateScriptable _playerState;
+    [SerializeField, ReadOnly] private PlayerStateScriptable _playerState;
     
-    [SerializeField] private BulletType _currentBulletType;
+    [SerializeField, ReadOnly] private BulletType _currentBulletType;
     #endregion SerialisedFields
 
     #region GameObject Components
@@ -61,7 +60,7 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
     private Vector2 _inputDirection = Vector2.zero;
 
     private float _timeSinceLastLaser;
-    
+
     private OutOfBoundsDirection OutOfBounds
     {
         get
@@ -96,16 +95,14 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
             _gameObject = (GameObject)FindObjectOfType(typeof(GameObject));
         }
 
+        _currentBulletType = DefaultBulletType;
         _bulletPoolers = new Dictionary<BulletType, ObjectPooler>
         {
             [BulletType.Laser] = _laserPooler,
-            [BulletType.LaserTripleShot] = _tripleShotLaserPooler
+            [BulletType.TripleShot] = _tripleShotLaserPooler
         };
 
         _transform = GetComponent<Transform>();
-        
-        _playerState.PlayerDied += Destroy;
-        _playerState.HealthPoints = _playerState.PlayerMaxHealth;
         
         _controls = new Controls();
         _controls.Player.SetCallbacks(this);
@@ -114,20 +111,42 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
     private void OnEnable()
     {
         _timeSinceLastLaser = .0f;
-        _controls.Enable();
+        _controls.Enable(); 
+        _playerState.PlayerDied.AddListener(this, Destroy);
+        _playerState.PlayerPickedShield.AddListener(this, PickShield);
+        _playerState.PlayerPickedSpeedBoost.AddListener(this, PickSpeedboost);
+        _playerState.PlayerPickedTripleShot.AddListener(this, PickTripleShot);
+    }
+
+    private void PickTripleShot()
+    {
+        _currentBulletType = BulletType.TripleShot;
+    }
+
+    private void PickSpeedboost()
+    {
+        Speedup(_playerState.SpeedupMultiplier, 3);
+    }
+
+    private void PickShield()
+    {
+        if (_playerState.ShieldPoints == 0)
+            _playerState.ShieldPoints++;
     }
 
     private void OnDisable()
     {
-        _playerState.PlayerDied -= Destroy;
         _controls.Disable();
+        _playerState.PlayerDied.RemoveListeners(this);
+        _playerState.PlayerPickedShield.RemoveListeners(this);
+        _playerState.PlayerPickedSpeedBoost.RemoveListeners(this);
+        _playerState.PlayerPickedTripleShot.RemoveListeners(this);
     }
 
     private void Start()
     {
         _transform.position = new Vector3(0, 0, 0);
         
-        _movementSpeed = Math.Abs(_movementSpeed) < .01f ? 1.5f : _movementSpeed;
         _laserCooldown = Math.Abs(_laserCooldown) < .01f ? .8f : _laserCooldown;
     }
     
@@ -140,7 +159,7 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
     
     private void CalculateMovement()
     {
-        _transform.Translate(GetMovementDirection() * _movementSpeed * Time.deltaTime);
+        _transform.Translate(GetMovementDirection() * _playerState.MovementSpeed * Time.deltaTime);
         if (OutOfBounds != OutOfBoundsDirection.None)
         {
             HandleOutOfBounds();
@@ -180,18 +199,15 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
     {
         var bulletPooler = _bulletPoolers[_currentBulletType];
         var canFire = (_timeSinceLastLaser >= _laserCooldown) && !bulletPooler.IsEmpty;
-        
-        if (canFire)
-        {
-            
-            var bullet = bulletPooler.NextPoolableObject;
-            bullet.transform.SetPositionAndRotation(_transform.position + Vector3.up * LaserSpawnOffset, Quaternion.identity);
-            bullet.gameObject.SetActive(true);
-            
-            _timeSinceLastLaser = .0f;
-        }
-    }
 
+        if (!canFire) return;
+        
+        var bullet = bulletPooler.NextPoolableObject;
+        bullet.transform.SetPositionAndRotation(_transform.position + Vector3.up * LaserSpawnOffset, Quaternion.identity);
+        bullet.gameObject.SetActive(true);
+            
+        _timeSinceLastLaser = .0f;
+    }
 
     #region Input Handling 
     public void OnMove(InputAction.CallbackContext context)
@@ -210,22 +226,16 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
     }
     #endregion Input Handling
 
-    [ContextMenu("Destroy")]
     public void Destroy()
     {
         gameObject.SetActive(false);
     }
 
-    public void Damage()
+    public void Damage(int amount=0)
     {
-        _playerState.PlayerTookDamage?.Invoke(); 
-        _playerState.HealthPoints--;
-
-        if (_playerState.HealthPoints <= 0)
-        {
-            _playerState.IsPlayerDead = true;
-            _playerState.PlayerDied?.Invoke();
-        }
+        var damageAmount = ScriptableObject.CreateInstance<FloatVariable>();
+        damageAmount.Value = amount;
+        _playerState.PlayerTookDamage.Raise(damageAmount);
     }
 
     public void Collect(GameObject o)
@@ -238,32 +248,44 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
         switch (powerUp.PowerupType)
         {
             case PowerupType.Speedboost:
+                _playerState.PlayerPickedSpeedBoost.Raise();
                 Speedup(2, 3); 
                 break;
             case PowerupType.TripleShot:
-                SetBulletType(BulletType.LaserTripleShot, 5);
+                _playerState.PlayerPickedTripleShot.Raise();
+                SetBulletType(BulletType.TripleShot, 5);
+                break;
+            case PowerupType.Shield:
+                _playerState.PlayerPickedShield.Raise();
+                Debug.Log("Player picked shield");
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
     }
 
-    private void SetBulletType(BulletType bulletType, float seconds)
-    {
-       StartCoroutine(SetBulletTypeCoroutine(bulletType, seconds));
-    }
 
+    private Coroutine _currentSpeedupCoroutine;
     private void Speedup(float multiplier, float seconds)
     {
-        StartCoroutine(SpeedupCoroutine(multiplier, seconds));
+        if (_currentSpeedupCoroutine != null)
+            StopCoroutine(_currentSpeedupCoroutine);
+        _currentSpeedupCoroutine = StartCoroutine(SpeedupCoroutine(multiplier, seconds));
+    }
+
+    private Coroutine _currentBulletTypeCoroutine;
+    private void SetBulletType(BulletType bulletType, float seconds)
+    {
+        if (_currentBulletTypeCoroutine != null)
+            StopCoroutine(SetBulletTypeCoroutine(bulletType, seconds));
+        _currentBulletTypeCoroutine = StartCoroutine(SetBulletTypeCoroutine(bulletType, seconds));
     }
 
     private IEnumerator SpeedupCoroutine(float multiplier, float seconds)
     {
-        var initialSpeed = _movementSpeed;
-        _movementSpeed *= multiplier;
+        _playerState.MovementSpeed = _playerState.InitialMovementSpeed * multiplier;
         yield return new WaitForSeconds(seconds);
-        _movementSpeed = initialSpeed;
+        _playerState.MovementSpeed = _playerState.InitialMovementSpeed;
     }
     
     private IEnumerator SetBulletTypeCoroutine(BulletType bulletType, float seconds)

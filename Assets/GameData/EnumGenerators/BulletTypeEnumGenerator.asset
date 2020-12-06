@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 913a46f31228bb34aa6f1d52da5b732e, type: 3}
+  m_Name: BulletTypeEnumGenerator
+  m_EditorClassIdentifier: 
+  _sourceFolderPath: Assets/GameData/BulletType
+  _enumName: BulletType
+  _enumEntries:
+  - {fileID: 11400000, guid: e8c2c1f584651574b9dcaf65087583fd, type: 2}
+  - {fileID: 11400000, guid: ec7a13b9da710244b884c076281bd8ec, type: 2}
+  - {fileID: 11400000, guid: 5661ddf82b3bca943a8ce3cdf1d905eb, type: 2}
+  - {fileID: 11400000, guid: 263efcb9ed02e9745ab30c8e26c72eba, type: 2}
