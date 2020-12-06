@@ -12,11 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958b2ccf34af37148a9b42efda3e893e, type: 3}
   m_Name: SimpleEnemyDamageOutput
   m_EditorClassIdentifier: 
-  DeveloperDescription: '
-
-
-
-'
-  Value: 7.02
-  Value1: 0
-  Value2: 0
+  DeveloperDescription: qdasd
+  Value: 5.63

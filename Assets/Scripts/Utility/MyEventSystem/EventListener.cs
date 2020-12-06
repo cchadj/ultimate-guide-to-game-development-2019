@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using ModestTree;
 using UnityEditor;
 using UnityEngine;
+using Component = UnityEngine.Component;
 using Debug = UnityEngine.Debug;
 using Object = UnityEngine.Object;
 
@@ -168,7 +171,21 @@ public class EventListener : MonoBehaviour
             return areNoEventsFound ? null : _eventInfos[_selectedEventIndex];
         }
     }
-    private object SelectedEventOwner => _eventOwners?[_selectedEventIndex];
+
+    private object SelectedEventOwner
+    {
+        get
+        {
+            try
+            {
+                return _eventOwners?[_selectedEventIndex];
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                return null;
+            }
+        }
+    } 
 
     private Component SelectedComponent => Components?[SelectedComponentIndex];
 
@@ -204,8 +221,11 @@ public class EventListener : MonoBehaviour
     public void Subscribe()
     {
         var method = GetType().GetMethod(nameof(CallSelectedMethods));
-
-        System.Diagnostics.Debug.Assert(method != null, nameof(method) + " != null");
+        if (SelectedEventOwner == null)
+        {
+            Debug.LogWarning($"At EventListener in gameObject '{gameObject.name}' no subscription made because of no SelectedEvent");
+        }
+            
         _currentHandler = Delegate.CreateDelegate(SelectedEvent.EventHandlerType, this, method);
         SelectedEvent.AddEventHandler(SelectedEventOwner, _currentHandler);
     }
@@ -306,13 +326,26 @@ public class EventListener : MonoBehaviour
             _eventNames.Add(eventInfo.Name);
         }
 
-        var eventFields = eventObjectType.GetFields().Where(field => field.FieldType == typeof(GameEvent));
+        var eventFields = eventObjectType.
+            GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
+            .Where(field => field.FieldType == typeof(GameEvent));
+
         var gameEventFields = eventFields;
         foreach (var gameEventField in gameEventFields)
         {
             _eventOwners.Add(gameEventField.GetValue(_eventObject));
             _eventInfos.Add(gameEventField.FieldType.GetEvents()[0]);
-            _eventNames.Add(gameEventField.Name);
+            var eventName = gameEventField.Name;
+            if (gameEventField.Name.Contains("<") && gameEventField.Name.Contains(">"))
+            {
+                var reg = new Regex("<.*?>");
+                var matches = reg.Matches(eventName);
+                if (matches.Count >= 1)
+                {
+                    eventName = matches[0].ToString();
+                }
+            }
+            _eventNames.Add(eventName);
         }
 
         return _eventInfos;

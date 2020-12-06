@@ -1035,7 +1035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectPoolers: []
-  _spawnEverySeconds: {x: 0.5, y: 3}
+  _spawnEverySeconds: {x: 3.2601218, y: 5.450122}
   _stopSpawning: 0
 --- !u!4 &1459678769
 Transform:
@@ -1066,10 +1066,11 @@ MonoBehaviour:
   _eventObject: {fileID: 11400000, guid: 1cfd0d82d94d8a1408abe7b2a5ebf192, type: 2}
   _listenerGameObject: {fileID: 1459678766}
   _selectedEventIndex: 0
-  _selectedComponentIndex: 0
-  <SelectedComponentName>k__BackingField: Transform
-  _selectedMethodIndices: 
-  _selectedMethodNames: []
+  _selectedComponentIndex: 2
+  <SelectedComponentName>k__BackingField: Spawner
+  _selectedMethodIndices: 00000000
+  _selectedMethodNames:
+  - StopSpawning
 --- !u!1 &1465817320
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,18 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f95357c716332974091a6eff0819c704, type: 3}
   m_Name: PlayerState
   m_EditorClassIdentifier: 
-  heyMate: 0
   <MaxHealthPoints>k__BackingField: 22
   <MaxShieldPoints>k__BackingField: 1
   <InitialMovementSpeed>k__BackingField: 6
   <SpeedupMultiplier>k__BackingField: 9.41
   _bulletType: 0
-  PlayerDied: {fileID: 11400000, guid: 54df74f14e7f085458d0fd41649c8f28, type: 2}
-  PlayerTookDamage: {fileID: 11400000, guid: 0b98da6281b887d4d86ebf6f28b2011c, type: 2}
-  PlayerPickedSpeedBoost: {fileID: 11400000, guid: 1707667b2b549a4488a0ace73b33f336, type: 2}
-  PlayerPickedTripleShot: {fileID: 11400000, guid: 8bfb994ffb6f84f43b9c867cee6cb589, type: 2}
-  PlayerPickedShield: {fileID: 11400000, guid: 4dec5cbc553f10244b1addc20d39fa5b, type: 2}
-  ShieldDestroyed: {fileID: 11400000, guid: 6cadebf1b2fcb494a85a832a5e48d5e9, type: 2}
+  <PlayerDied>k__BackingField: {fileID: 11400000, guid: 54df74f14e7f085458d0fd41649c8f28, type: 2}
+  <PlayerPickedSpeedBoost>k__BackingField: {fileID: 11400000, guid: 1707667b2b549a4488a0ace73b33f336, type: 2}
+  <PlayerPickedTripleShot>k__BackingField: {fileID: 11400000, guid: 8bfb994ffb6f84f43b9c867cee6cb589, type: 2}
+  <PlayerPickedShield>k__BackingField: {fileID: 11400000, guid: 4dec5cbc553f10244b1addc20d39fa5b, type: 2}
+  <PlayerShieldDestroyed>k__BackingField: {fileID: 11400000, guid: 6cadebf1b2fcb494a85a832a5e48d5e9, type: 2}
+  <PlayerTookDamage>k__BackingField: {fileID: 11400000, guid: 0b98da6281b887d4d86ebf6f28b2011c, type: 2}
   _healthPoints: 22
   _shieldPoints: 1
   _movementSpeed: 6
