@@ -236,11 +236,6 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
         var damageAmount = ScriptableObject.CreateInstance<FloatVariable>();
         damageAmount.Value = amount;
         _playerState.PlayerTookDamage.Raise(damageAmount);
-        
-        if (_playerState.ShieldPoints > 0)
-            _playerState.ShieldPoints -= amount;
-        else
-            _playerState.HealthPoints -= amount;
     }
 
     public void Collect(GameObject o)

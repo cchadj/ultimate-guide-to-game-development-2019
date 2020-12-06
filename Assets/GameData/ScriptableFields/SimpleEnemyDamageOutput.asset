@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958b2ccf34af37148a9b42efda3e893e, type: 3}
   m_Name: SimpleEnemyDamageOutput
   m_EditorClassIdentifier: 
-  DeveloperDescription: qdasd
-  Value: 5.63
+  DeveloperDescription: 'The damage a simple enemy
+
+    should deal to the player.'
+  Value: 5

@@ -15,6 +15,7 @@
           </e>
         </e>
         <e p="Controls.cs" t="Include" />
+        <e p="EventListenerTester.cs" t="Include" />
         <e p="EventTester.cs" t="Include" />
         <e p="GameEventWithArguments.cs" t="Include" />
         <e p="GameObjectEnablerDisabler.cs" t="Include" />
@@ -1003,6 +1004,7 @@
               <e p="EventListener.cs" t="Include" />
               <e p="GameEvent.cs" t="Include" />
               <e p="GameEventEditor.cs" t="Include" />
+              <e p="GameEventListenerEditor.cs" t="Include" />
               <e p="GameEventPropertyDrawer.cs" t="Include" />
               <e p="GameEventWithArgumentsDrawer.cs" t="Include" />
             </e>

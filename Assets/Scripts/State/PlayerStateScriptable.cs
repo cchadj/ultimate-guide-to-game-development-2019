@@ -5,7 +5,7 @@ using UnityEngine;
 using Zenject;
 
 [CreateAssetMenu(menuName="State/PlayerState")]
-public class PlayerStateScriptable : ScriptableObject, IInitializable
+public class     PlayerStateScriptable : ScriptableObject, IInitializable
 {
     [field:SerializeField] public int MaxHealthPoints { get; private set; }
     
@@ -73,7 +73,7 @@ public class PlayerStateScriptable : ScriptableObject, IInitializable
         if (PlayerTookDamage != null)
             PlayerTookDamage.AddListener<FloatVariable>(this, Damage);
     }
-    
+
     private void OnDisable()
     {
         if (PlayerDied != null)

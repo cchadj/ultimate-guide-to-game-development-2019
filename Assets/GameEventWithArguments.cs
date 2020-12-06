@@ -30,8 +30,9 @@ public partial class GameEventWithArguments : ScriptableObject
 {
     [field:SerializeField] public string EventName { get; private set; }
 
-//    [SerializeField, MiniView] private ScriptableObject _mockArgumentsScriptable;
-    [MiniView] public ScriptableObject _mockArgumentsScriptable;
+    [SerializeField, MiniView] private ScriptableObject _mockArgumentsScriptable;
+
+    public ScriptableObject MockArgumentsScriptable => _mockArgumentsScriptable;
     
     public event EventHandler<ScriptableEventArgs> Event;
     
@@ -41,7 +42,7 @@ public partial class GameEventWithArguments : ScriptableObject
     [ContextMenu("Raise Event")]
     private void Raise()
     {
-        Event?.Invoke(this, new ScriptableEventArgs(_mockArgumentsScriptable));
+        Event?.Invoke(this, new ScriptableEventArgs(MockArgumentsScriptable));
     }
 
     public void Raise(ScriptableObject so)
@@ -53,11 +54,11 @@ public partial class GameEventWithArguments : ScriptableObject
     /// Returns a handle that can be used to remove listener (i.e gameEvent.Event -= handler)
     public EventHandler<ScriptableEventArgs> AddListener<T>(object subscriberObject, GameEventDelegateWithArguments<T> eventDelegate) where T: ScriptableObject
     {
-        var isExpectedTypeDifferentFromPassedType = typeof(T) != _mockArgumentsScriptable.GetType();
+        var isExpectedTypeDifferentFromPassedType = typeof(T) != MockArgumentsScriptable.GetType();
         if (isExpectedTypeDifferentFromPassedType)
             throw new ArgumentException($"Listener '{subscriberObject}' of type <{subscriberObject.GetType()}> passed type <{typeof(T)}> " +
-                                        $"when expected type is <{_mockArgumentsScriptable.GetType()}>." +
-                                        $" \n Please change subscriber type in AddListener<{typeof(T)}>() to AddListener<{_mockArgumentsScriptable.GetType()}>()");
+                                        $"when expected type is <{MockArgumentsScriptable.GetType()}>." +
+                                        $" \n Please change subscriber type in AddListener<{typeof(T)}>() to AddListener<{MockArgumentsScriptable.GetType()}>()");
         
         var handler = new EventHandler<ScriptableEventArgs>((o, e) => eventDelegate(e.GetArguments<T>()));
         Event += handler;
@@ -75,11 +76,11 @@ public partial class GameEventWithArguments : ScriptableObject
     // able to be removed.
     public void RemoveListener<T>(object subscriberObject, GameEventDelegateWithArguments<T> eventDelegate) where T: ScriptableObject
     {
-        var isExpectedTypeDifferentFromPassedType = typeof(T) != _mockArgumentsScriptable.GetType();
+        var isExpectedTypeDifferentFromPassedType = typeof(T) != MockArgumentsScriptable.GetType();
         if (isExpectedTypeDifferentFromPassedType)
             throw new ArgumentException($"Listener '{subscriberObject}' of type <{subscriberObject.GetType()}> passed type <{typeof(T)}> " +
-                                        $"when expected type is <{_mockArgumentsScriptable.GetType()}>." +
-                                        $" \n Please change subscriber type in RemoveListener<{typeof(T)}>() to RemoveListener<{_mockArgumentsScriptable.GetType()}>() to successfully " +
+                                        $"when expected type is <{MockArgumentsScriptable.GetType()}>." +
+                                        $" \n Please change subscriber type in RemoveListener<{typeof(T)}>() to RemoveListener<{MockArgumentsScriptable.GetType()}>() to successfully " +
                                         $"remove listener.");
         if (!_scriptableEventHandlers.ContainsKey(subscriberObject)) return;
 
@@ -184,7 +185,7 @@ public partial class GameEventWithArguments
                 Target.EventName = Target.name;
             
             EditorGUILayout.PropertyField(serializedObject.FindProperty(nameof(Target._mockArgumentsScriptable)));
-            if (Target._mockArgumentsScriptable == null)
+            if (Target.MockArgumentsScriptable == null)
             {
                 EditorGUILayout.HelpBox("Please set a mock ScriptableObject based object for testing and " +
                                         " to set the data type of the arguments. (Runtime error will be thrown if subscriber" +
@@ -193,13 +194,13 @@ public partial class GameEventWithArguments
 
             serializedObject.ApplyModifiedProperties();
             
-            if (Target._mockArgumentsScriptable == null) return;
+            if (Target.MockArgumentsScriptable == null) return;
             
             GUILayout.FlexibleSpace();
             
             if (GUILayout.Button("Raise Event"))
             {
-                Debug.Log($"Raising event {Target.EventName} from {Target.name} with mock arguments from {Target._mockArgumentsScriptable}");
+                Debug.Log($"Raising event {Target.EventName} from {Target.name} with mock arguments from {Target.MockArgumentsScriptable}");
                 Target.Raise();
             }
         }

@@ -1,21 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Reflection;
 using System.Text.RegularExpressions;
-using ModestTree;
-using UnityEditor;
 using UnityEngine;
 using Component = UnityEngine.Component;
 using Debug = UnityEngine.Debug;
-using Object = UnityEngine.Object;
 
-public class EventListener : MonoBehaviour
+public partial class EventListener : MonoBehaviour
 {
     [SerializeField] private ScriptableObject _eventObject;
+    [SerializeField] private ScriptableObject _eventArguments;
     private ScriptableObject EventObject
     {
         get => _eventObject;
@@ -57,7 +53,7 @@ public class EventListener : MonoBehaviour
             if (valueChanged)
             {
                 CacheListenerComponents();
-                CacheMethods();
+                CacheSelectedComponentMethods();
             }
             SelectedComponentName = _componentNames[_selectedComponentIndex];
         }
@@ -86,14 +82,27 @@ public class EventListener : MonoBehaviour
         }
     }
 
+    public bool IsEventWithArgumentsSelected
+    {
+        get
+        {
+            if (SelectedEvent == null)
+                Cache();
+            return SelectedEvent.EventHandlerType == typeof(EventHandler<ScriptableEventArgs>);
+        }
+    }
+
     private void CacheSelectedMethodNames()
     {
         Cache();
+        
         if (_selectedMethodIndices == null) return;
         
         _selectedMethodNames = new List<string>();
         foreach (var i in _selectedMethodIndices)
         {
+            if (i >= _methodInfos.Count)
+                continue;
             var methodInfo = _methodInfos[i];
             _selectedMethodNames.Add(methodInfo.Name);
         }
@@ -122,6 +131,8 @@ public class EventListener : MonoBehaviour
     }
 
     private List<string> _componentNames;
+
+    private Dictionary<EventInfo, FieldInfo> _eventToGameEventFieldInfo;
     
     public string[] ListenerComponentNames => _componentNames.ToArray();
 
@@ -129,6 +140,7 @@ public class EventListener : MonoBehaviour
     private List<MethodInfo> _methodInfos;
 
     private List<string> _methodNames;
+    
     public string[] MethodNames => _methodNames.ToArray();
 
     private void Awake()
@@ -142,7 +154,7 @@ public class EventListener : MonoBehaviour
         // Order must be preserved
         CacheEventObjectEvents();
         CacheListenerComponents();
-        CacheMethods();
+        CacheSelectedComponentMethods();
     }
 
     private void OnEnable()
@@ -160,17 +172,62 @@ public class EventListener : MonoBehaviour
         get
         {
             var areEventsCached = _eventInfos != null && _eventInfos.Count != 0;
-            
-            if (areEventsCached) 
-                return _eventInfos[_selectedEventIndex];
 
-            CacheEventObjectEvents();
+            if (areEventsCached)
+            {
+                try
+                {
+                    return _eventInfos?[_selectedEventIndex];
+                }
+                catch (ArgumentOutOfRangeException)
+                {
+                    _selectedEventIndex = 0;
+                    return _eventInfos?[_selectedEventIndex];
+                }
+            }
             
-            var areNoEventsFound = _eventInfos.Count == 0; 
-            
-            return areNoEventsFound ? null : _eventInfos[_selectedEventIndex];
+            var areNoEventsFound = _eventInfos != null && _eventInfos.Count == 0; 
+            return areNoEventsFound ? null : _eventInfos?[_selectedEventIndex];
         }
     }
+
+    private GameEventWithArguments GameEventWithArguments
+    {
+        get
+        {
+            if (SelectedEvent == null) return null;
+            
+            if (!IsEventWithArgumentsSelected) return null;
+            
+            var gameEventField = _eventToGameEventFieldInfo[SelectedEvent];
+            var gameEventWithArgumentsInstance = gameEventField.GetValue(_eventObject) as GameEventWithArguments;
+
+            return gameEventWithArgumentsInstance;
+        }
+    }
+    private ScriptableObject MockEventArgumentsScriptable
+    {
+        get
+        {
+            if (SelectedEvent == null) return null;
+            
+            if (!IsEventWithArgumentsSelected) return null;
+            
+            var gameEventField = _eventToGameEventFieldInfo[SelectedEvent];
+            var gameEventWithArgumentsInstance = gameEventField.GetValue(_eventObject) as GameEventWithArguments;
+            
+            var mockArgumentPropertyInfo = gameEventField.FieldType.GetProperty(nameof(GameEventWithArguments.MockArgumentsScriptable));
+            if (mockArgumentPropertyInfo != null)
+            {
+                return mockArgumentPropertyInfo.GetValue(gameEventWithArgumentsInstance) as ScriptableObject;
+            }
+
+            return null;
+        }
+    }
+
+    // ReSharper disable once Unity.NoNullPropogation
+    private Type SelectedEventArgumentType => MockEventArgumentsScriptable?.GetType();
 
     private object SelectedEventOwner
     {
@@ -189,43 +246,85 @@ public class EventListener : MonoBehaviour
 
     private Component SelectedComponent => Components?[SelectedComponentIndex];
 
-    private List<Action> _selectedMethods;
+
 
     [SerializeField, HideInInspector] private List<string> _selectedMethodNames;
     public List<string> SelectedMethodNames => _selectedMethodNames;
 
+    private List<Action> _selectedMethods;
     private IEnumerable<Action> SelectedComponentMethods
     {
         get
         {
-            var isSelectedMethodsNotInitialised = _selectedMethods == null || _selectedMethods.Count == 0;
-            
-            if (!isSelectedMethodsNotInitialised) return _selectedMethods;
-            
-            _selectedMethods = new List<Action>(); 
+            var isSelectedMethodsInitialised = _selectedMethods != null && _selectedMethods.Count != 0;
+
+            if (isSelectedMethodsInitialised) return _selectedMethods;
+
+            // Initialise selected methods
+            _selectedMethods = new List<Action>();
             foreach (var i in _selectedMethodIndices)
             {
                 var methodInfo = _methodInfos[i];
                 var methodsInstance = SelectedComponent;
-                if(methodInfo.IsStatic)
+                if (methodInfo.IsStatic)
                     methodsInstance = null;
-                var del = (Action)Delegate.CreateDelegate(typeof(Action), methodsInstance, methodInfo);
+                var del = (Action) Delegate.CreateDelegate(typeof(Action), methodsInstance, methodInfo);
                 _selectedMethods.Add(del);
             }
 
             return _selectedMethods;
         }
     }
+    
+    private List<Action<object>> _selectedMethodsWithArguments;
+
+    private IEnumerable<Action<object>> SelectedComponentMethodsWithArguments
+    {
+        get
+        {
+            var isSelectedMethodsInitialised = _selectedMethodsWithArguments != null && _selectedMethodsWithArguments.Count != 0;
+
+            if (isSelectedMethodsInitialised) return _selectedMethodsWithArguments;
+
+            // Initialise selected methods
+            _selectedMethodsWithArguments = new List<Action<object>>();
+            foreach (var i in _selectedMethodIndices)
+            {
+                var methodInfo = _methodInfos[i];
+                var methodsInstance = SelectedComponent;
+                if (methodInfo.IsStatic)
+                    methodsInstance = null;
+                var actionT = typeof (Action<>).MakeGenericType(SelectedEventArgumentType);
+                var del = Delegate.CreateDelegate(actionT, methodsInstance, methodInfo);
+                var a = (Action<object>)typeof(EventListener)
+                    .GetMethod(nameof(Convert))
+                    .MakeGenericMethod(SelectedEventArgumentType)
+                    .Invoke(null, new object[] { del });
+                _selectedMethodsWithArguments.Add(a);
+            }
+
+            return _selectedMethodsWithArguments;
+        }
+    }
+    
+    public static Action<object> Convert<T>(Action<T> myActionT)
+    {
+        return o => myActionT((T)o);
+    }
+    
     private Delegate _currentHandler;
 
     public void Subscribe()
     {
-        var method = GetType().GetMethod(nameof(CallSelectedMethods));
+        var method = GetType().GetMethod(IsEventWithArgumentsSelected? 
+            nameof(CallSelectedMethodsWithArguments) : 
+            nameof(CallSelectedMethods));
+        
         if (SelectedEventOwner == null)
         {
             Debug.LogWarning($"At EventListener in gameObject '{gameObject.name}' no subscription made because of no SelectedEvent");
         }
-            
+           
         _currentHandler = Delegate.CreateDelegate(SelectedEvent.EventHandlerType, this, method);
         SelectedEvent.AddEventHandler(SelectedEventOwner, _currentHandler);
     }
@@ -238,35 +337,47 @@ public class EventListener : MonoBehaviour
             method();
         }
     }
+    
+    public void CallSelectedMethodsWithArguments(object sender, ScriptableEventArgs eventArgs)
+    {
+        var eventArgumentType = _eventArguments.GetType();
+        foreach (var method in SelectedComponentMethodsWithArguments)
+        {
+            
+            var actionT = typeof (Action<>).MakeGenericType(SelectedEventArgumentType);
+            // This is only slightly slower than a normal method call 
+            method(eventArgs.GetArguments<ScriptableObject>());
+        }
+    }
 
     [ContextMenu("PerformanceTest")]
     private void PerformanceTest()
     {
-        const int repeats = 50000;
+        const int repeats = 100000;
         print($"Performing test for {repeats} times");
         print("Call through delegates");
         var sw = new Stopwatch();
         sw.Start();
         for (var i = 0; i <= repeats; i++)
-            CallSelectedMethods(null, null); 
+            CallSelectedMethodsWithArguments(this, new ScriptableEventArgs(ScriptableObject.CreateInstance<FloatVariable>()));; 
         sw.Stop();
         Debug.Log("Elapsed={0}" + sw.Elapsed);
 
         print("Direct call.");
-//        var eventTester = GetComponent <MyEventsTester>();
-//        object eventTester = null; // GetComponent <MyEventsTester>();
+        var eventTester = GetComponent <EventListenerTester>();
         sw = new Stopwatch();
         sw.Start();
-//        for (var i = 0; i <= repeats; i++)
-//            eventTester.TestNoOp();
+        for (var i = 0; i <= repeats; i++)
+            eventTester.MethodWithDerivedScriptableObjectArgumentsFloatVariable(ScriptableObject.CreateInstance<FloatVariable>());
         sw.Stop();
         Debug.Log("Elapsed={0}" + sw.Elapsed);
         
         print("Call through raise event.");
         sw = new Stopwatch();
         sw.Start();
-//        for (var i = 0; i <= repeats; i++)
-//            eventTester.RaisePerformanceEvent();
+        for (var i = 0; i <= repeats; i++)
+            GameEventWithArguments.Raise(ScriptableObject.CreateInstance<FloatVariable>());
+        sw.Stop();
         sw.Stop();
         Debug.Log("Elapsed={0}" + sw.Elapsed);
     }
@@ -287,6 +398,11 @@ public class EventListener : MonoBehaviour
        if (eventDelegate == null) return;
        
        var methodArguments = new[] {SelectedEventOwner, EventArgs.Empty};
+       if (IsEventWithArgumentsSelected)
+       {
+           methodArguments = new[] {SelectedEventOwner, new ScriptableEventArgs(MockEventArgumentsScriptable)};
+       }
+       
        foreach (var handler in eventDelegate.GetInvocationList())
        {
            handler.Method.Invoke(handler.Target, methodArguments);
@@ -319,6 +435,7 @@ public class EventListener : MonoBehaviour
         _eventNames = new List<string>();
         _eventInfos = new List<EventInfo>();
         _eventOwners = new List<object>();
+        _eventToGameEventFieldInfo = new Dictionary<EventInfo, FieldInfo>();
         foreach (var eventInfo in eventInfos)
         {
             _eventOwners.Add(_eventObject);
@@ -326,15 +443,17 @@ public class EventListener : MonoBehaviour
             _eventNames.Add(eventInfo.Name);
         }
 
-        var eventFields = eventObjectType.
+        var gameEventFields = eventObjectType.
             GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
-            .Where(field => field.FieldType == typeof(GameEvent));
+            .Where(field => field.FieldType == typeof(GameEvent) || field.FieldType == typeof(GameEventWithArguments));
 
-        var gameEventFields = eventFields;
         foreach (var gameEventField in gameEventFields)
         {
+            var eventInfo = gameEventField.FieldType.GetEvents()[0];
             _eventOwners.Add(gameEventField.GetValue(_eventObject));
-            _eventInfos.Add(gameEventField.FieldType.GetEvents()[0]);
+            _eventInfos.Add(eventInfo);
+            _eventToGameEventFieldInfo[eventInfo] = gameEventField;
+            
             var eventName = gameEventField.Name;
             if (gameEventField.Name.Contains("<") && gameEventField.Name.Contains(">"))
             {
@@ -351,7 +470,7 @@ public class EventListener : MonoBehaviour
         return _eventInfos;
     }
     
-    public void CacheMethods()
+    public void CacheSelectedComponentMethods()
     {
         if (SelectedComponent == null) return;
          
@@ -362,145 +481,63 @@ public class EventListener : MonoBehaviour
         var typeMethods = SelectedComponent.GetType()
             .GetMethods(BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public &
                         ~BindingFlags.GetProperty & ~BindingFlags.SetProperty)
-            .Where(m => !m.IsSpecialName && m.GetParameters().Length == 0 && !m.Name.Contains("Get") &&
-                        !m.Name.Contains("get") && !m.Name.Contains("_"));
+            .Where(m => !m.IsSpecialName && 
+                        !m.Name.Contains("Get") &&
+                        !m.Name.Contains("get") && 
+                        !m.Name.Contains("_"));
 
-
+        var eventArgumentType = typeof(ScriptableObject);
+        if (_eventArguments != null)
+            eventArgumentType = _eventArguments.GetType();
+        
+        typeMethods = IsEventWithArgumentsSelected ? 
+            GetMethodsWithArgumentOfTypeOrSubtype(typeMethods, eventArgumentType) :
+            GetMethodsWithoutArguments(typeMethods);
+        
         foreach (var methodInfo in typeMethods)
         {
             _methodInfos.Add(methodInfo);
             _methodNames.Add(methodInfo.Name);
         }
     }
-
-    public void TestMeVoid()
-    {
-        print("TestMeVoid called");
-    }
-
-#if UNITY_EDITOR
-    [CustomEditor(typeof(EventListener))]
-    public class EventListenerEditor : Editor
-    {
-        private EventListener Target => (EventListener) target;
-        private List<int> _onEnabledSelectedMethodIndices;
-
-        private void OnEnable()
-        {
-            Target.Cache();
-            _onEnabledSelectedMethodIndices = new List<int>();
-            for (var i = 0; i < Target.SelectedMethodIndices.Length; i++)
-            {
-                var selectedIndex = 0;
-                if (i < Target.SelectedMethodNames.Count)
-                {
-                    var methodName = Target.SelectedMethodNames?[i];
-                    selectedIndex = Target.MethodNames.IndexOf(methodName);
-                }
-                else
-                {
-                    selectedIndex = -1;
-                }
-                if (selectedIndex <0)
-                    continue;
-                _onEnabledSelectedMethodIndices.Add(selectedIndex);
-            }
-
-            Target.SelectedMethodIndices = _onEnabledSelectedMethodIndices.ToArray();
-        }
-
-        public override void OnInspectorGUI()
-        {
-            Target.EventObject = EditorGUILayout.ObjectField("Event Scriptable Object",
-                Target.EventObject, typeof(ScriptableObject), true) as ScriptableObject;
-            
-            Target.ListenerGameObject = EditorGUILayout.ObjectField(label:"Listener Game Object", Target.ListenerGameObject,
-                typeof(GameObject), true) as GameObject;
-            
-            
-            if (!Target.IsListenerObjectSet || !Target.IsEventObjectSet)
-                return;
-
-            var isListenerComponentsNotInitialised = Target.ListenerComponentNames == null || Target.ListenerComponentNames.IsEmpty();  
-            if (isListenerComponentsNotInitialised)
-                Target.CacheListenerComponents();
-
-            var noListenerComponentsFoundExceptTransform = Target.ListenerComponentNames.Length <= 1; 
-            if (noListenerComponentsFoundExceptTransform)
-                return;
-            
-            EditorGUILayout.Space();
-
-            var areEventsNotInitialised = Target.EventObjectEventNames.IsEmpty();
-            if (areEventsNotInitialised)
-            {
-                var events = Target.CacheEventObjectEvents();
-
-                var noEventsFound = events != null && events.Count == 0;
-                if (noEventsFound)
-                {
-                    EditorGUILayout.LabelField("No suitable events found in this object.");
-                    return;
-                }
-            }
-                
-            EditorGUILayout.LabelField("Select event to listen to:");
-            Target._selectedEventIndex = EditorGUILayout.Popup(Target._selectedEventIndex, Target.EventObjectEventNames);
-
-            var selectedComponentIndex = -1;
-            if (!string.IsNullOrEmpty(Target.SelectedComponentName))
-                selectedComponentIndex = Target._componentNames.IndexOf(Target.SelectedComponentName);
-
-            var selectedComponentNoLongerExists = selectedComponentIndex < 0; 
-            if (selectedComponentNoLongerExists)
-                selectedComponentIndex = 0;
-            EditorGUILayout.LabelField("Select listeners component:");
-            Target.SelectedComponentIndex = EditorGUILayout.Popup(selectedComponentIndex, Target.ListenerComponentNames);
-
-            var selectedMethodIndicesListProperty = serializedObject.FindProperty(nameof(Target._selectedMethodIndices));
-            var hasValueChanged = Show(selectedMethodIndicesListProperty);
-
-            if (hasValueChanged)
-            {
-                EditorUtility.SetDirty(target);
-            }
-        }
-
-        public bool Show(SerializedProperty list)
-        {
-            var hasValueChanged = false;
-            EditorGUILayout.LabelField("Select listener methods:");
-            EditorGUI.indentLevel += 1;
-            list.isExpanded = true;
-            if (list.isExpanded)
-            {
-                for (var i = 0; i < list.arraySize; i++)
-                {
-                    Target._selectedMethodIndices[i] = EditorGUILayout.Popup(Target._selectedMethodIndices[i], Target.MethodNames);
-                }
-                Target.CacheSelectedMethodNames();
-            }
-
-            if (GUILayout.Button("+"))
-            {
-                Target._selectedMethodIndices.Add(0);
-                hasValueChanged = true;
-            }
-
-            if (GUILayout.Button("-") && Target._selectedMethodIndices.Count >= 1)
-            {
-                Target._selectedMethodIndices.RemoveAt(Target._selectedMethodIndices.Count - 1);
-                hasValueChanged = true;
-            }
-
-            if (hasValueChanged)
-            {
-                Target.CacheMethods();
-            }
-            return hasValueChanged;
-        }
-    }
-#endif
     
+    private static IEnumerable<MethodInfo> GetMethodsWithoutArguments(IEnumerable<MethodInfo> methodInfos)
+    {
+        return methodInfos.Where(m => m.GetParameters().Length == 0);
+    }
+
+    private static IEnumerable<MethodInfo> GetMethodsWithArgumentOfTypeOrSubtype<T>(IEnumerable<MethodInfo> methodInfos)
+    {
+        return GetMethodsWithArgumentOfTypeOrSubtype(methodInfos, typeof(T));
+    }
+    
+    private static IEnumerable<MethodInfo> GetMethodsWithArgumentOfTypeOrSubtype(IEnumerable<MethodInfo> methodInfos, Type type)
+    {
+        return methodInfos.Where(m => m.GetParameters().Length == 1 &&
+                                      (m.GetParameters()[0].ParameterType.IsSubclassOf(type) ||
+                                       m.GetParameters()[0].ParameterType == type));
+    }
+    
+    private IEnumerable<MethodInfo> GetMethodsWithMatchingParameters(IEnumerable<MethodInfo> methodInfos,
+        EventInfo eventInfo)
+    {
+        var suitableMethods = new List<MethodInfo>();
+        methodInfos = methodInfos.Where(m =>
+            m.GetParameters().Length == SelectedEvent.EventHandlerType.GetGenericArguments().Length);
+
+        var eventArguments = SelectedEvent.EventHandlerType.GetGenericArguments();
+        foreach (var method in methodInfos)
+        {
+            var methodParameters = method.GetParameters();
+            for (var i = 0; i < methodParameters.Length; i++)
+            {
+                var methodParamType = methodParameters[i].ParameterType;
+                var eventArgumentType = eventArguments[i].BaseType;
+                if (methodParamType == eventArgumentType || !methodParamType.IsSubclassOf(eventArgumentType ?? throw new ArgumentNullException()))
+                    suitableMethods.Add(method);
+            }
+        }
+        return suitableMethods;
+    }
 }
 
