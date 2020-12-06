@@ -56,28 +56,29 @@ public class MiniViewDrawer : PropertyDrawer
             _property = property;
  
         var initialOffset = (position.y + OffsetFromPreviousProperty + BoundingBoxWidth);
-        _curHeight = initialOffset;
+        _curElementY = initialOffset;
 
         EditorGUI.BeginProperty(position, label, property);
         
         DrawBoundingBox(position);
-            
-        var numOfElementsToDraw = 2; // 2 for label and the property
-        if (ChildrenProperties != null)
-            numOfElementsToDraw += ChildrenProperties.Count;
         
+//        var titleRect = GetElementPosition(position);
+        var style = new GUIStyle(GUI.skin.label) {alignment = TextAnchor.UpperRight};
+        style.normal.textColor = Color.grey;
         // Draw the label of the property
-        var labelRect = GetElementPosition(position, numOfElementsToDraw);
+        var labelRect = GetElementPosition(position);
+        
+        EditorGUI.LabelField(labelRect, new GUIContent("Mini View Window"), style);
         EditorGUI.LabelField(labelRect, new GUIContent(property.displayName + ": "));
         
         // Draw the property field
-        var propertyRect = GetElementPosition(position, numOfElementsToDraw);
+        var propertyRect = GetElementPosition(position);
         EditorGUI.PropertyField(propertyRect,  property, GUIContent.none, true);
 
         var isPropertySetInTheEditor = property.objectReferenceValue != null;
         if (!isPropertySetInTheEditor) return;
 
-        DrawChildrenProperties(position, numOfElementsToDraw);
+        DrawChildrenProperties(position);
 
         EditorGUI.EndProperty();
     }
@@ -88,7 +89,10 @@ public class MiniViewDrawer : PropertyDrawer
         if (_property == null)
             _property = property;
 
-        var height = EditorGUIUtility.singleLineHeight * 2 + OffsetFromPreviousProperty + 2 * BoundingBoxWidth;
+        var miniViewTitleOffset = EditorGUIUtility.singleLineHeight;
+        var elementOffsets = 2 * _elementOffset;
+        var height = base.GetPropertyHeight(property,  label) + OffsetFromPreviousProperty + 2 * BoundingBoxWidth + 
+                     miniViewTitleOffset + elementOffsets;
 
         if (ChildrenProperties == null) return height;
         
@@ -101,25 +105,17 @@ public class MiniViewDrawer : PropertyDrawer
     }
 
     private float _elementOffset = 5f;
-    private float _curHeight;
-    private Rect GetElementPosition(Rect position, int numElements, float height=-1)
+    private float _curElementY;
+    private Rect GetElementPosition(Rect position, float height=-1)
     {
+        var currElementHeight = height < 0 ? EditorGUIUtility.singleLineHeight : height;
         var widthRatio = .95f;
         var newPosition = new Rect(position.x + BoundingBoxWidth,
-            _curHeight,
+            _curElementY,
             position.width * widthRatio,
-            height < 0 ? EditorGUIUtility.singleLineHeight : height);
-        
-        if (height < 0)
-        {
-            _curHeight += EditorGUIUtility.singleLineHeight;
-        }
-        else
-        {
-            _curHeight += height;
-        }
+            currElementHeight);
 
-        _curHeight += _elementOffset;
+        _curElementY += currElementHeight + _elementOffset;
         return newPosition;
     }
 
@@ -132,14 +128,14 @@ public class MiniViewDrawer : PropertyDrawer
         EditorGUI.DrawRect(new Rect(new Vector2(position.x + indent, position.y + position.height - BoundingBoxWidth), new Vector2(position.width, BoundingBoxWidth)), Color.grey);
     }
 
-    private void DrawChildrenProperties(Rect position, int numElements)
+    private void DrawChildrenProperties(Rect position)
     {
         var areChildrenPropertiesSet = ChildrenProperties != null;
         if (areChildrenPropertiesSet)
         {
             foreach (var serializedProperty in ChildrenProperties)
             {
-                var propertyPosition = GetElementPosition(position, numElements);
+                var propertyPosition = GetElementPosition(position, EditorGUI.GetPropertyHeight(serializedProperty));
                 EditorGUI.PropertyField(propertyPosition, serializedProperty, includeChildren:true);
             }
             SerializedObject?.ApplyModifiedProperties();
