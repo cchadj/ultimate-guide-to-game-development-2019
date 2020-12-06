@@ -7,7 +7,6 @@ using Zenject;
 [CreateAssetMenu(menuName="State/PlayerState")]
 public class PlayerStateScriptable : ScriptableObject, IInitializable
 {
-    public float heyMate;
     [field:SerializeField] public int MaxHealthPoints { get; private set; }
     
     [field:SerializeField] public int MaxShieldPoints { get; private set; }
@@ -16,19 +15,16 @@ public class PlayerStateScriptable : ScriptableObject, IInitializable
     
     [field:SerializeField] public float SpeedupMultiplier { get; private set;}
     
-     private const float FloatTolerance = 0.001f;
+    private const float FloatTolerance = 0.001f;
     
     [SerializeField, EnumMask] private BulletType _bulletType;
     
-    public GameEvent PlayerDied;
-
-    public GameEventWithArguments PlayerTookDamage;
-
-    public GameEvent PlayerPickedSpeedBoost;
-
-    public GameEvent PlayerPickedTripleShot;
-
-    public GameEvent PlayerPickedShield;
+    [field:SerializeField] public GameEvent PlayerDied { get; private set; }
+    [field:SerializeField] public GameEvent PlayerPickedSpeedBoost { get; private set; }
+    [field:SerializeField] public GameEvent PlayerPickedTripleShot { get; private set; }
+    [field:SerializeField] public GameEvent PlayerPickedShield { get; private set; }
+    [field:SerializeField] public GameEvent PlayerShieldDestroyed { get; private set; }
+    [field:SerializeField] public GameEventWithArguments PlayerTookDamage { get; private set; }
     
     [SerializeField, ReadOnly] private float _healthPoints;
     public float HealthPoints
@@ -50,10 +46,13 @@ public class PlayerStateScriptable : ScriptableObject, IInitializable
         set
         {
             _shieldPoints = Mathf.Clamp(value, 0, MaxShieldPoints);
-            
-            
-            if (value < 0)
+
+
+            if (value <= 0)
+            {
                 HealthPoints += value;
+                PlayerShieldDestroyed.Raise();
+            }
         } 
     }
 
@@ -74,14 +73,18 @@ public class PlayerStateScriptable : ScriptableObject, IInitializable
     
     private void OnEnable()
     {
-        PlayerDied.AddListener(this, Kill);
-        PlayerTookDamage.AddListener<FloatVariable>(this, Damage);
+        if (PlayerDied != null)
+            PlayerDied.AddListener(this, Kill);
+        if (PlayerTookDamage != null)
+            PlayerTookDamage.AddListener<FloatVariable>(this, Damage);
     }
     
     private void OnDisable()
     {
-        PlayerDied.RemoveListener(this, Kill);
-        PlayerTookDamage.RemoveListener<FloatVariable>(this, Damage);
+        if (PlayerDied != null)
+            PlayerDied.RemoveListener(this, Kill);
+        if (PlayerTookDamage != null)
+            PlayerTookDamage.RemoveListener<FloatVariable>(this, Damage);
     }
 
     private void Damage(FloatVariable damageAmount)

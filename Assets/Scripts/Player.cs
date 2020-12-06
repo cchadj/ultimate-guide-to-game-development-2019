@@ -262,6 +262,7 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
                 break;
             case PowerupType.Shield:
                 _playerState.PlayerPickedShield.Raise();
+                Debug.Log("Player picked shield");
                 break;
             default:
                 throw new ArgumentOutOfRangeException();

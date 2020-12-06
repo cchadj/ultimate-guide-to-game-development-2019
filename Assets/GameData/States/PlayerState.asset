@@ -23,6 +23,7 @@ MonoBehaviour:
   PlayerPickedSpeedBoost: {fileID: 11400000, guid: 1707667b2b549a4488a0ace73b33f336, type: 2}
   PlayerPickedTripleShot: {fileID: 11400000, guid: 8bfb994ffb6f84f43b9c867cee6cb589, type: 2}
   PlayerPickedShield: {fileID: 11400000, guid: 4dec5cbc553f10244b1addc20d39fa5b, type: 2}
+  ShieldDestroyed: {fileID: 11400000, guid: 6cadebf1b2fcb494a85a832a5e48d5e9, type: 2}
   _healthPoints: 22
-  _shieldPoints: 0
+  _shieldPoints: 1
   _movementSpeed: 6

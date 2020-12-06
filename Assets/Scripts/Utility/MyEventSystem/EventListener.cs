@@ -86,6 +86,8 @@ public class EventListener : MonoBehaviour
     private void CacheSelectedMethodNames()
     {
         Cache();
+        if (_selectedMethodIndices == null) return;
+        
         _selectedMethodNames = new List<string>();
         foreach (var i in _selectedMethodIndices)
         {
@@ -318,6 +320,8 @@ public class EventListener : MonoBehaviour
     
     public void CacheMethods()
     {
+        if (SelectedComponent == null) return;
+         
         _methodNames = new List<string>();
         _methodInfos = new List<MethodInfo>();
         _selectedMethods = null;

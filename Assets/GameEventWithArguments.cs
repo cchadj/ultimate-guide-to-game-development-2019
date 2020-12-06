@@ -21,7 +21,7 @@ public class ScriptableEventArgs : EventArgs
            return default(T);
         }
     }
-
+    
     public ScriptableEventArgs(ScriptableObject arguments) => Arguments = arguments;
 }
 
