@@ -948,21 +948,16 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
-          <e p="BulletDataScriptable.cs" t="Include" />
           <e p="BulletTypeScriptable.cs" t="Include" />
           <e p="Enemies" t="Include">
             <e p="Enemy.cs" t="Include" />
           </e>
-          <e p="EnumMaskPropertyDrawer.cs" t="Include" />
           <e p="Enums" t="Include">
             <e p="BulletType.cs" t="Include" />
             <e p="EnumEntry.cs" t="Include" />
             <e p="PowerupType.cs" t="Include" />
             <e p="State.cs" t="Include" />
           </e>
-          <e p="IBullet.cs" t="Include" />
-          <e p="IDestructible.cs" t="Include" />
-          <e p="IEnumEntry.cs" t="Include" />
           <e p="IOC" t="Include">
             <e p="MainInstaller.cs" t="Include" />
             <e p="PrefabInstaller.cs" t="Include" />
@@ -974,7 +969,6 @@
           <e p="PoolableMonobehaviour.cs" t="Include" />
           <e p="Powerup.cs" t="Include" />
           <e p="SceneDataScriptable.cs" t="Include" />
-          <e p="ShowTimw.cs" t="Include" />
           <e p="Spawner.cs" t="Include" />
           <e p="State" t="Include">
             <e p="GameStateScriptable.cs" t="Include" />
@@ -999,6 +993,11 @@
                 <e p="EnumGeneratorEditor.cs" t="Include" />
               </e>
               <e p="EnumGeneratorScriptable.cs" t="Include" />
+            </e>
+            <e p="Interfaces" t="Include">
+              <e p="IBullet.cs" t="Include" />
+              <e p="IDestructible.cs" t="Include" />
+              <e p="IEnumEntry.cs" t="Include" />
             </e>
             <e p="MyEventSystem" t="Include">
               <e p="EventListener.cs" t="Include" />

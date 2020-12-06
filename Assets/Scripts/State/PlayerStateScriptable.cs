@@ -14,11 +14,7 @@ public class PlayerStateScriptable : ScriptableObject, IInitializable
     [field:SerializeField] public float InitialMovementSpeed { get; private set;}
     
     [field:SerializeField] public float SpeedupMultiplier { get; private set;}
-    
-    private const float FloatTolerance = 0.001f;
-    
-    [SerializeField, EnumMask] private BulletType _bulletType;
-    
+  
     [field:SerializeField] public GameEvent PlayerDied { get; private set; }
     [field:SerializeField] public GameEvent PlayerPickedSpeedBoost { get; private set; }
     [field:SerializeField] public GameEvent PlayerPickedTripleShot { get; private set; }
@@ -27,6 +23,11 @@ public class PlayerStateScriptable : ScriptableObject, IInitializable
     [field:SerializeField] public GameEventWithArguments PlayerTookDamage { get; private set; }
     
     [SerializeField, ReadOnly] private float _healthPoints;
+    
+    [SerializeField, ReadOnly]private int _shieldPoints;
+    
+    private const float FloatTolerance = 0.001f;
+
     public float HealthPoints
     {
         get => _healthPoints;
@@ -40,29 +41,23 @@ public class PlayerStateScriptable : ScriptableObject, IInitializable
         }
     }
 
-    [SerializeField, ReadOnly]private int _shieldPoints;
     public int ShieldPoints { 
         get => _shieldPoints;
         set
         {
             _shieldPoints = Mathf.Clamp(value, 0, MaxShieldPoints);
 
-
-            if (value <= 0)
-            {
-                HealthPoints += value;
-                PlayerShieldDestroyed.Raise();
-            }
+            var isShieldNegative = value < 0;
+            if (!isShieldNegative) return;
+            
+            PlayerShieldDestroyed.Raise();
+            HealthPoints += value;
         } 
     }
 
-    [SerializeField, ReadOnly] private float _movementSpeed;
-
-    public float MovementSpeed
-    {
-        get { return _movementSpeed; }
-        set { _movementSpeed = value; }
-    }
+    [field: SerializeField]
+    [field: ReadOnly]
+    public float MovementSpeed { get; set; }
 
     public void Initialize()
     {

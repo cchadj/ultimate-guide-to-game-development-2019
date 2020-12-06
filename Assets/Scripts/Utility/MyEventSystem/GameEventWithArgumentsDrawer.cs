@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
@@ -133,12 +134,12 @@ public partial class GameEventWithArguments : ScriptableObject
         {
             var retrievedValue = default(T);
             var targetObject = property.serializedObject.targetObject;
-            var field = targetObject.GetType().GetField(property.propertyPath);
+            var field = targetObject.GetType().GetField(property.propertyPath, 
+                BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance );
             if (field != null)
             {
                 retrievedValue = (T) field.GetValue(targetObject);
             }
-
             return retrievedValue;
         }
     }
