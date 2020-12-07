@@ -399,6 +399,53 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &524915894
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 524915896}
+  - component: {fileID: 524915895}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &524915895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524915894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6706a0a079dcd0b43b70ca37ad8811ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <ScriptableObjectFolder>k__BackingField: Assets/GameData
+  _startable: []
+  _constructable: []
+  _destructable: []
+--- !u!4 &524915896
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524915894}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.330396, y: 0.9244933, z: -0.8752384}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &563703513
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,6 +540,7 @@ GameObject:
   - component: {fileID: 614564529}
   - component: {fileID: 614564530}
   - component: {fileID: 614564531}
+  - component: {fileID: 614564532}
   m_Layer: 0
   m_Name: PowerupSpawner
   m_TagString: Untagged
@@ -547,14 +595,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb9be0d4a2261454a843ec69a4a7db0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventObject: {fileID: 11400000, guid: 54df74f14e7f085458d0fd41649c8f28, type: 2}
-  _eventArguments: {fileID: 0}
+  _eventEmitterObject: {fileID: 11400000, guid: 4ba6e667cf7829847a20e96fa953fdd3, type: 2}
+  _eventArguments: {fileID: 11400000, guid: a73a50c091e219f4f8a86688729bfc87, type: 2}
   _listenerGameObject: {fileID: 614564528}
   _selectedEventIndex: 0
-  _selectedComponentIndex: 0
-  <SelectedComponentName>k__BackingField: Transform
-  _selectedMethodIndices: 
-  _selectedMethodNames: []
+  _selectedComponentIndex: 3
+  <SelectedComponentName>k__BackingField: EventListenerTester
+  _selectedMethodIndices: 00000000
+  _selectedMethodNames:
+  - MethodWithDerivedScriptableObjectArgumentsFloatVariable
+--- !u!114 &614564532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614564528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0944ef96f14755c49b8b2ee77d2595f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &970017493
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,15 +815,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb9be0d4a2261454a843ec69a4a7db0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventObject: {fileID: 11400000, guid: 4dec5cbc553f10244b1addc20d39fa5b, type: 2}
-  _eventArguments: {fileID: 0}
+  _eventEmitterObject: {fileID: 11400000, guid: 0b98da6281b887d4d86ebf6f28b2011c, type: 2}
+  _eventArguments: {fileID: 11400000, guid: a73a50c091e219f4f8a86688729bfc87, type: 2}
   _listenerGameObject: {fileID: 1049803330}
   _selectedEventIndex: 0
   _selectedComponentIndex: 3
   <SelectedComponentName>k__BackingField: GameObjectEnablerDisabler
-  _selectedMethodIndices: 00000000
-  _selectedMethodNames:
-  - Enable
+  _selectedMethodIndices: 
+  _selectedMethodNames: []
 --- !u!114 &1049803333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -788,7 +848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb9be0d4a2261454a843ec69a4a7db0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventObject: {fileID: 11400000, guid: 6cadebf1b2fcb494a85a832a5e48d5e9, type: 2}
+  _eventEmitterObject: {fileID: 0}
   _eventArguments: {fileID: 0}
   _listenerGameObject: {fileID: 1049803330}
   _selectedEventIndex: 0
@@ -1067,15 +1127,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb9be0d4a2261454a843ec69a4a7db0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventObject: {fileID: 11400000, guid: 1cfd0d82d94d8a1408abe7b2a5ebf192, type: 2}
+  _eventEmitterObject: {fileID: 0}
   _eventArguments: {fileID: 11400000, guid: a73a50c091e219f4f8a86688729bfc87, type: 2}
   _listenerGameObject: {fileID: 1459678766}
   _selectedEventIndex: 5
   _selectedComponentIndex: 4
   <SelectedComponentName>k__BackingField: EventListenerTester
-  _selectedMethodIndices: 00000000
-  _selectedMethodNames:
-  - MethodWithDerivedScriptableObjectArgumentsFloatVariable
+  _selectedMethodIndices: 
+  _selectedMethodNames: []
 --- !u!114 &1459678771
 MonoBehaviour:
   m_ObjectHideFlags: 0

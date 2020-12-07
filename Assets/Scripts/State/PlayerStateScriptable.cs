@@ -5,7 +5,7 @@ using UnityEngine;
 using Zenject;
 
 [CreateAssetMenu(menuName="State/PlayerState")]
-public class     PlayerStateScriptable : ScriptableObject, IInitializable
+public class     PlayerStateScriptable : ScriptableObject, IInitializable, IConstructor, IDestructor
 {
     [field:SerializeField] public int MaxHealthPoints { get; private set; }
     
@@ -66,7 +66,7 @@ public class     PlayerStateScriptable : ScriptableObject, IInitializable
         MovementSpeed = InitialMovementSpeed;
     }
     
-    private void OnEnable()
+    private void Subscribe()
     {
         if (PlayerDied != null)
             PlayerDied.AddListener(this, Kill);
@@ -74,7 +74,7 @@ public class     PlayerStateScriptable : ScriptableObject, IInitializable
             PlayerTookDamage.AddListener<FloatVariable>(this, Damage);
     }
 
-    private void OnDisable()
+    private void Unsubscribe()
     {
         if (PlayerDied != null)
             PlayerDied.RemoveListener(this, Kill);
@@ -100,5 +100,27 @@ public class     PlayerStateScriptable : ScriptableObject, IInitializable
     {
         IsDead = true;
     }
-    
+
+    public bool IsConstructed { get; private set; }
+
+    public void Constructor()
+    {
+        if (IsConstructed)
+            return;
+        Debug.Log("Im being constructed");
+        
+        IsConstructed = true;
+        IsDestructed = false;
+    }
+
+    public bool IsDestructed { get; private set; }
+    public void Destructor()
+    {
+        if (IsDestructed)
+            return;
+        Debug.Log("Im being destructed");
+        
+        IsConstructed = false;
+        IsDestructed = true;
+    }
 } 

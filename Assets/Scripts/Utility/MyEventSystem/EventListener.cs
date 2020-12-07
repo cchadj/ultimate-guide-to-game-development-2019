@@ -4,21 +4,22 @@ using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
+using ModestTree;
 using UnityEngine;
 using Component = UnityEngine.Component;
 using Debug = UnityEngine.Debug;
 
 public partial class EventListener : MonoBehaviour
 {
-    [SerializeField] private ScriptableObject _eventObject;
+    [SerializeField] private ScriptableObject _eventEmitterObject;
     [SerializeField] private ScriptableObject _eventArguments;
-    private ScriptableObject EventObject
+    private ScriptableObject EventEmitterObject
     {
-        get => _eventObject;
+        get => _eventEmitterObject;
         set
         {
-            var valueChanged = _eventObject != value;
-            _eventObject = value;
+            var valueChanged = _eventEmitterObject != value;
+            _eventEmitterObject = value;
             if (valueChanged)
                 CacheEventObjectEvents();
         }
@@ -87,8 +88,9 @@ public partial class EventListener : MonoBehaviour
         get
         {
             if (SelectedEvent == null)
-                Cache();
-            return SelectedEvent.EventHandlerType == typeof(EventHandler<ScriptableEventArgs>);
+                CacheEventObjectEvents();
+
+            return SelectedEvent?.EventHandlerType == typeof(EventHandler<ScriptableEventArgs>);
         }
     }
 
@@ -109,7 +111,7 @@ public partial class EventListener : MonoBehaviour
     }
     
     public bool IsListenerObjectSet => _listenerGameObject != null;
-    public bool IsEventObjectSet => EventObject != null;
+    public bool IsEventObjectSet => EventEmitterObject != null;
     
     // Event Information
     private List<EventInfo> _eventInfos;
@@ -141,7 +143,7 @@ public partial class EventListener : MonoBehaviour
 
     private List<string> _methodNames;
     
-    public string[] MethodNames => _methodNames.ToArray();
+    public string[] MethodNames => _methodNames?.ToArray();
 
     private void Awake()
     {
@@ -159,12 +161,14 @@ public partial class EventListener : MonoBehaviour
 
     private void OnEnable()
     {
-        Subscribe();
+        if(EventEmitterObject && ListenerGameObject)
+            Subscribe();
     }
     
     private void OnDisable()
     {
-        Unsubscribe();
+        if(EventEmitterObject && ListenerGameObject)
+            Unsubscribe();
     }
 
     private EventInfo SelectedEvent
@@ -198,13 +202,22 @@ public partial class EventListener : MonoBehaviour
             if (SelectedEvent == null) return null;
             
             if (!IsEventWithArgumentsSelected) return null;
-            
-            var gameEventField = _eventToGameEventFieldInfo[SelectedEvent];
-            var gameEventWithArgumentsInstance = gameEventField.GetValue(_eventObject) as GameEventWithArguments;
 
+            GameEventWithArguments gameEventWithArgumentsInstance;
+            if (_eventEmitterObject is GameEventWithArguments instance)
+            {
+                gameEventWithArgumentsInstance = instance;
+            }
+            else
+            {
+                var gameEventField = _eventToGameEventFieldInfo[SelectedEvent];
+                gameEventWithArgumentsInstance = gameEventField.GetValue(_eventEmitterObject) as GameEventWithArguments;
+            }
             return gameEventWithArgumentsInstance;
         }
     }
+    public bool IsEventEmitterObjectGameEventWithArguments => _eventEmitterObject is GameEventWithArguments;
+
     private ScriptableObject MockEventArgumentsScriptable
     {
         get
@@ -212,17 +225,21 @@ public partial class EventListener : MonoBehaviour
             if (SelectedEvent == null) return null;
             
             if (!IsEventWithArgumentsSelected) return null;
-            
-            var gameEventField = _eventToGameEventFieldInfo[SelectedEvent];
-            var gameEventWithArgumentsInstance = gameEventField.GetValue(_eventObject) as GameEventWithArguments;
-            
-            var mockArgumentPropertyInfo = gameEventField.FieldType.GetProperty(nameof(GameEventWithArguments.MockArgumentsScriptable));
-            if (mockArgumentPropertyInfo != null)
-            {
-                return mockArgumentPropertyInfo.GetValue(gameEventWithArgumentsInstance) as ScriptableObject;
-            }
 
-            return null;
+            PropertyInfo mockArgumentsScriptableInfo;
+            if (_eventEmitterObject is GameEventWithArguments gameEventWithArguments)
+            {
+                mockArgumentsScriptableInfo = gameEventWithArguments.GetType()
+                    .GetProperty(nameof(GameEventWithArguments.MockArgumentsScriptable));
+            }
+            else
+            {
+                var gameEventField = _eventToGameEventFieldInfo[SelectedEvent];
+                mockArgumentsScriptableInfo =
+                    gameEventField.FieldType.GetProperty(nameof(GameEventWithArguments.MockArgumentsScriptable));
+            }
+            
+            return mockArgumentsScriptableInfo?.GetValue(GameEventWithArguments) as ScriptableObject;
         }
     }
 
@@ -237,7 +254,7 @@ public partial class EventListener : MonoBehaviour
             {
                 return _eventOwners?[_selectedEventIndex];
             }
-            catch (ArgumentOutOfRangeException e)
+            catch (ArgumentOutOfRangeException)
             {
                 return null;
             }
@@ -439,31 +456,31 @@ public partial class EventListener : MonoBehaviour
     
     public List<EventInfo> CacheEventObjectEvents()
     {
-        if (EventObject == null)
+        if (EventEmitterObject == null)
             return null;
                 
-        var eventObjectType = EventObject.GetType();
+        var eventObjectType = EventEmitterObject.GetType();
         var eventInfos = eventObjectType.GetEvents();
         
         _eventNames = new List<string>();
-        _eventInfos = new List<EventInfo>();
         _eventOwners = new List<object>();
-        _eventToGameEventFieldInfo = new Dictionary<EventInfo, FieldInfo>();
+        _eventInfos = new List<EventInfo>();
         foreach (var eventInfo in eventInfos)
         {
-            _eventOwners.Add(_eventObject);
-            _eventInfos.Add(eventInfo);
             _eventNames.Add(eventInfo.Name);
+            _eventOwners.Add(_eventEmitterObject);
+            _eventInfos.Add(eventInfo);
         }
 
         var gameEventFields = eventObjectType.
             GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
             .Where(field => field.FieldType == typeof(GameEvent) || field.FieldType == typeof(GameEventWithArguments));
 
+        _eventToGameEventFieldInfo = new Dictionary<EventInfo, FieldInfo>();
         foreach (var gameEventField in gameEventFields)
         {
             var eventInfo = gameEventField.FieldType.GetEvents()[0];
-            _eventOwners.Add(gameEventField.GetValue(_eventObject));
+            _eventOwners.Add(gameEventField.GetValue(_eventEmitterObject));
             _eventInfos.Add(eventInfo);
             _eventToGameEventFieldInfo[eventInfo] = gameEventField;
             
@@ -485,8 +502,14 @@ public partial class EventListener : MonoBehaviour
     
     public void CacheSelectedComponentMethods()
     {
-        if (SelectedComponent == null) return;
-         
+        if (SelectedComponent is null) return;
+
+        // If no event emitter is chosen then we can not determine suitable methods.
+        if (EventEmitterObject is null) return;
+
+        // If no events found then we can not determine suitable methods.
+        if (_eventInfos.Count == 0) return;
+        
         _methodNames = new List<string>();
         _methodInfos = new List<MethodInfo>();
         _selectedMethods = null;

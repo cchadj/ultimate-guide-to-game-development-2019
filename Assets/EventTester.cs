@@ -21,10 +21,4 @@ public class EventTester : MonoBehaviour
     {
         Debug.Log(o.name);
     }
-    
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

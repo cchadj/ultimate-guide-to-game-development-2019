@@ -7,5 +7,9 @@ using UnityEngine;
 public class DragAndDropPathAttribute : PropertyAttribute
 {
         public string FieldPath;
+
+        public bool AcceptFolder { get; set; } = true;
+        
+        public bool AcceptFile { get; set; } = true;
 }
 

@@ -15,6 +15,10 @@ public partial class EventListener : MonoBehaviour
         private void OnEnable()
         {
             Target.Cache();
+            
+            if (!Target.IsListenerObjectSet || !Target.IsEventObjectSet)
+                return;
+            
             _onEnabledSelectedMethodIndices = new List<int>();
             for (var i = 0; i < Target.SelectedMethodIndices.Length; i++)
             {
@@ -28,7 +32,8 @@ public partial class EventListener : MonoBehaviour
                 {
                     selectedIndex = -1;
                 }
-                if (selectedIndex <0)
+
+                if (selectedIndex < 0)
                     continue;
                 _onEnabledSelectedMethodIndices.Add(selectedIndex);
             }
@@ -36,54 +41,8 @@ public partial class EventListener : MonoBehaviour
             Target.SelectedMethodIndices = _onEnabledSelectedMethodIndices.ToArray();
         }
 
-        public override void OnInspectorGUI()
+        public bool EventSelection()
         {
-            Target.EventObject = EditorGUILayout.ObjectField("Event Scriptable Object",
-                Target.EventObject, typeof(ScriptableObject), true) as ScriptableObject;
-
-            Target.ListenerGameObject = EditorGUILayout.ObjectField(label:"Listener Game Object", Target.ListenerGameObject,
-                typeof(GameObject), true) as GameObject;
-            
-            if (!Target.IsListenerObjectSet || !Target.IsEventObjectSet)
-                return;
-            
-            if (Target.IsEventWithArgumentsSelected)
-            {
-                if (Target.MockEventArgumentsScriptable == null)
-                {
-                    EditorGUILayout.HelpBox("Please make sure that a mock <ScriptableObject> asset is set " +
-                                            "as arguments on the selected event.",
-                        MessageType.Warning);
-                }
-                else
-                {
-                    if (Target._eventArguments == null)
-                    {
-                        EditorGUILayout.HelpBox("GameEvent with arguments selected." +
-                                                $" Please provide a ScriptableObject of type <{Target.SelectedEventArgumentType}>. ", MessageType.Warning);                    
-                    }
-                    Target._eventArguments = EditorGUILayout.ObjectField("Event Scriptable Object",
-                        Target._eventArguments, Target.SelectedEventArgumentType, true) as ScriptableObject;
-                }
-                
-                
-
-                var areArgumentsWrongType = Target._eventArguments != null &&
-                                            Target._eventArguments.GetType() != Target.SelectedEventArgumentType;
-                if (areArgumentsWrongType)
-                {
-                    Target._eventArguments = null;
-                }
-            }
-
-            var isListenerComponentsNotInitialised = Target.ListenerComponentNames == null || Target.ListenerComponentNames.IsEmpty();  
-            if (isListenerComponentsNotInitialised)
-                Target.CacheListenerComponents();
-
-            var noListenerComponentsFoundExceptTransform = Target.ListenerComponentNames.Length <= 1; 
-            if (noListenerComponentsFoundExceptTransform)
-                return;
-            
             EditorGUILayout.Space();
 
             var areEventsNotInitialised = Target.EventObjectEventNames.IsEmpty();
@@ -94,14 +53,57 @@ public partial class EventListener : MonoBehaviour
                 var noEventsFound = events != null && events.Count == 0;
                 if (noEventsFound)
                 {
-                    EditorGUILayout.LabelField("No suitable events found in this object.");
-                    return;
+                    EditorGUILayout.HelpBox($"No suitable events found in event object <{Target.EventEmitterObject.name}>.", MessageType.Info);
+                    return false;
                 }
             }
-                
-            EditorGUILayout.LabelField("Select event to listen to:");
-            Target._selectedEventIndex = EditorGUILayout.Popup(Target._selectedEventIndex, Target.EventObjectEventNames);
 
+            var isEmitterIsGameEvent = Target.EventEmitterObject is GameEvent ||
+                                     Target.EventEmitterObject is GameEventWithArguments;
+            if (!isEmitterIsGameEvent)
+            {
+                EditorGUILayout.LabelField("Select event to listen to:");
+                Target._selectedEventIndex =
+                    EditorGUILayout.Popup(Target._selectedEventIndex, Target.EventObjectEventNames);
+            }
+            
+            if (Target.IsEventWithArgumentsSelected)
+                HandleGameEventWithArguments();
+            
+            return true;
+        }
+
+        private void HandleGameEventWithArguments()
+        {
+            if (Target.MockEventArgumentsScriptable == null)
+            {
+                EditorGUILayout.HelpBox("Please make sure that a mock <ScriptableObject> asset is set " +
+                                        "as arguments on the selected event.", MessageType.Warning);
+            }
+            else
+            {
+                Target._eventArguments = EditorGUILayout.ObjectField("Event Scriptable Object",
+                    Target._eventArguments, Target.SelectedEventArgumentType, false) as ScriptableObject;
+                
+                if (Target._eventArguments == null)
+                {
+                    EditorGUILayout.HelpBox("GameEvent with arguments selected." +
+                                            $" Please provide a ScriptableObject of type <{Target.SelectedEventArgumentType}>. ",
+                        MessageType.Warning);                    
+                }
+            }
+        }
+
+        private bool ListenerComponentSelection()
+        {
+            var isListenerComponentsNotInitialised = Target.ListenerComponentNames == null || Target.ListenerComponentNames.IsEmpty();  
+            if (isListenerComponentsNotInitialised)
+                Target.CacheListenerComponents();
+
+            var noListenerComponentsFoundExceptTransform = Target.ListenerComponentNames.Length <= 1;
+            if (noListenerComponentsFoundExceptTransform)
+                return false;
+            
             var selectedComponentIndex = -1;
             if (!string.IsNullOrEmpty(Target.SelectedComponentName))
                 selectedComponentIndex = Target._componentNames.IndexOf(Target.SelectedComponentName);
@@ -112,6 +114,11 @@ public partial class EventListener : MonoBehaviour
             EditorGUILayout.LabelField("Select listeners component:");
             Target.SelectedComponentIndex = EditorGUILayout.Popup(selectedComponentIndex, Target.ListenerComponentNames);
 
+            return true;
+        }
+
+        public bool ListenerMethodSelection()
+        {
             if (Target.MethodNames?.Length == 0)
             {
                 Target.Cache();
@@ -119,10 +126,11 @@ public partial class EventListener : MonoBehaviour
                 {
                     EditorGUILayout.HelpBox("No suitable methods found. " +
                                             "This may happen because no method in the selected component has the right arguments" +
-                                            " to handle the event.", MessageType.Warning);
-                    return;
+                                            " to handle the event or the access is not public.", MessageType.Warning);
+                    return false;
                 }
             }
+            
             var selectedMethodIndicesListProperty = serializedObject.FindProperty(nameof(Target._selectedMethodIndices));
             var hasValueChanged = Show(selectedMethodIndicesListProperty);
 
@@ -130,6 +138,34 @@ public partial class EventListener : MonoBehaviour
             {
                 EditorUtility.SetDirty(target);
             }
+
+            return true;
+        }
+    public override void OnInspectorGUI()
+        {
+            Target.EventEmitterObject = EditorGUILayout.ObjectField("Event Scriptable Object",
+                Target.EventEmitterObject, typeof(ScriptableObject), true) as ScriptableObject;
+
+            Target.ListenerGameObject = EditorGUILayout.ObjectField(label:"Listener Game Object", Target.ListenerGameObject,
+                typeof(GameObject), true) as GameObject;
+
+            if (!Target.IsListenerObjectSet || !Target.IsEventObjectSet)
+            {
+                EditorGUILayout.HelpBox("Please select an event object and an event listener object.", MessageType.Info);
+                return;
+            }
+
+            var areEventsFound = EventSelection();
+            if (!areEventsFound)
+                return;
+
+            var areComponentsFound = ListenerComponentSelection();
+            if (!areComponentsFound)
+                return;
+
+            var areListenerMethodsFound = ListenerMethodSelection();
+            if (!areListenerMethodsFound)
+                return;
         }
 
         public bool Show(SerializedProperty list)

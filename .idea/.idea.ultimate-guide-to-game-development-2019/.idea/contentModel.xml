@@ -948,6 +948,7 @@
             <e p="zenject.asmdef" t="Include" />
           </e>
         </e>
+        <e p="ScriptableObjectLifecycleAttacher.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="BulletTypeScriptable.cs" t="Include" />
           <e p="Enemies" t="Include">

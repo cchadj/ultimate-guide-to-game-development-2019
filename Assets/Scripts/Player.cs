@@ -110,12 +110,14 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
 
     private void OnEnable()
     {
-        _timeSinceLastLaser = .0f;
-        _controls.Enable(); 
+        _controls?.Enable(); 
         _playerState.PlayerDied.AddListener(this, Destroy);
         _playerState.PlayerPickedShield.AddListener(this, PickShield);
         _playerState.PlayerPickedSpeedBoost.AddListener(this, PickSpeedboost);
         _playerState.PlayerPickedTripleShot.AddListener(this, PickTripleShot);
+        
+        // Player can immediately shoot
+        _timeSinceLastLaser = _laserCooldown + .1f;
     }
 
     private void PickTripleShot()
@@ -136,7 +138,7 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
 
     private void OnDisable()
     {
-        _controls.Disable();
+        _controls?.Disable();
         _playerState.PlayerDied.RemoveListeners(this);
         _playerState.PlayerPickedShield.RemoveListeners(this);
         _playerState.PlayerPickedSpeedBoost.RemoveListeners(this);
