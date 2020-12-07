@@ -40,7 +40,7 @@ public partial class EventListener : MonoBehaviour
         {
             Target.EventObject = EditorGUILayout.ObjectField("Event Scriptable Object",
                 Target.EventObject, typeof(ScriptableObject), true) as ScriptableObject;
-            
+
             Target.ListenerGameObject = EditorGUILayout.ObjectField(label:"Listener Game Object", Target.ListenerGameObject,
                 typeof(GameObject), true) as GameObject;
             
@@ -49,14 +49,24 @@ public partial class EventListener : MonoBehaviour
             
             if (Target.IsEventWithArgumentsSelected)
             {
-                if (Target._eventArguments == null)
+                if (Target.MockEventArgumentsScriptable == null)
                 {
-                    EditorGUILayout.HelpBox("GameEvent with arguments selected." +
-                                            $" Please provide a ScriptableObject of type <{Target.SelectedEventArgumentType}>. ", MessageType.Warning);                    
+                    EditorGUILayout.HelpBox("Please make sure that a mock <ScriptableObject> asset is set " +
+                                            "as arguments on the selected event.",
+                        MessageType.Warning);
                 }
-
-                Target._eventArguments = EditorGUILayout.ObjectField("Event Scriptable Object",
-                    Target._eventArguments, Target.SelectedEventArgumentType, true) as ScriptableObject;
+                else
+                {
+                    if (Target._eventArguments == null)
+                    {
+                        EditorGUILayout.HelpBox("GameEvent with arguments selected." +
+                                                $" Please provide a ScriptableObject of type <{Target.SelectedEventArgumentType}>. ", MessageType.Warning);                    
+                    }
+                    Target._eventArguments = EditorGUILayout.ObjectField("Event Scriptable Object",
+                        Target._eventArguments, Target.SelectedEventArgumentType, true) as ScriptableObject;
+                }
+                
+                
 
                 var areArgumentsWrongType = Target._eventArguments != null &&
                                             Target._eventArguments.GetType() != Target.SelectedEventArgumentType;
