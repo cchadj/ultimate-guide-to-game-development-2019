@@ -276,9 +276,9 @@ public partial class EventListener : MonoBehaviour
         }
     }
     
-    private List<Action<object>> _selectedMethodsWithArguments;
+    private List<Action<ScriptableObject>> _selectedMethodsWithArguments;
 
-    private IEnumerable<Action<object>> SelectedComponentMethodsWithArguments
+    private IEnumerable<Action<ScriptableObject>> SelectedComponentMethodsWithArguments
     {
         get
         {
@@ -287,27 +287,41 @@ public partial class EventListener : MonoBehaviour
             if (isSelectedMethodsInitialised) return _selectedMethodsWithArguments;
 
             // Initialise selected methods
-            _selectedMethodsWithArguments = new List<Action<object>>();
+            _selectedMethodsWithArguments = new List<Action<ScriptableObject>>();
             foreach (var i in _selectedMethodIndices)
             {
                 var methodInfo = _methodInfos[i];
                 var methodsInstance = SelectedComponent;
                 if (methodInfo.IsStatic)
                     methodsInstance = null;
+                
+                // Create Action<TypeIwant> dynamically
                 var actionT = typeof (Action<>).MakeGenericType(SelectedEventArgumentType);
+                
+                // Create delegate with that type. This is the method of the component that will be called.
+                // We pass the type of the delegate to be actionT meaning that it takes the argument type we specified(dynamically)
+                // as an input. Then we pass the instance this method resides in so it can be called by it,
+                // Finally we pass the method info so the actuall function will be called.
                 var del = Delegate.CreateDelegate(actionT, methodsInstance, methodInfo);
-                var a = (Action<object>)typeof(EventListener)
+                
+                // The type of the delegate is Action<Something that derives ScriptableObject>, but we want Action<Scriptable>
+                // so we convert with the function Convert(). But we can not use dynamic generics in <> unless we use the
+                // trick below V.
+                var delegateWithTypeConverted = typeof(EventListener)
                     .GetMethod(nameof(Convert))
-                    .MakeGenericMethod(SelectedEventArgumentType)
-                    .Invoke(null, new object[] { del });
-                _selectedMethodsWithArguments.Add(a);
+                    ?.MakeGenericMethod(SelectedEventArgumentType)
+                    .Invoke(null, new object[] { del }) as Action<ScriptableObject>;
+                
+                // The whole process uses reflection which is very slow but this happens only once which is nothing. 
+                // Once we have the delegates stored then just calling them is nearly as fast as direct function call.
+                _selectedMethodsWithArguments.Add(delegateWithTypeConverted);
             }
 
             return _selectedMethodsWithArguments;
         }
     }
     
-    public static Action<object> Convert<T>(Action<T> myActionT)
+    public static Action<ScriptableObject> Convert<T>(Action<T> myActionT) where T: ScriptableObject
     {
         return o => myActionT((T)o);
     }
@@ -377,7 +391,6 @@ public partial class EventListener : MonoBehaviour
         sw.Start();
         for (var i = 0; i <= repeats; i++)
             GameEventWithArguments.Raise(ScriptableObject.CreateInstance<FloatVariable>());
-        sw.Stop();
         sw.Stop();
         Debug.Log("Elapsed={0}" + sw.Elapsed);
     }

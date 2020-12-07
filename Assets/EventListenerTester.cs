@@ -19,8 +19,8 @@ public class EventListenerTester : MonoBehaviour
     
     public void MethodWithDerivedScriptableObjectArgumentsFloatVariable(FloatVariable scriptableObject)
     {
-            Console.WriteLine(new Random().Next() * scriptableObject.Value);
-//        Debug.Log($"MethodWithDerivedScriptableObjectArgumentsFloatVariable ({nameof(FloatVariable)})");
+//            Console.WriteLine(new Random().Next() * scriptableObject.Value);
+        Debug.Log($"MethodWithDerivedScriptableObjectArgumentsFloatVariable ({nameof(FloatVariable)})" + scriptableObject.Value);
     }
 
     public void MethodWithNoArguments()
