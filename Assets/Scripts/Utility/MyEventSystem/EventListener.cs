@@ -98,10 +98,10 @@ public partial class EventListener : MonoBehaviour
     {
         Cache();
         
-        if (_selectedMethodIndices == null) return;
+        if (SelectedMethodIndices == null) return;
         
         _selectedMethodNames = new List<string>();
-        foreach (var i in _selectedMethodIndices)
+        foreach (var i in SelectedMethodIndices)
         {
             if (i >= _methodInfos.Count)
                 continue;
@@ -279,7 +279,7 @@ public partial class EventListener : MonoBehaviour
 
             // Initialise selected methods
             _selectedMethods = new List<Action>();
-            foreach (var i in _selectedMethodIndices)
+            foreach (var i in SelectedMethodIndices)
             {
                 var methodInfo = _methodInfos[i];
                 var methodsInstance = SelectedComponent;
@@ -305,7 +305,7 @@ public partial class EventListener : MonoBehaviour
 
             // Initialise selected methods
             _selectedMethodsWithArguments = new List<Action<ScriptableObject>>();
-            foreach (var i in _selectedMethodIndices)
+            foreach (var i in SelectedMethodIndices)
             {
                 var methodInfo = _methodInfos[i];
                 var methodsInstance = SelectedComponent;
@@ -318,12 +318,21 @@ public partial class EventListener : MonoBehaviour
                 // Create delegate with that type. This is the method of the component that will be called.
                 // We pass the type of the delegate to be actionT meaning that it takes the argument type we specified(dynamically)
                 // as an input. Then we pass the instance this method resides in so it can be called by it,
-                // Finally we pass the method info so the actuall function will be called.
-                var del = Delegate.CreateDelegate(actionT, methodsInstance, methodInfo);
+                // Finally we pass the method info so the actual function will be called.
+                Delegate del;
+                try
+                {
+                    del = Delegate.CreateDelegate(actionT, methodsInstance, methodInfo);
+                }
+                catch (ArgumentException e)
+                {
+                    throw new ArgumentException("Wrong arguments " + SelectedComponent.name +  methodInfo.Name);
+                }
+               
                 
                 // The type of the delegate is Action<Something that derives ScriptableObject>, but we want Action<Scriptable>
                 // so we convert with the function Convert(). But we can not use dynamic generics in <> unless we use the
-                // trick below V.
+                // trick below.
                 var delegateWithTypeConverted = typeof(EventListener)
                     .GetMethod(nameof(Convert))
                     ?.MakeGenericMethod(SelectedEventArgumentType)
@@ -337,7 +346,7 @@ public partial class EventListener : MonoBehaviour
             return _selectedMethodsWithArguments;
         }
     }
-    
+
     public static Action<ScriptableObject> Convert<T>(Action<T> myActionT) where T: ScriptableObject
     {
         return o => myActionT((T)o);
@@ -472,9 +481,10 @@ public partial class EventListener : MonoBehaviour
             _eventInfos.Add(eventInfo);
         }
 
-        var gameEventFields = eventObjectType.
-            GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
-            .Where(field => field.FieldType == typeof(GameEvent) || field.FieldType == typeof(GameEventWithArguments));
+        var gameEventFields = eventObjectType
+            .GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
+            .Where(field => field.FieldType == typeof(GameEvent) ||
+                            field.FieldType == typeof(GameEventWithArguments));
 
         _eventToGameEventFieldInfo = new Dictionary<EventInfo, FieldInfo>();
         foreach (var gameEventField in gameEventFields)
@@ -537,21 +547,21 @@ public partial class EventListener : MonoBehaviour
         }
     }
     
-    private static IEnumerable<MethodInfo> GetMethodsWithoutArguments(IEnumerable<MethodInfo> methodInfos)
+    private static ICollection<MethodInfo> GetMethodsWithoutArguments(IEnumerable<MethodInfo> methodInfos)
     {
-        return methodInfos.Where(m => m.GetParameters().Length == 0);
+        return methodInfos.Where(m => m.GetParameters().Length == 0).ToList();
     }
 
-    private static IEnumerable<MethodInfo> GetMethodsWithArgumentOfTypeOrSubtype<T>(IEnumerable<MethodInfo> methodInfos)
+    private static ICollection<MethodInfo> GetMethodsWithArgumentOfTypeOrSubtype<T>(IEnumerable<MethodInfo> methodInfos)
     {
         return GetMethodsWithArgumentOfTypeOrSubtype(methodInfos, typeof(T));
     }
     
-    private static IEnumerable<MethodInfo> GetMethodsWithArgumentOfTypeOrSubtype(IEnumerable<MethodInfo> methodInfos, Type type)
+    private static ICollection<MethodInfo> GetMethodsWithArgumentOfTypeOrSubtype(IEnumerable<MethodInfo> methodInfos, Type type)
     {
         return methodInfos.Where(m => m.GetParameters().Length == 1 &&
                                       (m.GetParameters()[0].ParameterType.IsSubclassOf(type) ||
-                                       m.GetParameters()[0].ParameterType == type));
+                                       m.GetParameters()[0].ParameterType == type)).ToList();
     }
     
     private IEnumerable<MethodInfo> GetMethodsWithMatchingParameters(IEnumerable<MethodInfo> methodInfos,
@@ -576,4 +586,3 @@ public partial class EventListener : MonoBehaviour
         return suitableMethods;
     }
 }
-

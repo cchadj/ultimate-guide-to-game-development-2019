@@ -5,6 +5,7 @@
  using System.Collections.Specialized;
  using UnityEditor;
  using System.IO;
+ using System.Text.RegularExpressions;
  using UnityEngine;
 
  
@@ -86,7 +87,8 @@
 
          using ( var streamWriter = new StreamWriter( filePathAndName ) )
          {
-             streamWriter.WriteLine( "public enum " + _enumName );
+             var whiteSpaceRemoveRegex = @"\s+";
+             streamWriter.WriteLine( "public enum " + Regex.Replace(_enumName, whiteSpaceRemoveRegex, "") );
              streamWriter.WriteLine( "{" );
              foreach (var enumEntry in _enumEntries)
              {

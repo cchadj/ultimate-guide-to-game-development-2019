@@ -11,8 +11,13 @@ public partial class Enemy : MonoBehaviour, IDestructible
     [SerializeField] private float _speed = .8f;
 
     [SerializeField] private FloatVariable _damageAmount;
+
+    [SerializeField] private EnumEntry _enemyType;
     
-    [SerializeField, Space] private SceneDataScriptable _sceneData;
+    [SerializeField] private GameStateScriptable _gameState;
+    
+    [SerializeField] private SceneDataScriptable _sceneData;
+    
         
     private OutOfBoundsDirection OutOfBounds
     {
@@ -102,5 +107,6 @@ public partial class Enemy : MonoBehaviour, IDestructible
     public void Destroy()
     {
         gameObject.SetActive(false);
+        _gameState.EnemyDestroyed.Raise(_enemyType);
     }
 }

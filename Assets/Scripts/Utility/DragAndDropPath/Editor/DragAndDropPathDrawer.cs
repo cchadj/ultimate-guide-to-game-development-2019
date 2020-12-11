@@ -50,8 +50,14 @@ public class DragAndDropPathDrawer : PropertyDrawer
 	    var labelPosition = GetElementPosition(fieldRect);
 	    EditorGUI.LabelField(labelPosition, label.text + ":" + $"\t(Drag n' Drop a {fileTypeStr})");
 		    
-	    var textAreaPosition = GetElementPosition(fieldRect);
-	    EditorGUI.TextArea(textAreaPosition, string.IsNullOrEmpty(Attribute.FieldPath) ? $"Drag n' Drop a {fileTypeStr}" : Attribute.FieldPath);
+	    var textAreaPosition = GetElementPosition(fieldRect); 
+	    
+	    Attribute.FieldPath = EditorGUI.DelayedTextField(textAreaPosition, Attribute.FieldPath);
+	    
+	    if (string.IsNullOrEmpty(Attribute.FieldPath))
+	    {
+		    Attribute.FieldPath = $"Assets{Path.PathSeparator}";
+	    }
 
 		var dropArea = fieldRect;
 		var isMouseInDropArea = dropArea.Contains(Event.current.mousePosition);

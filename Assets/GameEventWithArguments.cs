@@ -30,7 +30,7 @@ public partial class GameEventWithArguments : ScriptableObject
 {
     [field:SerializeField] public string EventName { get; private set; }
 
-    [SerializeField, MiniView] private ScriptableObject _mockArgumentsScriptable;
+    [SerializeField] private ScriptableObject _mockArgumentsScriptable;
 
     public ScriptableObject MockArgumentsScriptable => _mockArgumentsScriptable;
     
@@ -54,7 +54,8 @@ public partial class GameEventWithArguments : ScriptableObject
     /// Returns a handle that can be used to remove listener (i.e gameEvent.Event -= handler)
     public EventHandler<ScriptableEventArgs> AddListener<T>(object subscriberObject, GameEventDelegateWithArguments<T> eventDelegate) where T: ScriptableObject
     {
-        var isExpectedTypeDifferentFromPassedType = typeof(T) != MockArgumentsScriptable.GetType();
+        var isExpectedTypeDifferentFromPassedType =
+            typeof(T) != MockArgumentsScriptable.GetType() && !MockArgumentsScriptable.GetType().IsSubclassOf(typeof(T));
         if (isExpectedTypeDifferentFromPassedType)
             throw new ArgumentException($"Listener '{subscriberObject}' of type <{subscriberObject.GetType()}> passed type <{typeof(T)}> " +
                                         $"when expected type is <{MockArgumentsScriptable.GetType()}>." +
@@ -76,7 +77,8 @@ public partial class GameEventWithArguments : ScriptableObject
     // able to be removed.
     public void RemoveListener<T>(object subscriberObject, GameEventDelegateWithArguments<T> eventDelegate) where T: ScriptableObject
     {
-        var isExpectedTypeDifferentFromPassedType = typeof(T) != MockArgumentsScriptable.GetType();
+        var isExpectedTypeDifferentFromPassedType =
+            typeof(T) != MockArgumentsScriptable.GetType() && !MockArgumentsScriptable.GetType().IsSubclassOf(typeof(T));
         if (isExpectedTypeDifferentFromPassedType)
             throw new ArgumentException($"Listener '{subscriberObject}' of type <{subscriberObject.GetType()}> passed type <{typeof(T)}> " +
                                         $"when expected type is <{MockArgumentsScriptable.GetType()}>." +

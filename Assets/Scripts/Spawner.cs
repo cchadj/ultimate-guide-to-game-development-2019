@@ -70,7 +70,7 @@ public class Spawner : MonoBehaviour
     {
         while (!_stopSpawning)
         {
-            var randomPooler = _objectPoolers[Random.Range(0, _objectPoolers.Count-1)];
+            var randomPooler = _objectPoolers[Random.Range(0, _objectPoolers.Count)];
             var seconds = Mathf.Lerp(_spawnEverySeconds[0], _spawnEverySeconds[1], Random.value);
             yield return new WaitForSeconds(seconds);
             

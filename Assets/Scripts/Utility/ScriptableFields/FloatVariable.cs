@@ -1,12 +1,15 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Security.Cryptography.X509Certificates;
+using UnityEngine;
 
 [CreateAssetMenu(menuName="Variables / Float Variable")]
 public class FloatVariable : ScriptableObject
 {
 #if UNITY_EDITOR
           [Multiline] public string DeveloperDescription = "";
-      #endif
-    public float Value;
+#endif
+    [SerializeField] protected float _value;
+    public virtual float Value { get => _value; set=> _value=value; }
 
     public void SetValue(float value)
     {
@@ -28,33 +31,3 @@ public class FloatVariable : ScriptableObject
         Value += amount.Value;
     }
 }
-
-[CreateAssetMenu(menuName="Variables / Int Variable")]
-public class IntVariable : ScriptableObject
-{
-#if UNITY_EDITOR
-    [Multiline] public string DeveloperDescription = "";
-#endif
-    public int Value;
-
-    public void SetValue(int value)
-    {
-        Value = value;
-    }
-
-    public void SetValue(IntVariable value)
-    {
-        Value = value.Value;
-    }
-
-    public void ApplyChange(int amount)
-    {
-        Value += amount;
-    }
-
-    public void ApplyChange(IntVariable amount)
-    {
-        Value += amount.Value;
-    }
-}
-

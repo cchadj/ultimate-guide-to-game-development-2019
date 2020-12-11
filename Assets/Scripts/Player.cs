@@ -233,7 +233,7 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
         gameObject.SetActive(false);
     }
 
-    public void Damage(int amount=0)
+    public void Damage(int amount=1)
     {
         var damageAmount = ScriptableObject.CreateInstance<FloatVariable>();
         damageAmount.Value = amount;
@@ -259,7 +259,6 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
                 break;
             case PowerupType.Shield:
                 _playerState.PlayerPickedShield.Raise();
-                Debug.Log("Player picked shield");
                 break;
             default:
                 throw new ArgumentOutOfRangeException();

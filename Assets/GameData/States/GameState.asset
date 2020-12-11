@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb97483ed824e6e4690662868db4301a, type: 3}
   m_Name: GameState
   m_EditorClassIdentifier: 
+  <EnemyDestroyed>k__BackingField: {fileID: 11400000, guid: 03fc1154e7eb9e94dbced03dca3f6a5b, type: 2}
