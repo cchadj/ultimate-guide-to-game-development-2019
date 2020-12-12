@@ -62,13 +62,13 @@ public partial class EventListener : MonoBehaviour
 
     [SerializeField, HideInInspector] private List<int> _selectedMethodIndices;
 
-    private int[] SelectedMethodIndices
+    private List<int> SelectedMethodIndices
     {
-        get => _selectedMethodIndices.ToArray();
+        get => _selectedMethodIndices ?? (_selectedMethodIndices = new List<int>());
         set
         {
             var noChange = _selectedMethodIndices.All(value.Contains) &&
-                           _selectedMethodIndices.Count == value.Length;
+                           _selectedMethodIndices.Count == value.Count;
 
             if (noChange)
                 return;

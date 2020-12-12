@@ -19,6 +19,7 @@
         <e p="EventTester.cs" t="Include" />
         <e p="GameEventWithArguments.cs" t="Include" />
         <e p="GameObjectEnablerDisabler.cs" t="Include" />
+        <e p="PlayerUIControls.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="SimpleMinMaxSlider" t="Include">
             <e p="Scripts" t="Include">

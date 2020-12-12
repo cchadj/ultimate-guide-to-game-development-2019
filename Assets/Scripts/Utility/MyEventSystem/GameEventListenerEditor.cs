@@ -20,7 +20,7 @@ public partial class EventListener : MonoBehaviour
                 return;
             
             _onEnabledSelectedMethodIndices = new List<int>();
-            for (var i = 0; i < Target.SelectedMethodIndices.Length; i++)
+            for (var i = 0; i < Target.SelectedMethodIndices.Count; i++)
             {
                 var selectedIndex = 0;
                 if (i < Target.SelectedMethodNames.Count)
@@ -38,7 +38,7 @@ public partial class EventListener : MonoBehaviour
                 _onEnabledSelectedMethodIndices.Add(selectedIndex);
             }
 
-            Target.SelectedMethodIndices = _onEnabledSelectedMethodIndices.ToArray();
+            Target.SelectedMethodIndices = _onEnabledSelectedMethodIndices;
         }
 
         public bool EventSelection()
@@ -185,7 +185,7 @@ public partial class EventListener : MonoBehaviour
 
             if (GUILayout.Button("+"))
             {
-                Target._selectedMethodIndices.Add(0);
+                Target.SelectedMethodIndices.Add(0);
                 hasValueChanged = true;
             }
 

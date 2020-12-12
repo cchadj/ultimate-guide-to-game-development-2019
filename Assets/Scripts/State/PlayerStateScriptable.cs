@@ -74,16 +74,30 @@ public class     PlayerStateScriptable : ScriptableObject, IConstructor, IDestru
     {
         if (IsConstructed)
             return;
+        
         Subscribe();
-
         _gameState.EnemyDestroyed.AddListener<EnumEntry>(this, EnemyDestroyed);
+        
         HealthPoints = MaxHealthPoints;
         ShieldPoints = 0;
-        _score.Value = 0;
+        Score = 0;
         MovementSpeed = InitialMovementSpeed;
         
         IsConstructed = true;
         IsDestructed = false;
+    }
+    
+    public bool IsDestructed { get; private set; }
+    public void Destructor()
+    {
+        if (IsDestructed)
+            return;
+        
+        Unsubscribe();
+        _gameState.EnemyDestroyed.RemoveListener<EnumEntry>(this, EnemyDestroyed);
+        
+        IsConstructed = false;
+        IsDestructed = true;
     }
 
     private void EnemyDestroyed(EnumEntry enemyTypeEnumEntry)
@@ -102,18 +116,6 @@ public class     PlayerStateScriptable : ScriptableObject, IConstructor, IDestru
         }
     }
 
-    public bool IsDestructed { get; private set; }
-    public void Destructor()
-    {
-        if (IsDestructed)
-            return;
-        Unsubscribe();
-        
-        _gameState.EnemyDestroyed.RemoveListener<EnumEntry>(this, EnemyDestroyed);
-        
-        IsConstructed = false;
-        IsDestructed = true;
-    }
     
     private void Subscribe()
     {

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f95357c716332974091a6eff0819c704, type: 3}
   m_Name: PlayerState
   m_EditorClassIdentifier: 
-  <MaxHealthPoints>k__BackingField: 22
+  <MaxHealthPoints>k__BackingField: 10
   <MaxShieldPoints>k__BackingField: 3
   <InitialMovementSpeed>k__BackingField: 6
   <SpeedupMultiplier>k__BackingField: 9.41

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 public class UIObserver : MonoBehaviour
@@ -13,21 +11,27 @@ public class UIObserver : MonoBehaviour
     private void Awake()
     {
         _initialString = _textField.text;
+        UpdateText(_observableValue.Value);
     }
 
     private void OnEnable()
     {
-        _observableValue.valueChanged += UpdatePlayerHealthText;
+        _observableValue.valueChanged += UpdateText;
     }
 
     private void OnDisable()
     {
-        _observableValue.valueChanged -= UpdatePlayerHealthText;
+        _observableValue.valueChanged -= UpdateText;
     }
 
-    private void UpdatePlayerHealthText(object sender, ScriptableEventArgs valueArgs)
+    private void UpdateText(object sender, ScriptableEventArgs valueArgs)
     {
-        _textField.SetText($"{_initialString} {valueArgs.GetArguments<FloatVariable>().Value}");     
+        UpdateText(valueArgs.GetArguments<FloatVariable>().Value);
+    }
+
+    private void UpdateText(float value)
+    {
+        _textField.SetText($"{_initialString} {value}");     
     }
 
 }

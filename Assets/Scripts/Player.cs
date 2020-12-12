@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;
-using Object = UnityEngine.Object;
 
 [Flags]
 internal enum OutOfBoundsDirection
@@ -37,9 +34,11 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
 
     [SerializeField, ReadOnly, Space] private SceneDataScriptable _sceneData;
     
+    [SerializeField, ReadOnly] private BulletType _currentBulletType;
+    
     [SerializeField, ReadOnly] private PlayerStateScriptable _playerState;
     
-    [SerializeField, ReadOnly] private BulletType _currentBulletType;
+    
     #endregion SerialisedFields
 
     #region GameObject Components
@@ -79,7 +78,7 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
     }
 
     [Inject]
-    private void Constructor(PlayerStateScriptable playerState, SceneDataScriptable sceneData)
+    private void Constructor(PlayerStateScriptable playerState, GameStateScriptable gameState, SceneDataScriptable sceneData)
     {
         _playerState = playerState; 
         _sceneData = sceneData;
@@ -216,9 +215,15 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
     {
         _inputDirection = context.ReadValue<Vector2>();
     }
-    
+
+    public void OnRestart(InputAction.CallbackContext context)
+    {
+        throw new NotImplementedException();
+    }
+
     public void OnLook(InputAction.CallbackContext context)
     {
+        
     }
 
     public void OnFire(InputAction.CallbackContext context)

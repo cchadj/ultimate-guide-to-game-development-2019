@@ -5,7 +5,8 @@ using Zenject;
 public class GameStateScriptable : ScriptableObject, IConstructor, IDestructor
 {
     [field:SerializeField] public GameEventWithArguments EnemyDestroyed { get; private set; }
-
+    
+    [field:SerializeField] public GameEvent PlayerPressedRestart { get; private set; }
 
     public bool IsConstructed { get; private set; }
     public void Constructor()
@@ -18,6 +19,7 @@ public class GameStateScriptable : ScriptableObject, IConstructor, IDestructor
 
     
     public bool IsDestructed { get; private set; }
+
     public void Destructor()
     {
         if (IsDestructed) return;
