@@ -53,12 +53,16 @@ public class UIManager : MonoBehaviour
         if (!_playerState.IsDead) return;
         
         StopCoroutine(_playerDiedCoroutine);
-        _playerRestartText.enabled = false;
-        _gameOverText.enabled = false;
+        if (_playerRestartText)
+            _playerRestartText.enabled = false;
+        if (_gameOverText)
+            _gameOverText.enabled = false;
     }
     
     private IEnumerator FlashGameOverText()
     {
+        if (!_gameOverText) yield break;
+        
         while (true)
         {
             _gameOverText.enabled = true;

@@ -1,7 +1,9 @@
 ﻿using System;
 using UnityEngine;
+using Zenject;
+using Zenject.Asteroids;
 
-public class PoolableMonobehaviour : MonoBehaviour
+public partial class PoolableMonobehaviour : MonoBehaviour
 {
     public event Action OnDestroyEvent;
     public event Action OnEnableEvent;
@@ -30,4 +32,9 @@ public class PoolableMonobehaviour : MonoBehaviour
         gameObject.transform.localPosition = _cachedInitialLocalPosition;
         gameObject.SetActive(false);
     }
+}
+
+public partial class PoolableMonobehaviour : MonoBehaviour
+{
+    public class Factory : PlaceholderFactory<PoolableMonobehaviour> {}
 }

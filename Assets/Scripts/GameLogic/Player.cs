@@ -118,6 +118,15 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
         // Player can immediately shoot
         _timeSinceLastLaser = _laserCooldown + .1f;
     }
+    
+    private void OnDisable()
+    {
+        _controls?.Disable();
+        _playerState.PlayerDied.RemoveListeners(this);
+        _playerState.PlayerPickedShield.RemoveListeners(this);
+        _playerState.PlayerPickedSpeedBoost.RemoveListeners(this);
+        _playerState.PlayerPickedTripleShot.RemoveListeners(this);
+    }
 
     private void PickTripleShot()
     {
@@ -133,15 +142,6 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
     {
         if (_playerState.ShieldPoints == 0)
             _playerState.ShieldPoints++;
-    }
-
-    private void OnDisable()
-    {
-        _controls?.Disable();
-        _playerState.PlayerDied.RemoveListeners(this);
-        _playerState.PlayerPickedShield.RemoveListeners(this);
-        _playerState.PlayerPickedSpeedBoost.RemoveListeners(this);
-        _playerState.PlayerPickedTripleShot.RemoveListeners(this);
     }
 
     private void Start()

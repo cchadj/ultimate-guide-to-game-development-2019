@@ -8,9 +8,9 @@ public class ObjectPooler : MonoBehaviour
 {
     #region MyRegion
 
-    [SerializeField] private PoolableMonobehaviour _poolableMonobehaviourPrefab;
-    [SerializeField] private int _initialPoolSize;
-    [SerializeField, Tooltip("Gameobject that will contain pooled objects")] private Transform _container;
+    [SerializeField] protected PoolableMonobehaviour _poolableMonobehaviourPrefab;
+    [SerializeField] protected int _initialPoolSize;
+    [SerializeField, Tooltip("Gameobject that will contain pooled objects")] protected Transform _container;
     
     #endregion
 
@@ -53,11 +53,21 @@ public class ObjectPooler : MonoBehaviour
        _activeObjectsPool = new Queue<PoolableMonobehaviour>();
     }
 
+    protected PoolableMonobehaviour CreateNewPrefab()
+    {
+        return CreateNewPrefab(_container);
+    }
+    
+    protected virtual PoolableMonobehaviour CreateNewPrefab(Transform container)
+    {
+        return Instantiate(_poolableMonobehaviourPrefab, container, true);
+    }
+    
     protected virtual void Start()
     {
         for (var i = 0; i < _initialPoolSize; i++)
         {
-            var instantiatedObject = Instantiate(_poolableMonobehaviourPrefab, _container, true);
+            var instantiatedObject = CreateNewPrefab();
             _availableObjectsPool.Enqueue(instantiatedObject);
             
             instantiatedObject.OnDestroyEvent += () => MakeObjectAvailable(instantiatedObject);

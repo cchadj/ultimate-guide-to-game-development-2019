@@ -17,8 +17,15 @@ public partial class Enemy : MonoBehaviour, IDestructible
     [SerializeField] private GameStateScriptable _gameState;
     
     [SerializeField] private SceneDataScriptable _sceneData;
+
+
+    [Inject]
+    private void InjectDependencies(GameStateScriptable gameState, SceneDataScriptable sceneData)
+    {
+        _gameState = gameState;
+        _sceneData = sceneData;
+    }
     
-        
     private OutOfBoundsDirection OutOfBounds
     {
         get

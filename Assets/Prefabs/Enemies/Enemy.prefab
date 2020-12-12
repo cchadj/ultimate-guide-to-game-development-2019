@@ -50,8 +50,8 @@ MonoBehaviour:
   _speed: 0.8
   _damageAmount: {fileID: 11400000, guid: a73a50c091e219f4f8a86688729bfc87, type: 2}
   _enemyType: {fileID: 11400000, guid: 91734a50c13be3e4eab4ce01d54f9f80, type: 2}
-  _gameState: {fileID: 11400000, guid: 3ed109b22217c594ab7ad771157f0eaf, type: 2}
-  _sceneData: {fileID: 11400000, guid: 541cafb7f3a441a479e96c498c1989b0, type: 2}
+  _gameState: {fileID: 0}
+  _sceneData: {fileID: 0}
 --- !u!114 &4370113665309028082
 MonoBehaviour:
   m_ObjectHideFlags: 0

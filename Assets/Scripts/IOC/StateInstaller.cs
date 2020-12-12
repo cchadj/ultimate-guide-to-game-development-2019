@@ -6,6 +6,7 @@ using Zenject;
 public class StateInstaller : MonoInstaller<StateInstaller>
 {
     [SerializeField] private GameStateScriptable _gameState;
+    
     [SerializeField] private PlayerStateScriptable _playerState;
     
     public override void InstallBindings()

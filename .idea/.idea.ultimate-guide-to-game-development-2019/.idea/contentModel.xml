@@ -15,11 +15,13 @@
           </e>
         </e>
         <e p="Controls.cs" t="Include" />
-        <e p="EventListenerTester.cs" t="Include" />
-        <e p="EventTester.cs" t="Include" />
-        <e p="GameEventWithArguments.cs" t="Include" />
-        <e p="GameObjectEnablerDisabler.cs" t="Include" />
-        <e p="PlayerUIControls.cs" t="Include" />
+        <e p="GameData" t="Include">
+          <e p="DI" t="Include">
+            <e p="TestZenjectObjectPoolerSceneInstaller.cs" t="Include" />
+          </e>
+        </e>
+        <e p="GameManager.cs" t="Include" />
+        <e p="MyProjectInstaller.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="SimpleMinMaxSlider" t="Include">
             <e p="Scripts" t="Include">
@@ -949,9 +951,11 @@
             <e p="zenject.asmdef" t="Include" />
           </e>
         </e>
-        <e p="ScriptableObjectLifecycleAttacher.cs" t="Include" />
+        <e p="SceneLoader.cs" t="Include" />
         <e p="Scripts" t="Include">
-          <e p="BulletTypeScriptable.cs" t="Include" />
+          <e p="Controls" t="Include">
+            <e p="PlayerGameOverControls.cs" t="Include" />
+          </e>
           <e p="Enemies" t="Include">
             <e p="Enemy.cs" t="Include" />
           </e>
@@ -960,29 +964,38 @@
             <e p="EnemyType.cs" t="Include" />
             <e p="EnumEntry.cs" t="Include" />
             <e p="PowerupType.cs" t="Include" />
+            <e p="SpecialEnumScriptables" t="Include">
+              <e p="BulletTypeScriptable.cs" t="Include" />
+            </e>
             <e p="State.cs" t="Include" />
+          </e>
+          <e p="GameLogic" t="Include">
+            <e p="GameObjectEnablerDisabler.cs" t="Include" />
+            <e p="Laser.cs" t="Include" />
+            <e p="ObjectPooler.cs" t="Include" />
+            <e p="Player.cs" t="Include" />
+            <e p="PoolableMonobehaviour.cs" t="Include" />
+            <e p="Powerup.cs" t="Include" />
+            <e p="ScriptableObjectLifecycleAttacher.cs" t="Include" />
+            <e p="ShieldAnimationController.cs" t="Include" />
+            <e p="Spawner.cs" t="Include" />
+            <e p="TripleShot.cs" t="Include" />
+            <e p="ZenjectObjectPooler.cs" t="Include" />
           </e>
           <e p="IOC" t="Include">
             <e p="MainInstaller.cs" t="Include" />
-            <e p="PrefabInstaller.cs" t="Include" />
             <e p="StateInstaller.cs" t="Include" />
           </e>
-          <e p="Laser.cs" t="Include" />
-          <e p="ObjectPooler.cs" t="Include" />
-          <e p="Player.cs" t="Include" />
-          <e p="PoolableMonobehaviour.cs" t="Include" />
-          <e p="Powerup.cs" t="Include" />
-          <e p="SceneDataScriptable.cs" t="Include" />
-          <e p="Spawner.cs" t="Include" />
           <e p="State" t="Include">
             <e p="GameStateScriptable.cs" t="Include" />
             <e p="PlayerStateScriptable.cs" t="Include" />
+            <e p="SceneDataScriptable.cs" t="Include" />
           </e>
-          <e p="TripleShot.cs" t="Include" />
           <e p="Utility" t="Include">
             <e p="Attributes" t="Include">
               <e p="MiniViewAttribute.cs" t="Include" />
             </e>
+            <e p="DefaultSceneLoader.cs" t="Include" />
             <e p="DragAndDropPath" t="Include">
               <e p="DragAndDropPathAttribute.cs" t="Include" />
               <e p="Editor" t="Include">
@@ -1005,10 +1018,13 @@
             </e>
             <e p="MyEventSystem" t="Include">
               <e p="EventListener.cs" t="Include" />
+              <e p="EventListenerTester.cs" t="Include" />
+              <e p="EventTester.cs" t="Include" />
               <e p="GameEvent.cs" t="Include" />
               <e p="GameEventEditor.cs" t="Include" />
               <e p="GameEventListenerEditor.cs" t="Include" />
               <e p="GameEventPropertyDrawer.cs" t="Include" />
+              <e p="GameEventWithArguments.cs" t="Include" />
               <e p="GameEventWithArgumentsDrawer.cs" t="Include" />
             </e>
             <e p="ReadOnlyAttribute" t="Include">
@@ -1030,38 +1046,8 @@
             </e>
           </e>
         </e>
-        <e p="ShieldAnimationController.cs" t="Include" />
-        <e p="TextMesh Pro" t="Include">
-          <e p="Fonts" t="Include">
-            <e p="LiberationSans - OFL.txt" t="Include" />
-          </e>
-          <e p="Resources" t="Include">
-            <e p="LineBreaking Following Characters.txt" t="Include" />
-            <e p="LineBreaking Leading Characters.txt" t="Include" />
-          </e>
-          <e p="Shaders" t="Include">
-            <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
-            <e p="TMP_Bitmap-Mobile.shader" t="Include" />
-            <e p="TMP_Bitmap.shader" t="Include" />
-            <e p="TMP_SDF Overlay.shader" t="Include" />
-            <e p="TMP_SDF SSD.shader" t="Include" />
-            <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
-            <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
-            <e p="TMP_SDF-Mobile SSD.shader" t="Include" />
-            <e p="TMP_SDF-Mobile.shader" t="Include" />
-            <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
-            <e p="TMP_SDF-Surface.shader" t="Include" />
-            <e p="TMP_SDF.shader" t="Include" />
-            <e p="TMP_Sprite.shader" t="Include" />
-            <e p="TMPro.cginc" t="Include" />
-            <e p="TMPro_Mobile.cginc" t="Include" />
-            <e p="TMPro_Properties.cginc" t="Include" />
-            <e p="TMPro_Surface.cginc" t="Include" />
-          </e>
-          <e p="Sprites" t="Include">
-            <e p="EmojiOne Attribution.txt" t="Include" />
-          </e>
-        </e>
+        <e p="ZenjectObjectPoolerContext.cs" t="Include" />
+        <e p="ZenjectObjectPoolerInstaller.cs" t="Include" />
       </e>
       <e p="Library" t="ExcludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />

@@ -324,7 +324,7 @@ public partial class EventListener : MonoBehaviour
                 {
                     del = Delegate.CreateDelegate(actionT, methodsInstance, methodInfo);
                 }
-                catch (ArgumentException e)
+                catch (ArgumentException)
                 {
                     throw new ArgumentException("Wrong arguments " + SelectedComponent.name +  methodInfo.Name);
                 }

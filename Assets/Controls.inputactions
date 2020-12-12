@@ -250,6 +250,17 @@
                     "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3807d1a4-3d36-491e-8000-b8c986398c63",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -334,14 +345,6 @@
                     "type": "PassThrough",
                     "id": "577b3d7b-6758-4f09-8893-648d5aff521c",
                     "expectedControlType": "Quaternion",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "Restart",
-                    "type": "Button",
-                    "id": "f29bace0-e212-4809-8e2e-9017b4c613a0",
-                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 }
@@ -764,10 +767,26 @@
                     "action": "TrackedDeviceOrientation",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
+                }
+            ]
+        },
+        {
+            "name": "GameOver",
+            "id": "31e2821f-9e81-4a7b-bf60-42cb1178fc92",
+            "actions": [
+                {
+                    "name": "Restart",
+                    "type": "Button",
+                    "id": "b8c464f4-a642-4357-a751-4eaaa73c609b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
                 {
                     "name": "",
-                    "id": "36f98903-19bf-4b09-a319-8b50e7c366a7",
+                    "id": "c7d56146-eeb3-41e7-b18f-3e62be91c26a",
                     "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
