@@ -4,20 +4,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public partial class Enemy : MonoBehaviour, IDestructible
+public partial class Enemy : PoolableMonobehaviour, IDestructible
 {
-    private Transform _transform;
-    
+
+    #region SetByUnity
     [SerializeField] private float _speed = .8f;
 
-    [SerializeField] private FloatVariable _damageAmount;
+    [SerializeField, MiniView] private FloatVariable _damageAmount;
 
     [SerializeField] private EnumEntry _enemyType;
-    
-    [SerializeField] private GameStateScriptable _gameState;
-    
-    [SerializeField] private SceneDataScriptable _sceneData;
 
+    [SerializeField] private GameEvent OnExplosion;
+    
+    [SerializeField, ReadOnly, Space(10)] private GameStateScriptable _gameState;
+    
+    [SerializeField, ReadOnly] private SceneDataScriptable _sceneData;
+
+    [SerializeField, ReadOnly] private EnemyAnimationController _animationController;
+    
+    #endregion
+
+    #region CachedObjects
+    private Collider2D _collider2D;
+    
+    private Transform _transform;
+    
+    #endregion
+    
+    private void Awake()
+    {
+        _transform = transform;
+        _animationController = GetComponent<EnemyAnimationController>();
+        _collider2D = GetComponent<Collider2D>();
+    }
 
     [Inject]
     private void InjectDependencies(GameStateScriptable gameState, SceneDataScriptable sceneData)
@@ -42,12 +61,7 @@ public partial class Enemy : MonoBehaviour, IDestructible
             return direction;
         }
     }
-
-    private void Awake()
-    {
-        _transform = transform;
-    }
-
+    
     private void CalculateMovement()
     {
         _transform.Translate(new Vector3(0, -_speed * Time.deltaTime, 0));
@@ -82,20 +96,21 @@ public partial class Enemy : MonoBehaviour, IDestructible
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        other.GetComponent<IDestructible>()?.Destroy();
-
         other.GetComponent<IHarmable>()?.Damage((int)_damageAmount.Value);
         
         if (other.GetComponent<Player>())
             Destroy();
         
         var bullet = other.GetComponent<IBullet>();
+        
         if (bullet == null)
            return;
         
+        other.GetComponent<IDestructible>()?.Destroy();
         switch (bullet.BulletType)
         {
             case BulletType.Laser:
+                
                 Destroy();
                 break;
             case BulletType.TripleShot:
@@ -113,7 +128,23 @@ public partial class Enemy : MonoBehaviour, IDestructible
 
     public void Destroy()
     {
-        gameObject.SetActive(false);
+        _collider2D.enabled = false;
+        _animationController.PlayDeathAnimation();
         _gameState.EnemyDestroyed.Raise(_enemyType);
+        OnExplosion.Raise();
+        StartCoroutine(Destroy(2));
+    }
+
+    private IEnumerator Destroy(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        gameObject.SetActive(false);
+    }
+
+    public override void Reset()
+    {
+        base.Reset();
+        _collider2D.enabled = true;
+        _animationController.Reset();
     }
 }

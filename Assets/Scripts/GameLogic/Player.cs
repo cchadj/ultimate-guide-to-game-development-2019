@@ -32,12 +32,17 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
     
     [SerializeField] private float _laserCooldown;
 
+    [SerializeField] private GameEvent _playerFired;
+    
+    [SerializeField] private GameEvent _PlayerPickedPowerup;
+
     [SerializeField, ReadOnly, Space] private SceneDataScriptable _sceneData;
     
     [SerializeField, ReadOnly] private BulletType _currentBulletType;
     
     [SerializeField, ReadOnly] private PlayerStateScriptable _playerState;
     
+    [SerializeField, ReadOnly] private PlayerThrusterAnimationController _thrusterAnimationController;
     
     #endregion SerialisedFields
 
@@ -78,10 +83,16 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
     }
 
     [Inject]
-    private void Constructor(PlayerStateScriptable playerState, GameStateScriptable gameState, SceneDataScriptable sceneData)
+    private void Constructor(
+        PlayerStateScriptable playerState,
+        GameStateScriptable gameState,
+        SceneDataScriptable sceneData,
+        PlayerThrusterAnimationController thrusterAnimationController
+        )
     {
         _playerState = playerState; 
         _sceneData = sceneData;
+        _thrusterAnimationController = thrusterAnimationController;
     }
 
     private GameObject _gameObject;
@@ -139,15 +150,12 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
     }
 
     private void PickShield()
-    {
-        if (_playerState.ShieldPoints == 0)
-            _playerState.ShieldPoints++;
+    {    
+        _playerState.ShieldPoints++;
     }
 
     private void Start()
     {
-        _transform.position = new Vector3(0, 0, 0);
-        
         _laserCooldown = Math.Abs(_laserCooldown) < .01f ? .8f : _laserCooldown;
     }
     
@@ -160,7 +168,18 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
     
     private void CalculateMovement()
     {
-        _transform.Translate(GetMovementDirection() * _playerState.MovementSpeed * Time.deltaTime);
+        var displacement = GetMovementDirection() * _playerState.MovementSpeed * Time.deltaTime;
+        _transform.Translate(displacement);
+        
+        if (displacement.Equals(Vector3.zero))
+        {
+            _thrusterAnimationController.StopThrusters();
+        }
+        else
+        {
+           _thrusterAnimationController.StartThrusters(); 
+        }
+            
         if (OutOfBounds != OutOfBoundsDirection.None)
         {
             HandleOutOfBounds();
@@ -208,6 +227,8 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
         bullet.gameObject.SetActive(true);
             
         _timeSinceLastLaser = .0f;
+        
+        _playerFired.Raise();
     }
 
     #region Input Handling 
@@ -256,7 +277,6 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
         {
             case PowerupType.Speedboost:
                 _playerState.PlayerPickedSpeedBoost.Raise();
-                Speedup(2, 3); 
                 break;
             case PowerupType.TripleShot:
                 _playerState.PlayerPickedTripleShot.Raise();
@@ -268,8 +288,9 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
             default:
                 throw new ArgumentOutOfRangeException();
         }
-    }
 
+        _PlayerPickedPowerup.Raise();
+    }
 
     private Coroutine _currentSpeedupCoroutine;
     private void Speedup(float multiplier, float seconds)
@@ -280,6 +301,8 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
     }
 
     private Coroutine _currentBulletTypeCoroutine;
+
+
     private void SetBulletType(BulletType bulletType, float seconds)
     {
         if (_currentBulletTypeCoroutine != null)

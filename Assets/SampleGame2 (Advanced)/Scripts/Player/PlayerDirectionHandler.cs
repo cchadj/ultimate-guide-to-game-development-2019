@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Zenject.SpaceFighter
 {
@@ -17,7 +18,7 @@ namespace Zenject.SpaceFighter
 
         public void Tick()
         {
-            var mouseRay = _mainCamera.ScreenPointToRay(Input.mousePosition);
+            var mouseRay = _mainCamera.ScreenPointToRay(new Vector3(Mouse.current.position.x.ReadValue(), Mouse.current.position.y.ReadValue(), 0.0f));
 
             var mousePos = mouseRay.origin;
             mousePos.z = 0;

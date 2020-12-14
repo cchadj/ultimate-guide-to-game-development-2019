@@ -15,4 +15,4 @@ MonoBehaviour:
   DeveloperDescription: 'The damage a simple enemy
 
     should deal to the player.'
-  _value: 5
+  _value: 1

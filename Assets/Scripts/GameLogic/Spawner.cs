@@ -16,7 +16,7 @@ public class Spawner : MonoBehaviour
     [SerializeField, MinMaxSlider(0.1f, 40)]
     private Vector2 _spawnEverySeconds;
 
-    [SerializeField] private bool _stopSpawning;
+    [SerializeField] private bool _isSpawning;
     #endregion
 
     private const float DefaultSpawnEverySeconds = 2f;
@@ -42,18 +42,26 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
-        StartSpawning();
+        StartCoroutine(SpawnCoroutine());
     }
 
-    private void StartSpawning()
+    private Coroutine _spawnCoroutine;
+    public void StartSpawning()
     {
-        _stopSpawning = false;
-        StartCoroutine(SpawnCoroutine());
+//        if (_spawnCoroutine != null)
+//            StopCoroutine(_spawnCoroutine);
+        
+        _isSpawning = true;
+        
+//        _spawnCoroutine = StartCoroutine(SpawnCoroutine());
     }
     
     public void StopSpawning()
     {
-        _stopSpawning = true;
+//        if (_spawnCoroutine != null)
+//            StopCoroutine(_spawnCoroutine);
+        
+        _isSpawning = false;
     }
 
     private static void Spawn(ObjectPooler pooler)
@@ -68,20 +76,20 @@ public class Spawner : MonoBehaviour
     
     private IEnumerator SpawnCoroutine()
     {
-        while (!_stopSpawning)
-        {
-            var randomPooler = _objectPoolers[Random.Range(0, _objectPoolers.Count)];
+        while (true)
+        {    
             var seconds = Mathf.Lerp(_spawnEverySeconds[0], _spawnEverySeconds[1], Random.value);
-            yield return new WaitForSeconds(seconds);
-            
-            var canSpawn = !randomPooler.IsEmpty && !_stopSpawning;
-            
-            if (canSpawn)
+            if (_isSpawning)
             {
-                Spawn(randomPooler);
+                var randomPooler = _objectPoolers[Random.Range(0, _objectPoolers.Count)];
+                var canSpawn = !randomPooler.IsEmpty;
+                
+                if (canSpawn)
+                {
+                    Spawn(randomPooler);
+                }
             }
+            yield return new WaitForSeconds(seconds);
         }
-
-        yield return null;
     }
 }

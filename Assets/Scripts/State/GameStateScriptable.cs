@@ -6,9 +6,10 @@ using Zenject;
 public class GameStateScriptable : ScriptableObject, IConstructor, IDestructor
 {
     [field:SerializeField] public GameEventWithArguments EnemyDestroyed { get; private set; }
-    
     [field:SerializeField] public GameEvent PlayerPressedRestart { get; private set; }
-
+    
+    [field:SerializeField] public GameEvent AsteroidDestroyed { get; private set; }
+    
     [field: SerializeField] private SceneLoader _sceneLoader;
 
     [Inject]

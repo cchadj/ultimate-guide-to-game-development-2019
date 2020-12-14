@@ -9,7 +9,7 @@ public partial class ZenjectObjectPooler : ObjectPooler
     private PoolableMonobehaviour.Factory _poolableMonobehaviourFactory;
 
     [Inject]
-    private void DependencyInjections(PoolableMonobehaviour.Factory factory)
+    private void InjectDependencies(PoolableMonobehaviour.Factory factory)
     {
         _poolableMonobehaviourFactory = factory; 
     }

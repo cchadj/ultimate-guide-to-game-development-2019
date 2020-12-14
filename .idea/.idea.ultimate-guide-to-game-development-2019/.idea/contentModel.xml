@@ -14,7 +14,13 @@
             </e>
           </e>
         </e>
+        <e p="Asteroid.cs" t="Include" />
+        <e p="AsteroidAnimationController.cs" t="Include" />
+        <e p="AudioGameEventListener.cs" t="Include" />
         <e p="Controls.cs" t="Include" />
+        <e p="EnemyAnimationController.cs" t="Include" />
+        <e p="EnemyInstaller.cs" t="Include" />
+        <e p="EnginesBlown.cs" t="Include" />
         <e p="GameData" t="Include">
           <e p="DI" t="Include">
             <e p="TestZenjectObjectPoolerSceneInstaller.cs" t="Include" />
@@ -22,6 +28,7 @@
         </e>
         <e p="GameManager.cs" t="Include" />
         <e p="MyProjectInstaller.cs" t="Include" />
+        <e p="PlayerThrusterAnimationController.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="SimpleMinMaxSlider" t="Include">
             <e p="Scripts" t="Include">
@@ -360,54 +367,6 @@
                   <e p="Util" t="Include">
                     <e p="GameEvents.cs" t="Include" />
                     <e p="UnityExtensionMethods.cs" t="Include" />
-                  </e>
-                </e>
-              </e>
-              <e p="SampleGame2 (Advanced)" t="Include">
-                <e p="Scripts" t="Include">
-                  <e p="Enemy" t="Include">
-                    <e p="EnemyCommonSettings.cs" t="Include" />
-                    <e p="EnemyDeathHandler.cs" t="Include" />
-                    <e p="EnemyFacade.cs" t="Include" />
-                    <e p="EnemyRegistry.cs" t="Include" />
-                    <e p="EnemyRotationHandler.cs" t="Include" />
-                    <e p="EnemyStateManager.cs" t="Include" />
-                    <e p="EnemyTunables.cs" t="Include" />
-                    <e p="EnemyView.cs" t="Include" />
-                    <e p="GameEvents.cs" t="Include" />
-                    <e p="States" t="Include">
-                      <e p="EnemyStateAttack.cs" t="Include" />
-                      <e p="EnemyStateFollow.cs" t="Include" />
-                      <e p="EnemyStateIdle.cs" t="Include" />
-                    </e>
-                  </e>
-                  <e p="Installers" t="Include">
-                    <e p="EnemyInstaller.cs" t="Include" />
-                    <e p="GameInstaller.cs" t="Include" />
-                    <e p="GameSettingsInstaller.cs" t="Include" />
-                    <e p="GameSignalsInstaller.cs" t="Include" />
-                    <e p="PlayerInstaller.cs" t="Include" />
-                  </e>
-                  <e p="Misc" t="Include">
-                    <e p="AudioPlayer.cs" t="Include" />
-                    <e p="Bullet.cs" t="Include" />
-                    <e p="ControlsDisplay.cs" t="Include" />
-                    <e p="EnemySpawner.cs" t="Include" />
-                    <e p="Explosion.cs" t="Include" />
-                    <e p="GameRestartHandler.cs" t="Include" />
-                    <e p="LevelBoundary.cs" t="Include" />
-                  </e>
-                  <e p="Player" t="Include">
-                    <e p="PlayerDamageHandler.cs" t="Include" />
-                    <e p="PlayerDirectionHandler.cs" t="Include" />
-                    <e p="PlayerFacade.cs" t="Include" />
-                    <e p="PlayerGui.cs" t="Include" />
-                    <e p="PlayerHealthWatcher.cs" t="Include" />
-                    <e p="PlayerInputHandler.cs" t="Include" />
-                    <e p="PlayerInputState.cs" t="Include" />
-                    <e p="PlayerModel.cs" t="Include" />
-                    <e p="PlayerMoveHandler.cs" t="Include" />
-                    <e p="PlayerShootHandler.cs" t="Include" />
                   </e>
                 </e>
               </e>
@@ -951,6 +910,54 @@
             <e p="zenject.asmdef" t="Include" />
           </e>
         </e>
+        <e p="SampleGame2 (Advanced)" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="Enemy" t="Include">
+              <e p="EnemyCommonSettings.cs" t="Include" />
+              <e p="EnemyDeathHandler.cs" t="Include" />
+              <e p="EnemyFacade.cs" t="Include" />
+              <e p="EnemyRegistry.cs" t="Include" />
+              <e p="EnemyRotationHandler.cs" t="Include" />
+              <e p="EnemyStateManager.cs" t="Include" />
+              <e p="EnemyTunables.cs" t="Include" />
+              <e p="EnemyView.cs" t="Include" />
+              <e p="GameEvents.cs" t="Include" />
+              <e p="States" t="Include">
+                <e p="EnemyStateAttack.cs" t="Include" />
+                <e p="EnemyStateFollow.cs" t="Include" />
+                <e p="EnemyStateIdle.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Installers" t="Include">
+              <e p="EnemyInstaller.cs" t="Include" />
+              <e p="GameInstaller.cs" t="Include" />
+              <e p="GameSettingsInstaller.cs" t="Include" />
+              <e p="GameSignalsInstaller.cs" t="Include" />
+              <e p="PlayerInstaller.cs" t="Include" />
+            </e>
+            <e p="Misc" t="Include">
+              <e p="AudioPlayer.cs" t="Include" />
+              <e p="Bullet.cs" t="Include" />
+              <e p="ControlsDisplay.cs" t="Include" />
+              <e p="EnemySpawner.cs" t="Include" />
+              <e p="Explosion.cs" t="Include" />
+              <e p="GameRestartHandler.cs" t="Include" />
+              <e p="LevelBoundary.cs" t="Include" />
+            </e>
+            <e p="Player" t="Include">
+              <e p="PlayerDamageHandler.cs" t="Include" />
+              <e p="PlayerDirectionHandler.cs" t="Include" />
+              <e p="PlayerFacade.cs" t="Include" />
+              <e p="PlayerGui.cs" t="Include" />
+              <e p="PlayerHealthWatcher.cs" t="Include" />
+              <e p="PlayerInputHandler.cs" t="Include" />
+              <e p="PlayerInputState.cs" t="Include" />
+              <e p="PlayerModel.cs" t="Include" />
+              <e p="PlayerMoveHandler.cs" t="Include" />
+              <e p="PlayerShootHandler.cs" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="SceneLoader.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="Controls" t="Include">
@@ -985,6 +992,9 @@
           <e p="IOC" t="Include">
             <e p="MainInstaller.cs" t="Include" />
             <e p="StateInstaller.cs" t="Include" />
+          </e>
+          <e p="MainMenu" t="Include">
+            <e p="MainMenu.cs" t="Include" />
           </e>
           <e p="State" t="Include">
             <e p="GameStateScriptable.cs" t="Include" />
@@ -1046,6 +1056,11 @@
             </e>
           </e>
         </e>
+        <e p="Tests" t="Include">
+          <e p="NewTestScript.cs" t="Include" />
+          <e p="NewTestScript1.cs" t="Include" />
+          <e p="Tests.asmdef" t="Include" />
+        </e>
         <e p="ZenjectObjectPoolerContext.cs" t="Include" />
         <e p="ZenjectObjectPoolerInstaller.cs" t="Include" />
       </e>
@@ -1056,6 +1071,7 @@
       <e p="Temp" t="ExcludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
       </e>
+      <e p="Tests.csproj" t="IncludeRecursive" />
       <e p="ultimate-guide-to-game-development-2019.sln" t="IncludeFlat" />
       <e p="Zenject-Editor.csproj" t="IncludeRecursive" />
       <e p="Zenject-IntegrationTests-Editor.csproj" t="IncludeRecursive" />
