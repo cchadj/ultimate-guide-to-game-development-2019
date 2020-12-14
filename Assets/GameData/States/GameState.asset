@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <EnemyDestroyed>k__BackingField: {fileID: 11400000, guid: 03fc1154e7eb9e94dbced03dca3f6a5b, type: 2}
   <PlayerPressedRestart>k__BackingField: {fileID: 11400000, guid: 416f909285df7b846bec0efb20fa0328, type: 2}
+  <AsteroidDestroyed>k__BackingField: {fileID: 11400000, guid: 133d2648bb1331d45a2554a83c3a0381, type: 2}
+  _sceneLoader: {fileID: 0}

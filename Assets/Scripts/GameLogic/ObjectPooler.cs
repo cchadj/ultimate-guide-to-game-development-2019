@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 using Zenject;
 
@@ -29,8 +30,6 @@ public class ObjectPooler : MonoBehaviour
         {
             var obj =  _availableObjectsPool.Dequeue();   
             _activeObjectsPool.Enqueue(obj);
-            
-
             return obj;
         }
     }
@@ -53,7 +52,7 @@ public class ObjectPooler : MonoBehaviour
        _activeObjectsPool = new Queue<PoolableMonobehaviour>();
     }
 
-    protected PoolableMonobehaviour CreateNewPrefab()
+    private PoolableMonobehaviour CreateNewPrefab()
     {
         return CreateNewPrefab(_container);
     }
@@ -68,10 +67,12 @@ public class ObjectPooler : MonoBehaviour
         for (var i = 0; i < _initialPoolSize; i++)
         {
             var instantiatedObject = CreateNewPrefab();
-            _availableObjectsPool.Enqueue(instantiatedObject);
             
-            instantiatedObject.OnDestroyEvent += () => MakeObjectAvailable(instantiatedObject);
+            instantiatedObject.Deactivate();
+            instantiatedObject.OnDisableEvent += () => MakeObjectAvailable(instantiatedObject);
             instantiatedObject.OnEnableEvent += () => MakeObjectActive(instantiatedObject);
+            
+            _availableObjectsPool.Enqueue(instantiatedObject);
         }
     }
 
@@ -83,10 +84,10 @@ public class ObjectPooler : MonoBehaviour
         var expandAmount = poolSize - CurrentPoolSize;
         for (var i = 0; i < expandAmount; i++)
         {
-            var instantiatedObject = Instantiate(_poolableMonobehaviourPrefab, _container, true);
+            var instantiatedObject = CreateNewPrefab();
             _availableObjectsPool.Enqueue(instantiatedObject);
             
-            instantiatedObject.OnDestroyEvent += () => MakeObjectAvailable(instantiatedObject);
+            instantiatedObject.OnDisableEvent += () => MakeObjectAvailable(instantiatedObject);
             instantiatedObject.OnEnableEvent += () => MakeObjectActive(instantiatedObject);
         }
 
@@ -104,6 +105,7 @@ public class ObjectPooler : MonoBehaviour
 //        pooledObject.transform.SetParent(_transform);
 //        complains when changing parent the same frame when being deactivated
 //        pooledObject.gameObject.SetActive(false);
+        pooledObject.Reset();
         _availableObjectsPool.Enqueue(pooledObject);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using ModestTree;
 using UnityEditor;
 using UnityEngine;
 
@@ -62,6 +63,8 @@ public class ScriptableObjectLifecycleAttacher : MonoBehaviour
         _destructable = _destructorScriptableObjects.OfType<ScriptableObject>().ToList();
         _startable = _startableScriptableObjects.OfType<ScriptableObject>().ToList();
 
+        if (_constructorScriptableObjects == null) return;
+        
         foreach (var constructable in _constructorScriptableObjects)
         {
             constructable.Constructor();
@@ -70,6 +73,8 @@ public class ScriptableObjectLifecycleAttacher : MonoBehaviour
 
     private void Start()
     {
+        if (_startableScriptableObjects == null) return;
+        
         foreach (var startable in _startableScriptableObjects)
         {
             startable.Start();
@@ -78,6 +83,8 @@ public class ScriptableObjectLifecycleAttacher : MonoBehaviour
 
     private void OnDestroy()
     {
+        if (_destructorScriptableObjects == null) return;
+        
         foreach (var destructable in _destructorScriptableObjects)
         {
             destructable.Destructor();

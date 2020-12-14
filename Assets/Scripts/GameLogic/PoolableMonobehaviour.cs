@@ -5,20 +5,25 @@ using Zenject.Asteroids;
 
 public partial class PoolableMonobehaviour : MonoBehaviour
 {
-    public event Action OnDestroyEvent;
+    public event Action OnDisableEvent;
     public event Action OnEnableEvent;
+
+    protected Vector3 _cachedInitialLocalPosition;
+    
+    public virtual void Reset()
+    {
+        gameObject.transform.localPosition = _cachedInitialLocalPosition;
+    }
     
     protected virtual void OnEnable() => OnEnableEvent?.Invoke();
 
-    protected virtual void OnDisable() => OnDestroyEvent?.Invoke();
-
-    private Vector3 _cachedInitialLocalPosition;
+    protected virtual void OnDisable() => OnDisableEvent?.Invoke();
     
     private void Awake()
     {
         _cachedInitialLocalPosition = transform.localPosition;
-        gameObject.SetActive(false); 
-        OnDestroyEvent += () => transform.localPosition = _cachedInitialLocalPosition;
+        gameObject.SetActive(false);
+        OnDisableEvent += Reset;
     }
 
 
@@ -29,7 +34,7 @@ public partial class PoolableMonobehaviour : MonoBehaviour
     
     public void Deactivate()
     {
-        gameObject.transform.localPosition = _cachedInitialLocalPosition;
+        Reset();
         gameObject.SetActive(false);
     }
 }
