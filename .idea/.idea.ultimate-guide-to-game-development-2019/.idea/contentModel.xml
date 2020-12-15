@@ -937,6 +937,7 @@
             <e p="Player.cs" t="Include" />
             <e p="PoolableMonobehaviour.cs" t="Include" />
             <e p="Powerup.cs" t="Include" />
+            <e p="RandomTopBoundSpawner.cs" t="Include" />
             <e p="ScriptableObjectLifecycleAttacher.cs" t="Include" />
             <e p="ShieldAnimationController.cs" t="Include" />
             <e p="Spawner.cs" t="Include" />

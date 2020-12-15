@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using GD.MinMaxSlider;
 using UnityEngine;
-using Zenject;
 using Object = System.Object;
 using Random = UnityEngine.Random;
 
@@ -19,12 +18,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private bool _isSpawning;
     #endregion
 
-    private const float DefaultSpawnEverySeconds = 2f;
-    
-
-    private const float MinXBound = -8.3f, MaxXBound = 8.3f;
-
-    private void Awake()
+    protected virtual void Awake()
     {
         var areObjectPoolersProvided = _objectPoolers.Count > 0;
         if (areObjectPoolersProvided) return;
@@ -64,13 +58,11 @@ public class Spawner : MonoBehaviour
         _isSpawning = false;
     }
 
-    private static void Spawn(ObjectPooler pooler)
+    protected virtual PoolableMonobehaviour Spawn(ObjectPooler pooler)
     {
         var pooledObject = pooler.NextPoolableObject;
-        var pooledObjectTransform = pooledObject.transform;
-        
         pooledObject.Activate();
-//        pooledObjectTransform.position = new Vector3(Mathf.Lerp(MinXBound, MaxXBound, Random.value), 6, 0);
+        return pooledObject;
     }
     
     

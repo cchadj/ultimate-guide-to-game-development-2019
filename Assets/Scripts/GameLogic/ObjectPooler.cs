@@ -61,7 +61,6 @@ public class ObjectPooler : MonoBehaviour
     
     protected virtual void Start()
     {
-        Debug.Log("Ok");
         for (var i = 0; i < _initialPoolSize; i++)
         {
             var instantiatedObject = CreateNewPrefab();

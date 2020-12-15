@@ -1,29 +1,33 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using Zenject;
 
-public enum BulletDirection {
-    Up, 
-    Down
-}
 public class Laser : MonoBehaviour, IDestructible, IBullet
 {
-
+    public enum BulletDirection {
+        Up, 
+        Down
+    }
+    
     #region SetByUnity
     [SerializeField] private float _speed;
     [field: SerializeField] public BulletTypeScriptable BulletTypeData { get; private set; }
-
+    
     [SerializeField] private BulletDirection _bulletDirection;
-
     [field: SerializeField] public float BulletDamage { get; private set; } = 1;
-
+    [field:SerializeField] public BulletType BulletType { get; private set; }
     #endregion
 
-    public BulletType BulletType { get; private set; }
-
+    [SerializeField, ReadOnly] private SceneDataScriptable _sceneData;
     private Transform _transform;
+
+    [Inject]
+    private void InjectDependencies(SceneDataScriptable sceneData)
+    {
+        _sceneData = sceneData;
+    }
     
-    private const float TopBound = 5.5f;
     
     private const float DefaultSpeed = 8;
     
@@ -42,13 +46,14 @@ public class Laser : MonoBehaviour, IDestructible, IBullet
 
     private void Update()
     {
-        var prevPosition = _transform.position;
-
-        var direction = _bulletDirection == BulletDirection.Up ? 1 : -1;
+        var direction = _bulletDirection == BulletDirection.Up ? 1.0f : -1.0f;
         _transform.Translate(new Vector3(.0f, direction * Time.deltaTime * _speed ,.0f));
-       
-        if (_transform.position.y > TopBound)
-            gameObject.SetActive(false);
+
+        var bulletPosition = _transform.position;
+        var isBulletOutOfBounds = bulletPosition.y > _sceneData.TopBound ||
+                                  bulletPosition.y < _sceneData.BottomBound;
+        if (isBulletOutOfBounds)
+            Destroy();
     }
 
     public void Destroy()

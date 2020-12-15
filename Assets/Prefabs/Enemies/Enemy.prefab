@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 241301961}
+  - component: {fileID: 241301962}
+  - component: {fileID: 241301958}
   - component: {fileID: 241301960}
   - component: {fileID: 241301959}
-  - component: {fileID: 241301958}
-  - component: {fileID: 241301962}
   m_Layer: 9
   m_Name: EnemyBulletSpawner
   m_TagString: Untagged
@@ -34,6 +34,37 @@ Transform:
   m_Father: {fileID: 8434415139689256046}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &241301962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241301957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a74197ff639f48a4697e45a03dc10397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectPoolers:
+  - {fileID: 241301958}
+  _spawnEverySeconds: {x: 1, y: 3}
+  _isSpawning: 1
+--- !u!114 &241301958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241301957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffc43cb2a7554b45a7697f2c5c8b24af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _poolableMonobehaviourPrefab: {fileID: -3311268022990118016, guid: 482bf162efb35f946aa424ee185ed38d, type: 3}
+  _initialPoolSize: 20
+  _container: {fileID: 0}
 --- !u!114 &241301960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,37 +96,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PoolableMonobehaviourPrefab: {fileID: -3311268022990118016, guid: 482bf162efb35f946aa424ee185ed38d, type: 3}
---- !u!114 &241301958
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 241301957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffc43cb2a7554b45a7697f2c5c8b24af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _poolableMonobehaviourPrefab: {fileID: -3311268022990118016, guid: 482bf162efb35f946aa424ee185ed38d, type: 3}
-  _initialPoolSize: 20
-  _container: {fileID: 0}
---- !u!114 &241301962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 241301957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a74197ff639f48a4697e45a03dc10397, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _objectPoolers:
-  - {fileID: 241301958}
-  _spawnEverySeconds: {x: 3, y: 5}
-  _isSpawning: 1
 --- !u!1 &8434415139689256032
 GameObject:
   m_ObjectHideFlags: 0

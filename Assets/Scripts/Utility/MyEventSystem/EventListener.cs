@@ -285,8 +285,18 @@ public partial class EventListener : MonoBehaviour
                 var methodsInstance = SelectedComponent;
                 if (methodInfo.IsStatic)
                     methodsInstance = null;
-                var del = (Action) Delegate.CreateDelegate(typeof(Action), methodsInstance, methodInfo);
-                _selectedMethods.Add(del);
+                Action del;
+                try
+                {
+                    del = (Action) Delegate.CreateDelegate(typeof(Action), methodsInstance, methodInfo);
+                    _selectedMethods.Add(del);
+                }
+                catch (ArgumentException e)
+                {
+                    Debug.LogError($"{nameof(EventListener)}::{nameof(SelectedComponent)}::{name}:: See below for error information.");
+                    throw new ArgumentException($"{nameof(EventListener)}::{nameof(SelectedComponent)}::{name}", e);
+                }
+                
             }
 
             return _selectedMethods;

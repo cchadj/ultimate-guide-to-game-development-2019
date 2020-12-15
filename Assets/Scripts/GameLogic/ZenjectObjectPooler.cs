@@ -17,6 +17,7 @@ public partial class ZenjectObjectPooler : ObjectPooler
     protected override PoolableMonobehaviour CreateNewPrefab(Transform container)
     {
         var newPrefab = _poolableMonobehaviourFactory.Create();
+        newPrefab.transform.parent = container;
         return newPrefab;
     }
 }

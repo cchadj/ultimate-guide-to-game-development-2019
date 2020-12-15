@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 6508533294116954913}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.4, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -47,9 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ef7106e95ccfea4fa5f580377a51113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 8
+  _speed: 2
   <BulletTypeData>k__BackingField: {fileID: 11400000, guid: 5661ddf82b3bca943a8ce3cdf1d905eb, type: 2}
   _bulletDirection: 1
+  <BulletDamage>k__BackingField: 1
 --- !u!114 &-3311268022990118016
 MonoBehaviour:
   m_ObjectHideFlags: 0
