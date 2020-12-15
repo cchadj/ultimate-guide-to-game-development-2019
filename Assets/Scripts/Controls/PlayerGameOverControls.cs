@@ -25,13 +25,16 @@ public class PlayerGameOverControls : MonoBehaviour, Controls.IGameOverActions
 
     private void OnEnable()
     {
+        _gameState.PlayerPressedRestart.AddOwner(this);
         _playerState.PlayerDied.AddListener(this, EnableGameOverControls);
     }
     
     private void OnDisable()
     {
+        _gameState.PlayerPressedRestart.RemoveOwner(this);
         _playerState.PlayerDied.RemoveListener(this, EnableGameOverControls);
-        _controls?.Disable(); 
+        _controls?.Disable();
+        _isPlayerPressedStartAlreadyRaised = false;
     }
 
     private void EnableGameOverControls()
@@ -39,8 +42,12 @@ public class PlayerGameOverControls : MonoBehaviour, Controls.IGameOverActions
         _controls?.Enable();
     }
 
+    private bool _isPlayerPressedStartAlreadyRaised = false;
     public void OnRestart(InputAction.CallbackContext context)
     {
-        _gameState.PlayerPressedRestart.Raise();
+        if (_isPlayerPressedStartAlreadyRaised) return;
+        
+        _gameState.PlayerPressedRestart.Raise(this);
+        _isPlayerPressedStartAlreadyRaised = true;
     }
 }

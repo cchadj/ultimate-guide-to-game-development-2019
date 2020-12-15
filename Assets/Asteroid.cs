@@ -28,11 +28,15 @@ public class Asteroid : MonoBehaviour, IDestructible
     
     private void OnEnable()
     {
+        OnExplosion.AddOwner(this);
+        AsteroidDestroyed.AddOwner(this);
         AsteroidDestroyed.AddListener(this, Destroy);
     }
 
     private void OnDisable()
     {
+        OnExplosion.RemoveOwner(this);
+        AsteroidDestroyed.RemoveOwner(this);
         AsteroidDestroyed.RemoveListener(this, Destroy);
     }
 
@@ -48,10 +52,10 @@ public class Asteroid : MonoBehaviour, IDestructible
         switch (bullet.BulletType)
         {
             case BulletType.Laser:
-                AsteroidDestroyed.Raise();
+                AsteroidDestroyed.Raise(this);
                 break;
             case BulletType.TripleShot:
-                AsteroidDestroyed.Raise();
+                AsteroidDestroyed.Raise(this);
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -62,7 +66,7 @@ public class Asteroid : MonoBehaviour, IDestructible
     {
         _collider2D.enabled = false;
         _animationController.PlayDestructAnimation();
-        OnExplosion.Raise();
+        OnExplosion.Raise(this);
         StartCoroutine(Destroy(2));
     }
     

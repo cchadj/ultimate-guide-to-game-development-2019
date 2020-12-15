@@ -37,7 +37,7 @@ public class     PlayerStateScriptable : ScriptableObject, IConstructor, IDestru
             IsDead = Math.Abs(_healthPoints.Value) < FloatTolerance;
             
             if (IsDead)
-                PlayerDied.Raise();
+                PlayerDied.Raise(this);
         }
     }
 
@@ -50,9 +50,21 @@ public class     PlayerStateScriptable : ScriptableObject, IConstructor, IDestru
             var isShieldNegative = value < 0;
             if (!isShieldNegative) return;
             
-            PlayerShieldDestroyed.Raise();
+            PlayerShieldDestroyed.Raise(this);
             HealthPoints += value;
         } 
+    }
+
+    private void OnEnable()
+    {
+        PlayerShieldDestroyed.AddOwner(this);
+        PlayerDied.AddOwner(this);
+    }
+
+    private void OnDisable()
+    {
+        PlayerShieldDestroyed.RemoveOwner(this);
+        PlayerDied.RemoveOwner(this);
     }
 
     public int Score

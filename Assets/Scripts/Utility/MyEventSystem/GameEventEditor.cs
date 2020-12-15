@@ -23,6 +23,31 @@ public partial class GameEvent
                 Debug.Log($"Raising event {Target.EventName} from {Target.name}");
                 Target.Raise();
             }
+
+            if (GUILayout.Button("Print All listeners"))
+            {
+
+                foreach (var keyValuePair in Target._eventHandlers)
+                {
+                    var listener = keyValuePair.Key as Object;
+                    var methods = keyValuePair.Value;
+                    
+                    if (listener != null)
+                        Debug.Log($"Object name: {listener.name}");
+                    else
+                    {
+                        continue;
+                    }
+
+                    Debug.Log("Listener Methods: ");
+                    foreach (var method in methods)
+                    {
+                        var handler = method.Value;
+                        Debug.Log($"\t{handler.Method.Name}");
+                    }
+                    
+                }
+            }
         }
     }
 }

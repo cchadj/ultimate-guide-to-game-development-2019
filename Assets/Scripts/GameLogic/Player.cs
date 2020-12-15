@@ -134,6 +134,12 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
         _playerState.PlayerPickedSpeedBoost.AddListener(this, PickSpeedboost);
         _playerState.PlayerPickedTripleShot.AddListener(this, PickTripleShot);
         
+        _playerFired.AddOwner(this);
+        _playerState.PlayerPickedShield.AddOwner(this);
+        _playerState.PlayerPickedSpeedBoost.AddOwner(this);
+        _playerState.PlayerPickedTripleShot.AddOwner(this);
+        _PlayerPickedPowerup.AddOwner(this);
+        
         // Player can immediately shoot
         _timeSinceLastLaser = _laserCooldown + .1f;
     }
@@ -145,6 +151,12 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
         _playerState.PlayerPickedShield.RemoveListeners(this);
         _playerState.PlayerPickedSpeedBoost.RemoveListeners(this);
         _playerState.PlayerPickedTripleShot.RemoveListeners(this);
+        
+        _playerFired.RemoveOwner(this);
+        _playerState.PlayerPickedShield.RemoveOwner(this);
+        _playerState.PlayerPickedSpeedBoost.RemoveOwner(this);
+        _playerState.PlayerPickedTripleShot.RemoveOwner(this);
+        _PlayerPickedPowerup.RemoveOwner(this);
     }
 
     private void PickTripleShot()
@@ -236,7 +248,7 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
             
         _timeSinceLastLaser = .0f;
         
-        _playerFired.Raise();
+        _playerFired.Raise(this);
     }
 
     #region Input Handling 
@@ -284,20 +296,20 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
         switch (powerUp.PowerupType)
         {
             case PowerupType.Speedboost:
-                _playerState.PlayerPickedSpeedBoost.Raise();
+                _playerState.PlayerPickedSpeedBoost.Raise(this);
                 break;
             case PowerupType.TripleShot:
-                _playerState.PlayerPickedTripleShot.Raise();
+                _playerState.PlayerPickedTripleShot.Raise(this);
                 SetBulletType(BulletType.TripleShot, 5);
                 break;
             case PowerupType.Shield:
-                _playerState.PlayerPickedShield.Raise();
+                _playerState.PlayerPickedShield.Raise(this);
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
 
-        _PlayerPickedPowerup.Raise();
+        _PlayerPickedPowerup.Raise(this);
     }
 
     private Coroutine _currentSpeedupCoroutine;

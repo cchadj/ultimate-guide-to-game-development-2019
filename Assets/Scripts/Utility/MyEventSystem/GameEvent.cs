@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
+using Object = UnityEngine.Object;
+using UnityObject = UnityEngine.Object;
 
 public delegate void GameEventDelegate();
 
@@ -10,24 +13,47 @@ public partial class GameEvent : ScriptableObject
     public string EventName;
 
     public event EventHandler Event;
-    public event EventHandler<ScriptableEventArgs> EventScriptable;
 
     // Hashes the handlers for each listener object.
     // Used with AddListener and RemoveListener.
     private Dictionary<object, Dictionary<GameEventDelegate, EventHandler>> _eventHandlers =
         new Dictionary<object, Dictionary<GameEventDelegate, EventHandler>>();
+
+    private HashSet<UnityObject> _owners;
+
+    private void OnEnable()
+    {
+        _owners = new HashSet<Object>();  
+    }
+
+    // Only owners can raise this event. Add self as owner.
+    public void AddOwner(UnityObject owner)
+    {
+        _owners.Add(owner);
+    }
+
+    public void RemoveOwner(UnityObject owner)
+    {
+        _owners.Remove(owner);
+    }
     
-    [ContextMenu("Raise Event")]
-    public void Raise()
+    public void Raise(UnityObject owner)
     {
+        if (_owners.Contains(owner))
             Event?.Invoke(this, EventArgs.Empty);
+        else
+            throw new ArgumentException($"Attempted to raise event from a non owner. Object {owner.name} attempted to raise GameEvent {name}." +
+                                        $" Make sure that object that raises the GameEvent Adds itself to the Owners (via _gameEvent.AddOwner(this))");
     }
 
-    public void Raise(ScriptableObject so)
+    [ContextMenu("Raise Event")]
+    private void Raise()
     {
-        if (so != null) EventScriptable?.Invoke(this, new ScriptableEventArgs(so));
+       AddOwner(this);  
+       Raise(this); 
+       RemoveOwner(this);
     }
-
+    
     /// Adds a listener function to this event.
     /// Returns a handle that can be used to remove listener (i.e gameEvent.Event -= handler)
     public EventHandler AddListener(object subscriberObject, GameEventDelegate eventDelegate)
@@ -81,7 +107,4 @@ public partial class GameEvent : ScriptableObject
             Event -= d as EventHandler;
         }
     }
-
-#if UNITY_EDITOR
-#endif
 }

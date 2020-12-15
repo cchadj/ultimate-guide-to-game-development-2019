@@ -140,12 +140,24 @@ public partial class Enemy : PoolableMonobehaviour, IDestructible
         CalculateMovement();
     }
 
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        OnExplosion.AddOwner(this);
+    }
+
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+        OnExplosion.RemoveOwner(this);
+    }
+
     public void Destroy()
     {
         _collider2D.enabled = false;
         _animationController.PlayDeathAnimation();
         _gameState.EnemyDestroyed.Raise(_enemyType);
-        OnExplosion.Raise();
+        OnExplosion.Raise(this);
         StartCoroutine(Destroy(2));
     }
 
