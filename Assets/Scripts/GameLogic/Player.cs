@@ -272,6 +272,19 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
         if (context.performed)
             FireBullet();
     }
+
+    public void OnExitGame(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+            Application.Quit();
+#endif
+        }
+    }
+
     #endregion Input Handling
 
     public void Destroy()

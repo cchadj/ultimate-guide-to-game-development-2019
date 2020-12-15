@@ -41,6 +41,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""ExitGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""dc641ad2-8b8e-4984-8668-67735e8037e2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -272,6 +280,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a3a72123-bd89-46d9-8e47-b431be3c4079"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""ExitGame"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -879,6 +898,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
+        m_Player_ExitGame = m_Player.FindAction("ExitGame", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -946,6 +966,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Fire;
+    private readonly InputAction m_Player_ExitGame;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -953,6 +974,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
+        public InputAction @ExitGame => m_Wrapper.m_Player_ExitGame;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -971,6 +993,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Fire.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
                 @Fire.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
                 @Fire.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
+                @ExitGame.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnExitGame;
+                @ExitGame.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnExitGame;
+                @ExitGame.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnExitGame;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -984,6 +1009,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Fire.started += instance.OnFire;
                 @Fire.performed += instance.OnFire;
                 @Fire.canceled += instance.OnFire;
+                @ExitGame.started += instance.OnExitGame;
+                @ExitGame.performed += instance.OnExitGame;
+                @ExitGame.canceled += instance.OnExitGame;
             }
         }
     }
@@ -1176,6 +1204,7 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
+        void OnExitGame(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

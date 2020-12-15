@@ -16,6 +16,12 @@ public class Spawner : MonoBehaviour
     private Vector2 _spawnEverySeconds;
 
     [SerializeField] private bool _isSpawning;
+    public bool IsSpawning
+    {
+        get => _isSpawning;
+        set => _isSpawning = value;
+    }
+
     #endregion
 
     protected virtual void Awake()

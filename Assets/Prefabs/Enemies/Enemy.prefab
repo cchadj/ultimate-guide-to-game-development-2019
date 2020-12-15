@@ -64,7 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _poolableMonobehaviourPrefab: {fileID: -3311268022990118016, guid: 482bf162efb35f946aa424ee185ed38d, type: 3}
   _initialPoolSize: 20
-  _container: {fileID: 0}
+  _container: {fileID: 241301961}
 --- !u!114 &241301960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 8434415139689256046}
   - component: {fileID: 202549500}
   - component: {fileID: 1280964103299752016}
+  - component: {fileID: 4875087457234497798}
   - component: {fileID: 6602946067598318801}
   - component: {fileID: 9010844111560974906}
   - component: {fileID: -7817381417468773902}
@@ -152,6 +153,7 @@ MonoBehaviour:
   OnExplosion: {fileID: 11400000, guid: 00a4ef0c0c3fa194ba8451412bcc45a6, type: 2}
   _gameState: {fileID: 0}
   _sceneData: {fileID: 0}
+  _bulletSpawner: {fileID: 0}
   _animationController: {fileID: 0}
 --- !u!114 &1280964103299752016
 MonoBehaviour:
@@ -165,6 +167,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f9ec1b006b75e04fbf736f5e1cf0ee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bulletSpawner: {fileID: 241301962}
+--- !u!114 &4875087457234497798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8434415139689256032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: 1280964103299752016}
+  _installerPrefabs: []
+  _autoRun: 1
+  _kernel: {fileID: 0}
 --- !u!114 &6602946067598318801
 MonoBehaviour:
   m_ObjectHideFlags: 0

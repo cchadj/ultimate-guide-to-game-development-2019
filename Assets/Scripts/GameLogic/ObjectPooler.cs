@@ -42,9 +42,6 @@ public class ObjectPooler : MonoBehaviour
         
         CurrentPoolSize = _initialPoolSize;
 
-        if (_container == null)
-            _container = transform;
-        
        _availableObjectsPool = new Queue<PoolableMonobehaviour>(); 
        _activeObjectsPool = new Queue<PoolableMonobehaviour>();
     }

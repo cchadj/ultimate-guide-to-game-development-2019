@@ -20,6 +20,8 @@ public partial class Enemy : PoolableMonobehaviour, IDestructible
     
     [SerializeField, ReadOnly] private SceneDataScriptable _sceneData;
 
+    [SerializeField, ReadOnly] private Spawner _bulletSpawner;
+    
     [SerializeField, ReadOnly] private EnemyAnimationController _animationController;
     
     #endregion
@@ -30,10 +32,11 @@ public partial class Enemy : PoolableMonobehaviour, IDestructible
     private Transform _transform;
     
     #endregion
-
-    private int _enemyLayerIndex;
-    private int _playerLayerIndex;
     
+    private int _enemyLayerIndex;
+    
+    private int _playerLayerIndex;
+
     private void Awake()
     {
         _transform = transform;
@@ -45,10 +48,15 @@ public partial class Enemy : PoolableMonobehaviour, IDestructible
     }
 
     [Inject]
-    private void InjectDependencies(GameStateScriptable gameState, SceneDataScriptable sceneData)
+    private void InjectDependencies(
+        GameStateScriptable gameState,
+        SceneDataScriptable sceneData, 
+        Spawner bulletSpawner
+        )
     {
         _gameState = gameState;
         _sceneData = sceneData;
+        _bulletSpawner = bulletSpawner;
     }
     
     private OutOfBoundsDirection OutOfBounds
@@ -158,7 +166,10 @@ public partial class Enemy : PoolableMonobehaviour, IDestructible
         _animationController.PlayDeathAnimation();
         _gameState.EnemyDestroyed.Raise(_enemyType);
         OnExplosion.Raise(this);
-        StartCoroutine(Destroy(2));
+        
+        // Give it some time so all bullets despawn after deactivating. 
+        _bulletSpawner.IsSpawning = false;
+        StartCoroutine(Destroy(8));
     }
 
     private IEnumerator Destroy(float seconds)
@@ -172,5 +183,6 @@ public partial class Enemy : PoolableMonobehaviour, IDestructible
         base.Reset();
         _collider2D.enabled = true;
         _animationController.Reset();
+        _bulletSpawner.IsSpawning = true;
     }
 }
