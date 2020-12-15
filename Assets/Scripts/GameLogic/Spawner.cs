@@ -70,7 +70,7 @@ public class Spawner : MonoBehaviour
         var pooledObjectTransform = pooledObject.transform;
         
         pooledObject.Activate();
-        pooledObjectTransform.position = new Vector3( Mathf.Lerp(MinXBound, MaxXBound, Random.value), 6, 0);
+//        pooledObjectTransform.position = new Vector3(Mathf.Lerp(MinXBound, MaxXBound, Random.value), 6, 0);
     }
     
     

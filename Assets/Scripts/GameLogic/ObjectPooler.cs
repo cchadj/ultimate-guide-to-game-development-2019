@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
-using Zenject;
 
 public class ObjectPooler : MonoBehaviour
 {
@@ -64,6 +61,7 @@ public class ObjectPooler : MonoBehaviour
     
     protected virtual void Start()
     {
+        Debug.Log("Ok");
         for (var i = 0; i < _initialPoolSize; i++)
         {
             var instantiatedObject = CreateNewPrefab();

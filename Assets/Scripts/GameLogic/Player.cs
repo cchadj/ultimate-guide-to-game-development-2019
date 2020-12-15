@@ -52,6 +52,10 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
     
     #endregion GameObject Components
 
+    private int _friendlyLayerIndex;
+    
+    private int _enemyLayerIndex;
+
     private const BulletType DefaultBulletType = BulletType.Laser;
     
     private Dictionary<BulletType, ObjectPooler> _bulletPoolers;
@@ -116,6 +120,10 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
         
         _controls = new Controls();
         _controls.Player.SetCallbacks(this);
+
+        _friendlyLayerIndex = LayerMask.NameToLayer("Friendly");
+        
+        _enemyLayerIndex = LayerMask.NameToLayer("Enemy");
     }
 
     private void OnEnable()
@@ -323,5 +331,19 @@ public class Player : MonoBehaviour, Controls.IPlayerActions, IHarmable
         yield return new WaitForSeconds(seconds);
         _currentBulletType = DefaultBulletType;
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        // Only interact with enemy objects for now.
+        var isEnemyObject = other.gameObject.layer == _enemyLayerIndex;
+        if (!isEnemyObject) return;
+        
+        // Only Interact with enemy bullets. Enemy collision with player is handled with Enemy script.
+        var bullet = other.GetComponent<IBullet>();
+        if (bullet == null) return;
+        
+        Damage((int)bullet.BulletDamage);
+        var destructible = other.GetComponent<IDestructible>();
+        destructible?.Destroy();
+    }
 }

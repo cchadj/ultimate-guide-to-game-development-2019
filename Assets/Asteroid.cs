@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Asteroid : MonoBehaviour, IDestructible
@@ -20,17 +19,21 @@ public class Asteroid : MonoBehaviour, IDestructible
     {
         _collider2D = GetComponent<Collider2D>();
         _animationController = GetComponent <AsteroidAnimationController>();
-        _animationController.SetRotationsPerSecond(_rotationsPerSecond);
     }
 
+    private void Start()
+    {
+        _animationController.SetRotationsPerSecond(_rotationsPerSecond);
+    }
+    
     private void OnEnable()
     {
-        AsteroidDestroyed?.AddListener(this, Destroy);
+        AsteroidDestroyed.AddListener(this, Destroy);
     }
 
     private void OnDisable()
     {
-        AsteroidDestroyed?.RemoveListener(this, Destroy);
+        AsteroidDestroyed.RemoveListener(this, Destroy);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -59,13 +62,13 @@ public class Asteroid : MonoBehaviour, IDestructible
     {
         _collider2D.enabled = false;
         _animationController.PlayDestructAnimation();
-        OnExplosion?.Raise();
+        OnExplosion.Raise();
         StartCoroutine(Destroy(2));
     }
     
     private IEnumerator Destroy(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        gameObject.SetActive(false);
+        GameObject.Destroy(gameObject);
     }
 }

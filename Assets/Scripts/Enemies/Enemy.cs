@@ -30,12 +30,18 @@ public partial class Enemy : PoolableMonobehaviour, IDestructible
     private Transform _transform;
     
     #endregion
+
+    private int _enemyLayerIndex;
+    private int _playerLayerIndex;
     
     private void Awake()
     {
         _transform = transform;
         _animationController = GetComponent<EnemyAnimationController>();
         _collider2D = GetComponent<Collider2D>();
+
+        _enemyLayerIndex  = LayerMask.NameToLayer("Enemy");
+        _playerLayerIndex = LayerMask.NameToLayer("Friendly");
     }
 
     [Inject]
@@ -96,6 +102,14 @@ public partial class Enemy : PoolableMonobehaviour, IDestructible
     
     private void OnTriggerEnter2D(Collider2D other)
     {
+        // Don't interact with other enemies or enemy bullets
+        var isEnemyObject = other.gameObject.layer == _enemyLayerIndex;
+        if (isEnemyObject) return;
+
+        // Don't interact with anything that's not a player for now.
+        var isPlayerObject = other.gameObject.layer == _playerLayerIndex;
+        if (!isPlayerObject)  return;
+        
         other.GetComponent<IHarmable>()?.Damage((int)_damageAmount.Value);
         
         if (other.GetComponent<Player>())
@@ -105,7 +119,7 @@ public partial class Enemy : PoolableMonobehaviour, IDestructible
         
         if (bullet == null)
            return;
-        
+
         other.GetComponent<IDestructible>()?.Destroy();
         switch (bullet.BulletType)
         {

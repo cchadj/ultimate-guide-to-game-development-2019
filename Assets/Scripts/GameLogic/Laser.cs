@@ -1,20 +1,30 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Zenject.SpaceFighter;
+using UnityEngine.PlayerLoop;
 
+public enum BulletDirection {
+    Up, 
+    Down
+}
 public class Laser : MonoBehaviour, IDestructible, IBullet
 {
-    private Transform _transform;
 
+    #region SetByUnity
     [SerializeField] private float _speed;
-
     [field: SerializeField] public BulletTypeScriptable BulletTypeData { get; private set; }
+
+    [SerializeField] private BulletDirection _bulletDirection;
+
+    [field: SerializeField] public float BulletDamage { get; private set; } = 1;
+
+    #endregion
 
     public BulletType BulletType { get; private set; }
 
+    private Transform _transform;
+    
     private const float TopBound = 5.5f;
+    
     private const float DefaultSpeed = 8;
     
     // Update is called once per frame
@@ -33,7 +43,9 @@ public class Laser : MonoBehaviour, IDestructible, IBullet
     private void Update()
     {
         var prevPosition = _transform.position;
-        _transform.Translate(new Vector3(.0f, Time.deltaTime * _speed ,.0f));
+
+        var direction = _bulletDirection == BulletDirection.Up ? 1 : -1;
+        _transform.Translate(new Vector3(.0f, direction * Time.deltaTime * _speed ,.0f));
        
         if (_transform.position.y > TopBound)
             gameObject.SetActive(false);
